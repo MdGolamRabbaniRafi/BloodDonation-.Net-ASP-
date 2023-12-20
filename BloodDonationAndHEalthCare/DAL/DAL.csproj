@@ -56,30 +56,25 @@
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
     <Compile Include="Interface\IRepo.cs" />
-    <Compile Include="Migrations\202312141148309_iniDB.cs" />
-    <Compile Include="Migrations\202312141148309_iniDB.designer.cs">
-      <DependentUpon>202312141148309_iniDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312181459284_createProfileOfAdmin.cs" />
-    <Compile Include="Migrations\202312181459284_createProfileOfAdmin.designer.cs">
-      <DependentUpon>202312181459284_createProfileOfAdmin.cs</DependentUpon>
+    <Compile Include="Migrations\202312190705414_initDb.cs" />
+    <Compile Include="Migrations\202312190705414_initDb.designer.cs">
+      <DependentUpon>202312190705414_initDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\Repos.cs" />
     <Compile Include="Repos\UserAdminRepo.cs" />
+    <Compile Include="Repos\UserRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312141148309_iniDB.resx">
-      <DependentUpon>202312141148309_iniDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312181459284_createProfileOfAdmin.resx">
-      <DependentUpon>202312181459284_createProfileOfAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312190705414_initDb.resx">
+      <DependentUpon>202312190705414_initDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
