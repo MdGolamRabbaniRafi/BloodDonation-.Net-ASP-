@@ -60,6 +60,10 @@
     <Compile Include="Migrations\202312190705414_initDb.designer.cs">
       <DependentUpon>202312190705414_initDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312201618543_realtionship Admin and User.cs" />
+    <Compile Include="Migrations\202312201618543_realtionship Admin and User.designer.cs">
+      <DependentUpon>202312201618543_realtionship Admin and User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
@@ -75,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202312190705414_initDb.resx">
       <DependentUpon>202312190705414_initDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312201618543_realtionship Admin and User.resx">
+      <DependentUpon>202312201618543_realtionship Admin and User.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

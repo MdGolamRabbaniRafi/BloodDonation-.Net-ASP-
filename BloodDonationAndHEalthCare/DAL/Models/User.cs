@@ -14,10 +14,11 @@ namespace DAL.Models
         public string Email { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Password { get; set; }
-        public string FileName { get; set; } 
-        public string FileContent { get; set; } 
+        //public string FileName { get; set; } 
+        //public string FileContent { get; set; } 
         public string BloodGroup { get; set; }
         [ForeignKey("UserAdmin")]
         public int AdminId { get; set; }
+        public virtual UserAdmin UserAdmin { get; set; }
     }
 }

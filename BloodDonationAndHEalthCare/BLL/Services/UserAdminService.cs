@@ -17,7 +17,8 @@ namespace BLL.Services
             var data = MapperClass.Mapped();
             var mapped = data.Map<UserAdmin>(admin);
             string hashedPassword = PasswordHasher.HashPassword(admin.Password);
-            mapped.Password = hashedPassword; var userRepo=DataAccessFactory.UserAdminData().Update(mapped);
+            mapped.Password = hashedPassword; 
+            var userRepo=DataAccessFactory.UserAdminData().Update(mapped);
             var data2 = MapperClass.Mapped();
             var mapped2 = data2.Map<UserAdminDTO>(userRepo);
 

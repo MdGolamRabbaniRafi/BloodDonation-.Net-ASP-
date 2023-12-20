@@ -30,8 +30,8 @@ namespace BLL.DTOs
         [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$", ErrorMessage = "Password must have at least one uppercase letter, one lowercase letter, one digit, and one special character")]
         public string Password { get; set; }
 
-        public string FileName { get; set; }
-        public string FileContent { get; set; }
+        //public string FileName { get; set; }
+        //public string FileContent { get; set; }
 
         [RegularExpression(@"^(A|B|AB|O)[+-]?$", ErrorMessage = "Invalid BloodGroup")]
         public string BloodGroup { get; set; }
