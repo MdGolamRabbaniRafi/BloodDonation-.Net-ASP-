@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class iniDB : DbMigration
+    public partial class initDb : DbMigration
     {
         public override void Up()
         {
@@ -14,6 +14,7 @@
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         Email = c.String(),
+                        BloodGroup = c.String(),
                         DOB = c.DateTime(nullable: false),
                         Password = c.String(),
                     })

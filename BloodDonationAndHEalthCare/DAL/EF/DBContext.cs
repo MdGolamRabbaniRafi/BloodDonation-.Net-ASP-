@@ -12,5 +12,6 @@ namespace DAL
     internal class DBContext : DbContext
     {
         public DbSet<UserAdmin> UserAdmins { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
