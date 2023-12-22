@@ -64,11 +64,17 @@
     <Compile Include="Migrations\202312201618543_realtionship Admin and User.designer.cs">
       <DependentUpon>202312201618543_realtionship Admin and User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312221854222_token implemented.cs" />
+    <Compile Include="Migrations\202312221854222_token implemented.designer.cs">
+      <DependentUpon>202312221854222_token implemented.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\Repos.cs" />
+    <Compile Include="Repos\TokenRepo.cs" />
     <Compile Include="Repos\UserAdminRepo.cs" />
     <Compile Include="Repos\UserRepo.cs" />
   </ItemGroup>
@@ -82,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312201618543_realtionship Admin and User.resx">
       <DependentUpon>202312201618543_realtionship Admin and User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312221854222_token implemented.resx">
+      <DependentUpon>202312221854222_token implemented.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
