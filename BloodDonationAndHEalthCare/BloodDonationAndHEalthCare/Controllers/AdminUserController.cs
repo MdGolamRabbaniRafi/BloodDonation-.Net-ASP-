@@ -1,7 +1,9 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
+using BloodDonationAndHEalthCare.Auth;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,6 +13,8 @@ namespace BloodDonationAndHEalthCare.Controllers
 {
     public class AdminUserController : ApiController
     {
+
+        [Logged]
         [HttpPost]
         [Route("api/AdminUser/update")]
         public HttpResponseMessage UpdateAdminUser(UserAdminDTO user)
@@ -30,7 +34,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-
+        [Logged]
         [HttpPost]
         [Route("api/AdminUser/Login")]
         public HttpResponseMessage LoginAdminUser(UserAdminDTO user)
