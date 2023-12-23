@@ -15,5 +15,12 @@ namespace DAL.Models
 
         public DateTime DOB { get; set; }
         public string Password { get; set; }
+
+        public virtual ICollection<User> Users { get; set; }
+        public UserAdmin()
+        {
+            Users = new List<User>();
+
+        }
     }
 }
