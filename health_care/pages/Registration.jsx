@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -82,6 +83,7 @@ const RegistrationForm = () => {
   };
 
   return (
+    <div>
     <form onSubmit={handleSubmit} className="max-w-md mx-auto my-8 p-6 bg-white shadow-md rounded-md">
       <div className="mb-4">
         <label htmlFor="FirstName" className="block text-sm font-medium text-gray-600">
@@ -175,6 +177,9 @@ const RegistrationForm = () => {
         </button>
       </div>
     </form>
+    <Link href="/Login"><h6 className="text-blue-500 text-center ">Already have an account? Login here.</h6></Link>
+    </div>
+    
   );
 };
 
