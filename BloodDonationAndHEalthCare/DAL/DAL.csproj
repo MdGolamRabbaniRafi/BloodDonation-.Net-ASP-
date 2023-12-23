@@ -56,17 +56,15 @@
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
     <Compile Include="Interface\IRepo.cs" />
-    <Compile Include="Migrations\202312190705414_initDb.cs" />
-    <Compile Include="Migrations\202312190705414_initDb.designer.cs">
-      <DependentUpon>202312190705414_initDb.cs</DependentUpon>
+    <Compile Include="Interface\IToken.cs" />
+    <Compile Include="Interface\IUser.cs" />
+    <Compile Include="Migrations\202312230749029_ok.cs" />
+    <Compile Include="Migrations\202312230749029_ok.designer.cs">
+      <DependentUpon>202312230749029_ok.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312201618543_realtionship Admin and User.cs" />
-    <Compile Include="Migrations\202312201618543_realtionship Admin and User.designer.cs">
-      <DependentUpon>202312201618543_realtionship Admin and User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312221854222_token implemented.cs" />
-    <Compile Include="Migrations\202312221854222_token implemented.designer.cs">
-      <DependentUpon>202312221854222_token implemented.cs</DependentUpon>
+    <Compile Include="Migrations\202312230921120_type.cs" />
+    <Compile Include="Migrations\202312230921120_type.designer.cs">
+      <DependentUpon>202312230921120_type.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Token.cs" />
@@ -83,14 +81,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312190705414_initDb.resx">
-      <DependentUpon>202312190705414_initDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312230749029_ok.resx">
+      <DependentUpon>202312230749029_ok.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312201618543_realtionship Admin and User.resx">
-      <DependentUpon>202312201618543_realtionship Admin and User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312221854222_token implemented.resx">
-      <DependentUpon>202312221854222_token implemented.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312230921120_type.resx">
+      <DependentUpon>202312230921120_type.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

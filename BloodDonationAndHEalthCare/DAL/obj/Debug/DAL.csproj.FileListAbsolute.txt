@@ -29,3 +29,18 @@ D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthC
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.realtionshipAdminandUser.resources
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.tokenimplemented.resources
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\bin\Debug\DAL.dll.config
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\bin\Debug\DAL.dll
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\bin\Debug\DAL.pdb
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\bin\Debug\EntityFramework.dll
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\bin\Debug\EntityFramework.SqlServer.dll
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\bin\Debug\EntityFramework.xml
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\bin\Debug\EntityFramework.SqlServer.xml
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.CopyComplete
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.dll
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.pdb
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.ok.resources
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.type.resources

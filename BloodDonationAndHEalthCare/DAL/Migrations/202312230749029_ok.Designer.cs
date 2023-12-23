@@ -7,13 +7,13 @@ namespace DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class tokenimplemented : IMigrationMetadata
+    public sealed partial class ok : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(tokenimplemented));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ok));
         
         string IMigrationMetadata.Id
         {
-            get { return "202312221854222_token implemented"; }
+            get { return "202312230749029_ok"; }
         }
         
         string IMigrationMetadata.Source

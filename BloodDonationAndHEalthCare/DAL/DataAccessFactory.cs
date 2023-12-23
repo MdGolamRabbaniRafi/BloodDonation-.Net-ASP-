@@ -1,4 +1,5 @@
-﻿using DAL.Interfaces;
+﻿using DAL.Interface;
+using DAL.Interfaces;
 using DAL.Models;
 using DAL.Repos;
 using System;
@@ -15,7 +16,7 @@ namespace DAL
         {
             return new UserAdminRepo();
         }
-        public static IRepo<User, int, User> UserData()
+        public static IUser<User, int, User> UserData()
         {
             return new UserRepo();
         }
@@ -27,7 +28,11 @@ namespace DAL
         {
             return new UserRepo();
         }
-        public static IRepo<Token, string, Token> TokenData()
+        public static IAuth<bool> AuthDataUserAdmin()
+        {
+            return new UserAdminRepo();
+        }
+        public static IToken<Token, string, Token> TokenData()
         {
             return new TokenRepo();
         }

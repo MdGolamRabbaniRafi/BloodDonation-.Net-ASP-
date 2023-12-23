@@ -1,4 +1,5 @@
-﻿using DAL.Interfaces;
+﻿using DAL.Interface;
+using DAL.Interfaces;
 using DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class TokenRepo : Repo, IRepo<Token, string, Token>
+    internal class TokenRepo : Repo, IToken<Token, string, Token>
     {
         public Token Create(Token obj)
         {

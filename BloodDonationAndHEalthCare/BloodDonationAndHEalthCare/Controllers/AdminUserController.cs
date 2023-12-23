@@ -47,5 +47,97 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
+        [HttpGet]
+        [Route("api/AdminUser/{userId}")]
+        public HttpResponseMessage GetUser(int userId)
+        {
+            try
+            {
+                var data = UserAdminService.GetUser(userId);
+
+                if (data != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, data);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/User/AdminUser/{userId}")]
+        public HttpResponseMessage UpdateUser(int userId, [FromBody] UserDTO user)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+
+                var updatedUser = UserAdminService.UpdateUserService(userId, user);
+
+                if (updatedUser != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.Created, updatedUser);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "User not found" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+        [HttpDelete]
+        [Route("api/User/AdminUser/{userId}")]
+        public HttpResponseMessage DeleteUser(int userId)
+        {
+            try
+            {
+                var isSuccess = UserAdminService.DeleteUserService(userId);
+
+                if (isSuccess)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { Message = "User deleted successfully" });
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Message = "User not found" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+        [HttpPost]
+        [Route("api/AdminUser/addUser")]
+        public HttpResponseMessage AddUser(UserDTO user)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+
+                var data = UserAdminService.AddUserService(user);
+                return Request.CreateResponse(HttpStatusCode.Created, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
     }
 }

@@ -19,6 +19,8 @@ namespace DAL.Models
         public DateTime? UpdateAt { get; set; }
         [Required]
         public string UserId { get; set; }
+        [Required]
+        public string UserType { get; set; }
 
 
 

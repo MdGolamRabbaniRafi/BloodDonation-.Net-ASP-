@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace DAL.Models
 {
     public class User
     {
+        [Key]
         public int UserId { get; set; }
         public string FirstName { get; set; }
         public string Email { get; set; }
@@ -17,6 +19,8 @@ namespace DAL.Models
         //public string FileName { get; set; } 
         //public string FileContent { get; set; } 
         public string BloodGroup { get; set; }
+        public string UserType { get; set; }
+
         [ForeignKey("UserAdmin")]
         public int AdminId { get; set; }
         public virtual UserAdmin UserAdmin { get; set; }
