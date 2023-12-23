@@ -26,6 +26,17 @@ namespace BLL.Services
 
             return mapper;
         }
+        public static IMapper MappedUser()
+        {
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<UserDTO, User>();
+                c.CreateMap<User, UserDTO>();
+            });
+            var mapper = new Mapper(cfg);
+
+            return mapper;
+        }
     }
 
 }
