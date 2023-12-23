@@ -1,5 +1,6 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
+using BloodDonationAndHEalthCare.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-
+        [Logged]
         [HttpGet]
         [Route("api/User/{userId}")]
         public HttpResponseMessage GetUser(int userId)
