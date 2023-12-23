@@ -10,10 +10,10 @@ namespace DAL.Repos
 {
     internal class UserRepo : Repo, IRepo<User, int ,User>, IAuth<bool>
     {
-        public bool Authenticate(string email, string password)
+        public bool Authenticate(string Email, string Password)
         {
-            var data = db.Users.FirstOrDefault(u => u.Email.Equals(email) &&
-            u.Password.Equals(password));
+            var data = db.Users.FirstOrDefault(u => u.Email.Equals(Email) &&
+            u.Password.Equals(Password));
             if (data != null) return true;
             return false;
         }

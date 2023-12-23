@@ -23,5 +23,13 @@ namespace DAL
         {
             return new UserAdminRepo();
         }
+        public static IAuth<bool> AuthDataUser()
+        {
+            return new UserRepo();
+        }
+        public static IRepo<Token, string, Token> TokenData()
+        {
+            return new TokenRepo();
+        }
     }
 }
