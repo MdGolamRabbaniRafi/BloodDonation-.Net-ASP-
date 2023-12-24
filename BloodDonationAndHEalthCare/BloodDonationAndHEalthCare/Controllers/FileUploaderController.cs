@@ -1,12 +1,17 @@
 ﻿using System;
 using System.IO; // Include this for Directory operations
 <<<<<<< HEAD
+<<<<<<< HEAD
 using System.Net.Http;
 using System.Net;
 using System.Web;
 using System.Web.Http;
 using BLL.DTO;
 using System.Net.Http.Headers;
+=======
+using System.Web;
+using System.Web.Http;
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
 =======
 using System.Web;
 using System.Web.Http;
@@ -26,11 +31,14 @@ namespace BloodDonationAndHEalthCare.Controllers
                 if (httpRequest.Files.Count > 0)
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
 
                     if (!Directory.Exists(uploadPath))
                     {
 =======
+=======
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
                     // Define the path to the Uploads directory
                     var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
 
@@ -38,6 +46,9 @@ namespace BloodDonationAndHEalthCare.Controllers
                     if (!Directory.Exists(uploadPath))
                     {
                         // If it doesn't exist, create the directory
+<<<<<<< HEAD
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
+=======
 >>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
                         Directory.CreateDirectory(uploadPath);
                     }
@@ -46,6 +57,10 @@ namespace BloodDonationAndHEalthCare.Controllers
                     {
                         var postedFile = httpRequest.Files[file];
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                        // Save the file to the Uploads directory instead of the root directory
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
 =======
                         // Save the file to the Uploads directory instead of the root directory
 >>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
@@ -64,6 +79,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return InternalServerError(ex);
             }
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
         [HttpGet]
         [Route("api/GetFile")]
@@ -136,6 +152,8 @@ namespace BloodDonationAndHEalthCare.Controllers
 
 
 
+=======
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
 =======
 >>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
     }
