@@ -16,6 +16,10 @@ namespace BloodDonationAndHEalthCare.Controllers
 
         [Logged]
         [HttpPost]
+
+
+
+
         [Route("api/AdminUser/update")]
         public HttpResponseMessage UpdateAdminUser(UserAdminDTO user)
         {
