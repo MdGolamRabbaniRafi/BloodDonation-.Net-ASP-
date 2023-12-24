@@ -1,11 +1,16 @@
 ﻿using System;
 using System.IO; // Include this for Directory operations
+<<<<<<< HEAD
 using System.Net.Http;
 using System.Net;
 using System.Web;
 using System.Web.Http;
 using BLL.DTO;
 using System.Net.Http.Headers;
+=======
+using System.Web;
+using System.Web.Http;
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
 
 namespace BloodDonationAndHEalthCare.Controllers
 {
@@ -20,16 +25,30 @@ namespace BloodDonationAndHEalthCare.Controllers
                 var httpRequest = HttpContext.Current.Request;
                 if (httpRequest.Files.Count > 0)
                 {
+<<<<<<< HEAD
                     var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
 
                     if (!Directory.Exists(uploadPath))
                     {
+=======
+                    // Define the path to the Uploads directory
+                    var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
+
+                    // Check if the Uploads directory exists
+                    if (!Directory.Exists(uploadPath))
+                    {
+                        // If it doesn't exist, create the directory
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
                         Directory.CreateDirectory(uploadPath);
                     }
 
                     foreach (string file in httpRequest.Files)
                     {
                         var postedFile = httpRequest.Files[file];
+<<<<<<< HEAD
+=======
+                        // Save the file to the Uploads directory instead of the root directory
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
                         var filePath = Path.Combine(uploadPath, postedFile.FileName);
                         postedFile.SaveAs(filePath);
                     }
@@ -45,6 +64,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return InternalServerError(ex);
             }
         }
+<<<<<<< HEAD
         [HttpGet]
         [Route("api/GetFile")]
         public IHttpActionResult GetFile(FileDTO fileName)
@@ -116,5 +136,7 @@ namespace BloodDonationAndHEalthCare.Controllers
 
 
 
+=======
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
     }
 }
