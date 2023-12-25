@@ -14,5 +14,6 @@ namespace DAL
         public DbSet<UserAdmin> UserAdmins { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Token> Tokens { get; set; }
+        public DbSet<ServiceProvider> Services { get; set; }
     }
 }

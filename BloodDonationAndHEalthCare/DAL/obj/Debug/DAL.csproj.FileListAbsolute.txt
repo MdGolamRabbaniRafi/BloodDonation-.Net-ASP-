@@ -44,3 +44,18 @@ F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.pdb
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.ok.resources
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.type.resources
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\DAL.dll.config
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\DAL.dll
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\DAL.pdb
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\EntityFramework.dll
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\EntityFramework.xml
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.dll
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.pdb
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.update.resources
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.serviceprovideradd.resources

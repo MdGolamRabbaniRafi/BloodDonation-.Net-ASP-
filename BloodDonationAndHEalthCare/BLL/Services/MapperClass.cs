@@ -8,11 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using BLL.DTO;
 
 namespace BLL.Services
 {
-    using AutoMapper;
-
     public static class MapperClass
     {
         public static IMapper Mapped()
@@ -21,6 +20,10 @@ namespace BLL.Services
             {
                 c.CreateMap<UserAdminDTO, UserAdmin>();
                 c.CreateMap<UserAdmin, UserAdminDTO>();
+                // Mappings for ServiceProvider and ServiceProviderDTO
+                c.CreateMap<ServiceProviderDTO, ServiceProvider>();
+                c.CreateMap<ServiceProvider, ServiceProviderDTO>();
+
             });
             var mapper = new Mapper(cfg);
 

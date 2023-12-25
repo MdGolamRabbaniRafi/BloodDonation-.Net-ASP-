@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ok : DbMigration
+    public partial class update : DbMigration
     {
         public override void Up()
         {
@@ -16,19 +16,7 @@
                         CreateAt = c.DateTime(nullable: false),
                         UpdateAt = c.DateTime(),
                         UserId = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.UserAdmins",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Email = c.String(),
-                        BloodGroup = c.String(),
-                        DOB = c.DateTime(nullable: false),
-                        Password = c.String(),
+                        UserType = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -56,7 +44,6 @@
             DropForeignKey("dbo.Users", "AdminId", "dbo.UserAdmins");
             DropIndex("dbo.Users", new[] { "AdminId" });
             DropTable("dbo.Users");
-            DropTable("dbo.UserAdmins");
             DropTable("dbo.Tokens");
         }
     }
