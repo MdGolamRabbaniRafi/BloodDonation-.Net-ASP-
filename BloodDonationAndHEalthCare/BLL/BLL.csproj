@@ -47,11 +47,22 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DTO\AgeValidator.cs" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <Compile Include="DTO\FileDTO.cs" />
+=======
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
+=======
+>>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
+    <Compile Include="DTO\TokenDTO.cs" />
     <Compile Include="DTO\UserAdminDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\MapperClass.cs" />
     <Compile Include="Services\PasswordHasher.cs" />
     <Compile Include="Services\UserAdminService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
