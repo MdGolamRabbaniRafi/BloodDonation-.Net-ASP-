@@ -1,6 +1,7 @@
 ﻿using BLL.DTO;
 using BLL.DTOs;
 using BLL.Services;
+using BloodDonationAndHEalthCare.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,83 @@ namespace BloodDonationAndHEalthCare.Controllers
 
                 var data = PostService.AddPostService(post);
                 return Request.CreateResponse(HttpStatusCode.Created, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+        
+        [HttpGet]
+        [Route("api/post/{PostId}")]
+        public HttpResponseMessage GetPost(int PostId)
+        {
+            try
+            {
+                var data = PostService.GetPost(PostId);
+
+                if (data != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, data);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+
+
+        [HttpPost]
+        [Route("api/post/update/{PostId}")]
+        public HttpResponseMessage UpdatePost(int PostId, [FromBody] PostDTO post)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+
+                var updatedPost = PostService.UpdatePostService(PostId, post);
+
+                if (updatedPost != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.Created, updatedPost);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Post not found" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+        [HttpDelete]
+        [Route("api/Post/delete/{PostId}")]
+        public HttpResponseMessage DeletePost(int PostId)
+        {
+            try
+            {
+                var isSuccess = PostService.DeletePostService(PostId);
+
+                if (isSuccess)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { Message = "Post deleted successfully" });
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Message = "Post not found" });
+                }
             }
             catch (Exception ex)
             {

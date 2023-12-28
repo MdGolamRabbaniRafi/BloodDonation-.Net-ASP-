@@ -17,9 +17,11 @@ namespace DAL.Repos
             return null;
         }
 
-        public bool Delete(int obj)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var ex = Read(id);
+            db.Posts.Remove(ex);
+            return db.SaveChanges() > 0;
         }
 
         public List<Post> Read()
@@ -29,7 +31,7 @@ namespace DAL.Repos
 
         public Post Read(int id)
         {
-            throw new NotImplementedException();
+            return db.Posts.Find(id);
         }
 
         public string Read(string Email)
@@ -39,7 +41,7 @@ namespace DAL.Repos
 
         public Post Update(Post obj)
         {
-            var ex = Read(obj.UserId);
+            var ex = Read(obj.PostId);
             db.Entry(ex).CurrentValues.SetValues(obj);
             if(db.SaveChanges()>0) return obj;
             return null;

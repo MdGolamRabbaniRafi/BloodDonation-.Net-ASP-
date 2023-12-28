@@ -31,8 +31,8 @@ namespace BLL.Services
         {
             var cfg = new MapperConfiguration(c =>
             {
-                c.CreateMap<DTOs.UserDTO, User>();
-                c.CreateMap<User, DTOs.UserDTO>();
+                c.CreateMap<UserDTO, User>();
+                c.CreateMap<User,UserDTO>();
             });
             var mapper = new Mapper(cfg);
 
