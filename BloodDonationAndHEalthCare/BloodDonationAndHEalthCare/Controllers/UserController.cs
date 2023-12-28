@@ -1,4 +1,4 @@
-﻿using BLL.DTOs;
+using BLL.DTOs;
 using BLL.Services;
 using BloodDonationAndHEalthCare.Auth;
 using System;
@@ -131,10 +131,7 @@ namespace BloodDonationAndHEalthCare.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
-        }
-<<<<<<< HEAD
-*/
-=======
+        }*/
         [HttpPost]
         [Route("api/User/Donate")]
         public HttpResponseMessage Donate(DonationDTO donationDTO)
@@ -169,6 +166,5 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
 
->>>>>>> 02aab3c1c013bd5f9f8ddf8bbf77a02bc66b869a
     }
 }
