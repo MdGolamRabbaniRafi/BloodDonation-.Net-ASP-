@@ -41,16 +41,14 @@ namespace DAL
         {
             return new TokenRepo();
         }
-<<<<<<< HEAD
 
         public static IDonation DonationData()
         {
             return new DonationRepo();
-=======
+        }
         public static IPost<Post,int , Post> PostData()
         {
             return new PostRepo();
->>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
         }
     }
 }

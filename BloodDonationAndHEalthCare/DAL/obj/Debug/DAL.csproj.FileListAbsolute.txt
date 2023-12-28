@@ -59,3 +59,5 @@ D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.postEntity.resources
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 >>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.donationadd.resources
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.postEntity.resources

@@ -47,21 +47,12 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DTO\AgeValidator.cs" />
-<<<<<<< HEAD
-<<<<<<< Development
-=======
     <Compile Include="DTO\FileDTO.cs" />
->>>>>>> local
-=======
-<<<<<<< HEAD
     <Compile Include="DTO\DonationDTO.cs" />
     <Compile Include="DTO\FileDTO.cs" />
     <Compile Include="DTO\PaymentDTO.cs" />
-=======
     <Compile Include="DTO\FileDTO.cs" />
     <Compile Include="DTO\PostDTO.cs" />
->>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
->>>>>>> 02aab3c1c013bd5f9f8ddf8bbf77a02bc66b869a
     <Compile Include="DTO\TokenDTO.cs" />
     <Compile Include="DTO\UserAdminDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
