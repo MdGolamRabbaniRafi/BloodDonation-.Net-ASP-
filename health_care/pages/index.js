@@ -4,6 +4,8 @@ import Home1 from "../Components/Home"
 import Contact from '../Components/Contact'
 import About from '../Components/About'
 import AdminNav from './AdminNav'
+import AdminDashboard from './AdminDashboard'
+import AddProfilePic from './AddProfilePic'
 
 
 
@@ -12,9 +14,11 @@ export default function Home() {
     <div>
       <Home1 />
       <AdminNav />
-      <Contact />
+      <AdminDashboard />
+      <AddProfilePic />
+      {/* <Contact />
 
-      <About />
+      <About /> */}
     </div>
   )
 }

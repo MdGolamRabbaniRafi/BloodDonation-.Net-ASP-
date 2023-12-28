@@ -24,5 +24,12 @@ namespace DAL.Models
         [ForeignKey("UserAdmin")]
         public int AdminId { get; set; }
         public virtual UserAdmin UserAdmin { get; set; }
+
+        public virtual ICollection<Post> Posts { get; set; }
+        public User()
+        {
+            Posts = new List<Post>();
+
+        }
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
+    <Compile Include="Interface\IPost.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
@@ -67,10 +68,12 @@
       <DependentUpon>202312230921120_type.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\PostRepo.cs" />
     <Compile Include="Repos\Repos.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
     <Compile Include="Repos\UserAdminRepo.cs" />

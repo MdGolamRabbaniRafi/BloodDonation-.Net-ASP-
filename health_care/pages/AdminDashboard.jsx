@@ -15,8 +15,7 @@ const AdminDashboard = () => {
 
   return (
     <div>
-     
-  <UserNav />
+
   <div className="grid grid-cols-12 pr-8 pl-8 mb-2 mt-0">
   <div className="col-span-12 bg-[#dfe4ea] text-[#192a56]  shadow-md">
     <h1 className="text-3xl font-bold mb-4 text-center">Admin Dashboard</h1>
