@@ -6,6 +6,7 @@ import About from '../Components/About'
 import AdminNav from './AdminNav'
 import AdminDashboard from './AdminDashboard'
 import AddProfilePic from './AddProfilePic'
+import Team from '@/Components/Team'
 
 
 
@@ -16,9 +17,10 @@ export default function Home() {
       <AdminNav />
       <AdminDashboard />
       <AddProfilePic />
-      {/* <Contact />
+      <Contact />
+      <Team />
 
-      <About /> */}
+      <About />
     </div>
   )
 }
