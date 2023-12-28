@@ -47,6 +47,10 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DTO\AgeValidator.cs" />
+<<<<<<< Development
+=======
+    <Compile Include="DTO\FileDTO.cs" />
+>>>>>>> local
     <Compile Include="DTO\TokenDTO.cs" />
     <Compile Include="DTO\UserAdminDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />

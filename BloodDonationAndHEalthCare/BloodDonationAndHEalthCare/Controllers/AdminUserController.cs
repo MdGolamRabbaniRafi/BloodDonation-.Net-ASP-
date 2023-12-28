@@ -8,9 +8,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace BloodDonationAndHEalthCare.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class AdminUserController : ApiController
     {
 
@@ -34,7 +36,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-        [Logged]
+/*        [Logged]
         [HttpPost]
         [Route("api/AdminUser/Login")]
         public HttpResponseMessage LoginAdminUser(UserAdminDTO user)
@@ -50,7 +52,8 @@ namespace BloodDonationAndHEalthCare.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
-        }
+        }*/
+        [Logged]
         [HttpGet]
         [Route("api/AdminUser/{userId}")]
         public HttpResponseMessage GetUser(int userId)
@@ -73,7 +76,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-
+        [Logged]
         [HttpPost]
         [Route("api/User/AdminUser/{userId}")]
         public HttpResponseMessage UpdateUser(int userId, [FromBody] UserDTO user)
@@ -103,6 +106,7 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
         [HttpDelete]
+        [Logged]
         [Route("api/User/AdminUser/{userId}")]
         public HttpResponseMessage DeleteUser(int userId)
         {
