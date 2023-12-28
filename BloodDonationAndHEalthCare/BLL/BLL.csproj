@@ -47,29 +47,44 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DTO\AgeValidator.cs" />
+<<<<<<< HEAD
 <<<<<<< Development
 =======
     <Compile Include="DTO\FileDTO.cs" />
 >>>>>>> local
+=======
+<<<<<<< HEAD
+    <Compile Include="DTO\DonationDTO.cs" />
+    <Compile Include="DTO\FileDTO.cs" />
+    <Compile Include="DTO\PaymentDTO.cs" />
+=======
+    <Compile Include="DTO\FileDTO.cs" />
+    <Compile Include="DTO\PostDTO.cs" />
+>>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
+>>>>>>> 02aab3c1c013bd5f9f8ddf8bbf77a02bc66b869a
     <Compile Include="DTO\TokenDTO.cs" />
     <Compile Include="DTO\UserAdminDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\DonationService.cs" />
     <Compile Include="Services\MapperClass.cs" />
     <Compile Include="Services\PasswordHasher.cs" />
+    <Compile Include="Services\PostService.cs" />
     <Compile Include="Services\UserAdminService.cs" />
     <Compile Include="Services\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{8196fba8-b773-4aba-b5ac-acdefb44b811}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

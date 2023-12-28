@@ -132,6 +132,43 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
+<<<<<<< HEAD
 */
+=======
+        [HttpPost]
+        [Route("api/User/Donate")]
+        public HttpResponseMessage Donate(DonationDTO donationDTO)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+
+                var createdDonation = DonationService.CreateDonationRequest(donationDTO);
+
+                if (createdDonation != null)
+                {
+                    // Optional: Notify the user about the successful donation request
+                    // You can use email, push notifications, etc., for this purpose.
+                    var notificationMessage = $"Donation request created successfully with ID: {createdDonation.Id}";
+                    // SendNotificationToUser(user.Email, notificationMessage);
+
+                    return Request.CreateResponse(HttpStatusCode.Created, createdDonation);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = "Failed to create donation request" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+
+>>>>>>> 02aab3c1c013bd5f9f8ddf8bbf77a02bc66b869a
     }
 }
