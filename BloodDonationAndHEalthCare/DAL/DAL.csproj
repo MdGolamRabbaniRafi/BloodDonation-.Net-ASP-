@@ -55,25 +55,23 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
+    <Compile Include="Interface\IDonation.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
-    <Compile Include="Migrations\202312251932468_update.cs" />
-    <Compile Include="Migrations\202312251932468_update.designer.cs">
-      <DependentUpon>202312251932468_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312251951362_serviceprovideradd.cs" />
-    <Compile Include="Migrations\202312251951362_serviceprovideradd.designer.cs">
-      <DependentUpon>202312251951362_serviceprovideradd.cs</DependentUpon>
+    <Compile Include="Migrations\202312281551412_donationadd.cs" />
+    <Compile Include="Migrations\202312281551412_donationadd.designer.cs">
+      <DependentUpon>202312281551412_donationadd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\ServiceProvider.cs" />
+    <Compile Include="Models\Donation.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\DonationRepo.cs" />
     <Compile Include="Repos\Repos.cs" />
-    <Compile Include="Repos\ServiceProviderRepo.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
     <Compile Include="Repos\UserAdminRepo.cs" />
     <Compile Include="Repos\UserRepo.cs" />
@@ -83,11 +81,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312251932468_update.resx">
-      <DependentUpon>202312251932468_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312251951362_serviceprovideradd.resx">
-      <DependentUpon>202312251951362_serviceprovideradd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312281551412_donationadd.resx">
+      <DependentUpon>202312281551412_donationadd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

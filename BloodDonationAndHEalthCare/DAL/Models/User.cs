@@ -24,9 +24,7 @@ namespace DAL.Models
         [ForeignKey("UserAdmin")]
         public int AdminId { get; set; }
         public virtual UserAdmin UserAdmin { get; set; }
-        [ForeignKey("ServiceProvider")]
-        public int ServiceProviderID { get; set; }
-        public virtual ServiceProvider ServiceProvider { get; set; }
+       
 
     }
 }

@@ -22,11 +22,6 @@ namespace DAL
             return new UserRepo();
         }
 
-        public static IRepo<ServiceProvider, int, ServiceProvider> ServiceProviderData()
-        {
-            return new ServiceProviderRepo();
-        }
-
         public static IAuth<bool> AuthData()
         {
             return new UserAdminRepo();
@@ -45,6 +40,11 @@ namespace DAL
         public static IToken<Token, string, Token> TokenData()
         {
             return new TokenRepo();
+        }
+
+        public static IDonation DonationData()
+        {
+            return new DonationRepo();
         }
     }
 }

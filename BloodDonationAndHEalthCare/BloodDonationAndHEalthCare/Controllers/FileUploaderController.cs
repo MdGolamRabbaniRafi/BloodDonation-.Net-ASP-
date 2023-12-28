@@ -66,10 +66,10 @@ namespace BloodDonationAndHEalthCare.Controllers
 
                 if (File.Exists(filePath))
                 {
-                    string fileContent = File.ReadAllText(filePath);
+                    byte[] fileBytes = File.ReadAllBytes(filePath);
 
                     HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent(fileContent);
+                    response.Content = new ByteArrayContent(fileBytes);
 
                     // Determine content type based on known file extension
                     var fileExtension = Path.GetExtension(fileName.FileName);
@@ -91,10 +91,9 @@ namespace BloodDonationAndHEalthCare.Controllers
             }
         }
 
-        // Helper method to determine content type based on file extension
         private string GetContentTypeFromExtension(string fileExtension)
         {
-            switch (fileExtension.ToLowerInvariant())
+            switch (fileExtension.ToLower())
             {
                 case ".txt":
                     return "text/plain";
@@ -106,8 +105,9 @@ namespace BloodDonationAndHEalthCare.Controllers
                 case ".png":
                     return "image/png";
                 default:
-                    return "application/octet-stream"; // Default for unknown extensions
+                    return "application/octet-stream";
             }
         }
     }
+    
 }
