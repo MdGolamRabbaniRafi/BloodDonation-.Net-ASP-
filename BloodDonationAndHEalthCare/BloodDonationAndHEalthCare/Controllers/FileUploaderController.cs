@@ -1,14 +1,24 @@
+<<<<<<< HEAD
 ﻿using System;
+=======
+﻿using BLL.DTO;
+using System;
+>>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
 using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
+<<<<<<< HEAD
 using BLL.DTO;
+=======
+using System.Web.Http.Cors;
+>>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
 
 namespace BloodDonationAndHEalthCare.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class FileUploaderController : ApiController
     {
         [HttpPost]
@@ -20,6 +30,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 var httpRequest = HttpContext.Current.Request;
                 if (httpRequest.Files.Count > 0)
                 {
+<<<<<<< HEAD
                     // Define the path to the Uploads directory
                     var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
 
@@ -27,18 +38,29 @@ namespace BloodDonationAndHEalthCare.Controllers
                     if (!Directory.Exists(uploadPath))
                     {
                         // If it doesn't exist, create the directory
+=======
+                    var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
+
+                    if (!Directory.Exists(uploadPath))
+                    {
+>>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
                         Directory.CreateDirectory(uploadPath);
                     }
 
                     foreach (string file in httpRequest.Files)
                     {
                         var postedFile = httpRequest.Files[file];
+<<<<<<< HEAD
                         // Save the file to the Uploads directory instead of the root directory
+=======
+>>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
                         var filePath = Path.Combine(uploadPath, postedFile.FileName);
                         postedFile.SaveAs(filePath);
                     }
                     return Ok("File uploaded successfully");
+
                 }
+
                 else
                 {
                     return BadRequest("No file received");
@@ -109,5 +131,9 @@ namespace BloodDonationAndHEalthCare.Controllers
             }
         }
     }
+<<<<<<< HEAD
     
 }
+=======
+}
+>>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59

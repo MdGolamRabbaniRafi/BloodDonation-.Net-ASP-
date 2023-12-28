@@ -55,6 +55,7 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
+<<<<<<< HEAD
     <Compile Include="Interface\IDonation.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
@@ -66,11 +67,27 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\Payment.cs" />
+=======
+    <Compile Include="Interface\IPost.cs" />
+    <Compile Include="Interface\IRepo.cs" />
+    <Compile Include="Interface\IToken.cs" />
+    <Compile Include="Interface\IUser.cs" />
+    <Compile Include="Migrations\202312281014264_postEntity.cs" />
+    <Compile Include="Migrations\202312281014264_postEntity.designer.cs">
+      <DependentUpon>202312281014264_postEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Post.cs" />
+>>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Repos\DonationRepo.cs" />
+=======
+    <Compile Include="Repos\PostRepo.cs" />
+>>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
     <Compile Include="Repos\Repos.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
     <Compile Include="Repos\UserAdminRepo.cs" />
@@ -81,8 +98,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202312281551412_donationadd.resx">
       <DependentUpon>202312281551412_donationadd.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202312281014264_postEntity.resx">
+      <DependentUpon>202312281014264_postEntity.cs</DependentUpon>
+>>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
