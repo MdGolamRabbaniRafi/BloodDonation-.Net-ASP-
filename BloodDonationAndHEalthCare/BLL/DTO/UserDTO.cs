@@ -43,6 +43,6 @@ namespace BLL.DTOs
 
         public string UserType { get; set; }
         [Range(1, int.MaxValue, ErrorMessage = "AdminId must be a positive integer")]
-        public int AdminId { get; set; }
+        public int? AdminId { get; set; }
     }
 }

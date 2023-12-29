@@ -6,7 +6,6 @@ namespace BLL.DTOs
 {
     public class UserAdminDTO
     {
-        [Required]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Name is Required")]

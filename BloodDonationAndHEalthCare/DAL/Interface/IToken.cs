@@ -11,7 +11,9 @@ namespace DAL.Interface
         RET Create(Type obj);
         List<RET> Read();
         Type Read(ID id);
+        Type ReadByUserId(ID id);
+
         RET Update(Type obj);
-        bool Delete(ID obj);
+        Type Search(ID Email);
     }
 }
