@@ -63,14 +63,13 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{8196fba8-b773-4aba-b5ac-acdefb44b811}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

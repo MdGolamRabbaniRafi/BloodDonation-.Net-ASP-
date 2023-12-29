@@ -119,7 +119,7 @@ namespace BloodDonationAndHEalthCare.Controllers
             try
             {
 
-                var data = UserService.Authenticate(user.Email, user.Password);
+                var data = AuthService.Authenticate(user.Email, user.Password);
                 return Request.CreateResponse(HttpStatusCode.Created, data);
 
             }
