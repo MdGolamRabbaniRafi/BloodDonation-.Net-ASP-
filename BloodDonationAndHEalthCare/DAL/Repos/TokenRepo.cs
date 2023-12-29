@@ -17,7 +17,12 @@ namespace DAL.Repos
             if (db.SaveChanges() > 0) return obj;
             return null;
         }
-
+        public string SearchUserIdByToken(string token)
+        {
+            var Token = Read(token);
+            return Token.UserId.ToString();
+ 
+        }
         public bool Delete(string id)
         {
             throw new NotImplementedException();

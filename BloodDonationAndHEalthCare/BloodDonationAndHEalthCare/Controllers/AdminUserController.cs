@@ -135,8 +135,8 @@ namespace BloodDonationAndHEalthCare.Controllers
         [HttpPost]
         [Logged]
         [AdminCheck]
-        [Route("api/AdminUser/addUser/{token}")]
-        public HttpResponseMessage AddUser(UserDTO user,string token)
+        [Route("api/AdminUser/addUser")]
+        public HttpResponseMessage AddUser(UserDTO user)
         {
             try
             {
@@ -144,8 +144,9 @@ namespace BloodDonationAndHEalthCare.Controllers
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
-          //      var token = ActionContext.Request.Headers.Authorization;
-                var data = UserAdminService.AddUserService(user);
+                var token = ActionContext.Request.Headers.Authorization;
+
+                var data = UserAdminService.AddUserService(user,token.ToString());
                 return Request.CreateResponse(HttpStatusCode.Created, data);
             }
             catch (Exception ex)
