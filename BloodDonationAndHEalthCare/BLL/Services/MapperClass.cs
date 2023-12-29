@@ -12,6 +12,7 @@ using AutoMapper;
 namespace BLL.Services
 {
     using AutoMapper;
+    using BLL.DTO;
 
     public static class MapperClass
     {
@@ -31,11 +32,23 @@ namespace BLL.Services
             var cfg = new MapperConfiguration(c =>
             {
                 c.CreateMap<UserDTO, User>();
-                c.CreateMap<User, UserDTO>();
+                c.CreateMap<User,UserDTO>();
             });
             var mapper = new Mapper(cfg);
 
             return mapper;
+        }
+        public static IMapper MapperPost()
+        {
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<PostDTO, Post>();
+                c.CreateMap<Post, PostDTO>();
+            });
+            var mapper = new Mapper(cfg);
+
+            return mapper;
+
         }
     }
 

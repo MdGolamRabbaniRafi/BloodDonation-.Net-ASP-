@@ -7,8 +7,6 @@ using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using BloodDonationAndHEalthCare.Auth;
-
 
 namespace BloodDonationAndHEalthCare.Controllers
 {
@@ -16,7 +14,6 @@ namespace BloodDonationAndHEalthCare.Controllers
     public class FileUploaderController : ApiController
     {
         [HttpPost]
-        [Logged]
         [Route("api/UploadFile")]
         public IHttpActionResult UploadFile()
         {
@@ -52,7 +49,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return InternalServerError(ex);
             }
         }
-        [Logged]
+
         [HttpGet]
         [Route("api/GetFile")]
         public IHttpActionResult GetFile(FileDTO fileName)

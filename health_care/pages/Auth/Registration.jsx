@@ -10,6 +10,7 @@ const RegistrationForm = () => {
     DateOfBirth: '',
     Password: '',
     BloodGroup: '',
+    UserType: '',
     AdminId: '',
   });
 
@@ -37,9 +38,11 @@ const RegistrationForm = () => {
           DateOfBirth: formData.DateOfBirth,
           Password: formData.Password,
           BloodGroup: formData.BloodGroup,
+          UserType: formData.UserType,
           AdminId: formData.AdminId,
         },
         {
+          
           headers: {
             'Content-Type': 'application/json',
           },
@@ -50,8 +53,8 @@ const RegistrationForm = () => {
 
       if (response.data) {
         console.log(response.data);
-        router.push('/AdminDashboard');
-        setEmailError('Email already exists. Please use a different email.');
+        router.push('./Auth/Login');
+        
       } else {
         setEmailError('');
         setFormData({
@@ -60,9 +63,10 @@ const RegistrationForm = () => {
           DateOfBirth: '',
           Password: '',
           BloodGroup: '',
+          UserType: '',
           AdminId: '',
         });
-        router.push('/AdminDashboard');
+        router.push('./Auth/Login.jsx');
       }
     } catch (error) {
       console.error('Failed:', error);
@@ -156,6 +160,20 @@ const RegistrationForm = () => {
         />
       </div>
       <div className="mb-4">
+        <label htmlFor="Usertype" className="block text-sm font-medium text-gray-600">
+          UserType:
+        </label>
+        <input
+          type="text"
+          id="UserType"
+          name="UserType"
+          value={formData.UserType}
+          onChange={handleChange}
+          required
+          className="mt-1 p-2 w-full border rounded-md"
+        />
+      </div>
+      <div className="mb-4">
         <label htmlFor="AdminId" className="block text-sm font-medium text-gray-600">
           Admin ID:
         </label>
@@ -177,7 +195,7 @@ const RegistrationForm = () => {
         </button>
       </div>
     </form>
-    <Link href="/Login"><h6 className="text-blue-500 text-center ">Already have an account? Login here.</h6></Link>
+    <Link href="/Auth/Login"><h6 className="text-blue-500 text-center ">Already have an account? Login here.</h6></Link>
     </div>
     
   );

@@ -36,5 +36,9 @@ namespace DAL
         {
             return new TokenRepo();
         }
+        public static IPost<Post,int , Post> PostData()
+        {
+            return new PostRepo();
+        }
     }
 }

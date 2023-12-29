@@ -61,7 +61,6 @@ namespace BloodDonationAndHEalthCare.Controllers
 
 
         [HttpPost]
-        [Logged]
         [Route("api/User/update/{userId}")]
         public HttpResponseMessage UpdateUser(int userId, [FromBody] UserDTO user)
         {
@@ -90,7 +89,6 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
         [HttpDelete]
-        [Logged]
         [Route("api/User/delete/{userId}")]
         public HttpResponseMessage DeleteUser(int userId)
         {
@@ -114,8 +112,7 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
 
-/*        [HttpPost]
-        [Logged]
+        [HttpPost]
         [Route("api/User/Login")]
         public HttpResponseMessage LoginUser(UserDTO user)
         {
@@ -131,6 +128,5 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-*/
     }
 }

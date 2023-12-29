@@ -19,6 +19,10 @@ namespace BloodDonationAndHEalthCare.Controllers
         [Logged]
         [AdminCheck]
         [HttpPost]
+
+
+
+
         [Route("api/AdminUser/update")]
         public HttpResponseMessage UpdateAdminUser(UserAdminDTO user)
         {
@@ -37,7 +41,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-/*        [Logged]
+        [Logged]
         [HttpPost]
         [Route("api/AdminUser/Login")]
         public HttpResponseMessage LoginAdminUser(UserAdminDTO user)
@@ -53,9 +57,13 @@ namespace BloodDonationAndHEalthCare.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
+<<<<<<< HEAD
+        }
+=======
         }*/
         [Logged]
         [AdminCheck]
+>>>>>>> 08eca8d5d2bd9d9146729129be0f33bc28d9b71c
         [HttpGet]
         [Route("api/AdminUser/{userId}")]
         public HttpResponseMessage GetUser(int userId)
@@ -78,8 +86,12 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
+<<<<<<< HEAD
+
+=======
         [Logged]
         [AdminCheck]
+>>>>>>> 08eca8d5d2bd9d9146729129be0f33bc28d9b71c
         [HttpPost]
         [Route("api/AdminUser/{userId}")]
         public HttpResponseMessage UpdateUser(int userId, [FromBody] UserDTO user)
@@ -109,9 +121,13 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
         [HttpDelete]
+<<<<<<< HEAD
+        [Route("api/User/AdminUser/{userId}")]
+=======
         [Logged]
         [AdminCheck]
         [Route("api/AdminUser/{userId}")]
+>>>>>>> 08eca8d5d2bd9d9146729129be0f33bc28d9b71c
         public HttpResponseMessage DeleteUser(int userId)
         {
             try
