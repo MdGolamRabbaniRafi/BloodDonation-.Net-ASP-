@@ -55,15 +55,21 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
+    <Compile Include="Interface\IEmail.cs" />
     <Compile Include="Interface\IPost.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
-    <Compile Include="Migrations\202312281014264_postEntity.cs" />
-    <Compile Include="Migrations\202312281014264_postEntity.designer.cs">
-      <DependentUpon>202312281014264_postEntity.cs</DependentUpon>
+    <Compile Include="Migrations\202312290305437_postService.cs" />
+    <Compile Include="Migrations\202312290305437_postService.designer.cs">
+      <DependentUpon>202312290305437_postService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312290339077_something.cs" />
+    <Compile Include="Migrations\202312290339077_something.designer.cs">
+      <DependentUpon>202312290339077_something.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
@@ -80,8 +86,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312281014264_postEntity.resx">
-      <DependentUpon>202312281014264_postEntity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312290305437_postService.resx">
+      <DependentUpon>202312290305437_postService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312290339077_something.resx">
+      <DependentUpon>202312290339077_something.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

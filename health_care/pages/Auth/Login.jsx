@@ -78,8 +78,8 @@ const Login = () => {
       } else {
         console.log("Login success:", response);
         console.log("cookies" + document.cookie);
-        login(formData.email, document.cookie); // Pass the email to the login function
-        router.push('/AdminDashboard');
+        // login(formData.email, document.cookie); // Pass the email to the login function
+        router.push('./User/UserDashboard');
       }
     } catch (error) {
       console.log("Error:", error);

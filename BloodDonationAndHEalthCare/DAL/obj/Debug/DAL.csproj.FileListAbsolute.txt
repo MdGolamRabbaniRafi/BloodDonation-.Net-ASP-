@@ -40,5 +40,6 @@ F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.pdb
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.ok.resources
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.type.resources
-D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.postEntity.resources
+D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.postService.resources
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.something.resources
