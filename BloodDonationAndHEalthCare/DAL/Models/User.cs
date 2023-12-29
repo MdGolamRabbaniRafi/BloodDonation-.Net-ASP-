@@ -22,7 +22,7 @@ namespace DAL.Models
         public string UserType { get; set; }
 
         [ForeignKey("UserAdmin")]
-        public int AdminId { get; set; }
+        public int? AdminId { get; set; }
         public virtual UserAdmin UserAdmin { get; set; }
     }
 }

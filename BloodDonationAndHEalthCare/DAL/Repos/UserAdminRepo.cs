@@ -42,6 +42,11 @@ namespace DAL.Repos
         {
             return db.UserAdmins.Find(id);
         }
+        public UserAdmin ReadByEmail(string id)
+        {
+            return db.UserAdmins.FirstOrDefault(t => t.Email.Equals(id));
+
+        }
 
         public UserAdmin Update(UserAdmin obj)
         {

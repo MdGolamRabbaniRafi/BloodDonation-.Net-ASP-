@@ -58,13 +58,9 @@
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
-    <Compile Include="Migrations\202312230749029_ok.cs" />
-    <Compile Include="Migrations\202312230749029_ok.designer.cs">
-      <DependentUpon>202312230749029_ok.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312230921120_type.cs" />
-    <Compile Include="Migrations\202312230921120_type.designer.cs">
-      <DependentUpon>202312230921120_type.cs</DependentUpon>
+    <Compile Include="Migrations\202312290215102_ok.cs" />
+    <Compile Include="Migrations\202312290215102_ok.designer.cs">
+      <DependentUpon>202312290215102_ok.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Token.cs" />
@@ -81,11 +77,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312230749029_ok.resx">
-      <DependentUpon>202312230749029_ok.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312230921120_type.resx">
-      <DependentUpon>202312230921120_type.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312290215102_ok.resx">
+      <DependentUpon>202312290215102_ok.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

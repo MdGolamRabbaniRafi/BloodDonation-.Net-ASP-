@@ -16,7 +16,6 @@ namespace BloodDonationAndHEalthCare.Controllers
     public class UserController : ApiController
     {
         [HttpPost]
-        [Logged]
         [Route("api/User/add")]
         public HttpResponseMessage AddUser(UserDTO user)
         {

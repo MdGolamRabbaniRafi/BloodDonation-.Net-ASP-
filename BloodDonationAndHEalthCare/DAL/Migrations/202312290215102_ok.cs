@@ -16,6 +16,7 @@
                         CreateAt = c.DateTime(nullable: false),
                         UpdateAt = c.DateTime(),
                         UserId = c.String(nullable: false),
+                        UserType = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -43,10 +44,10 @@
                         Password = c.String(),
                         BloodGroup = c.String(),
                         UserType = c.String(),
-                        AdminId = c.Int(nullable: false),
+                        AdminId = c.Int(),
                     })
                 .PrimaryKey(t => t.UserId)
-                .ForeignKey("dbo.UserAdmins", t => t.AdminId, cascadeDelete: true)
+                .ForeignKey("dbo.UserAdmins", t => t.AdminId)
                 .Index(t => t.AdminId);
             
         }

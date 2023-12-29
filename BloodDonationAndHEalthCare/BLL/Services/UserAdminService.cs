@@ -38,16 +38,36 @@ namespace BLL.Services
             {
                 throw new ArgumentNullException(nameof(user));
             }
+
+           // var readToken = DataAccessFactory.TokenData().Read(token);
+            //var adminEmailId = readToken.UserId;
+            //var admin = DataAccessFactory.UserAdminData().ReadByEmail(adminEmailId);
             var data = MapperClass.MappedUser();
             var mapped = data.Map<User>(user);
             string hashedPassword = PasswordHasher.HashPassword(user.Password);
             mapped.Password = hashedPassword;
+          //  mapped.UserAdmin = admin;
             var userRepo = DataAccessFactory.UserData().Create(mapped);
             var data2 = MapperClass.MappedUser();
             var mapped2 = data2.Map<UserDTO>(userRepo);
 
             return mapped2;
         }
+
+
+        public static UserAdminDTO AddAdminUserService(UserAdminDTO admin)
+        {
+            var data = MapperClass.Mapped();
+            var mapped = data.Map<UserAdmin>(admin);
+            string hashedPassword = PasswordHasher.HashPassword(admin.Password);
+            mapped.Password = hashedPassword;
+            var userRepo = DataAccessFactory.UserAdminData().Create(mapped);
+            var data2 = MapperClass.Mapped();
+            var mapped2 = data2.Map<UserAdminDTO>(userRepo);
+
+            return mapped2;
+        }
+
         public static UserDTO UpdateUserService(int userId, UserDTO user)
         {
             var data = MapperClass.MappedUser();
