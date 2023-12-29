@@ -23,7 +23,6 @@ namespace DAL.Models
         public string UserType { get; set; } // Nullable string
 
         [ForeignKey("UserAdmin")]
-<<<<<<< HEAD
         public int? AdminId { get; set; } // Nullable int
         public virtual UserAdmin UserAdmin { get; set; } // Nullable UserAdmin
 
@@ -34,9 +33,5 @@ namespace DAL.Models
             Posts = new List<Post>();
         }
 
-=======
-        public int? AdminId { get; set; }
-        public virtual UserAdmin UserAdmin { get; set; }
->>>>>>> 08eca8d5d2bd9d9146729129be0f33bc28d9b71c
     }
 }
