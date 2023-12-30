@@ -1,5 +1,4 @@
-﻿
-using BLL.DTOs;
+﻿using BLL.DTOs;
 using DAL.Models;
 using DAL;
 using System;
@@ -50,7 +49,6 @@ namespace BLL.Services
                 return null;
             }
         }
-
 
 
         public static PostDTO GetPost(int id)

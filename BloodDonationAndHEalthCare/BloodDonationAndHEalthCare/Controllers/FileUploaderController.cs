@@ -1,4 +1,13 @@
+<<<<<<< HEAD
+using BLL.DTO;
+=======
 ﻿using BLL.DTO;
+<<<<<<< HEAD
+using BLL.Services;
+using BloodDonationAndHEalthCare.Auth;
+=======
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
+>>>>>>> 86b45632962edcc7bce0a3f9210ff0cadbbb8882
 using System;
 using System.IO;
 using System.Net;
@@ -14,12 +23,16 @@ namespace BloodDonationAndHEalthCare.Controllers
     public class FileUploaderController : ApiController
     {
         [HttpPost]
+        [Logged]
         [Route("api/UploadFile")]
         public IHttpActionResult UploadFile()
         {
             try
             {
+                var token = ActionContext.Request.Headers.Authorization;
                 var httpRequest = HttpContext.Current.Request;
+                FileDTO fileDTO = new FileDTO();
+                int count = 0;
                 if (httpRequest.Files.Count > 0)
                 {
                     var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
@@ -33,9 +46,23 @@ namespace BloodDonationAndHEalthCare.Controllers
                     {
                         var postedFile = httpRequest.Files[file];
                         var filePath = Path.Combine(uploadPath, postedFile.FileName);
+                        fileDTO.FileName=postedFile.FileName;
+                        var fileService = FileUploaderService.UploadFile(fileDTO, token.ToString());
+                        if(fileService)
+                        {
+                            count++;
+                        }
                         postedFile.SaveAs(filePath);
+
                     }
-                    return Ok("File uploaded successfully");
+                    if (count > 0)
+                    {
+                        return Ok("File uploaded successfully");
+                    }
+                    else
+                    {
+                        return InternalServerError();
+                    }
 
                 }
 
@@ -51,6 +78,7 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
         [HttpGet]
+        [Logged]
         [Route("api/GetFile")]
         public IHttpActionResult GetFile(FileDTO fileName)
         {

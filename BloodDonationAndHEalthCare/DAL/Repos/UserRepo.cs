@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class UserRepo : Repo, IUser<User, int ,User>, IAuth<bool>
+    internal class UserRepo : Repo, IUser<User, int ,User, string>, IAuth<bool>
     {
         public bool Authenticate(string Email, string Password)
         {
@@ -55,6 +55,13 @@ namespace DAL.Repos
             var user = (from u in db.Users where u.Email.Equals(email) select u).SingleOrDefault();
             string type=user.UserType.ToString();
             return type;
+        }
+        public User ReadByEmail(string email)
+        {
+            var user = (from u in db.Users where u.Email.Equals(email) select u).SingleOrDefault();
+            if(user== null) return null;
+            return user;
+
         }
     }
 }

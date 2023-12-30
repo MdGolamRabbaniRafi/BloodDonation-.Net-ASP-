@@ -40,9 +40,30 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Stripe.net, Version=43.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.43.8.0\lib\net461\Stripe.net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,22 +76,56 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
+<<<<<<< HEAD
+    <Compile Include="Interface\IDonation.cs" />
+    <Compile Include="Interface\IRepo.cs" />
+    <Compile Include="Interface\IToken.cs" />
+    <Compile Include="Interface\IUser.cs" />
+    <Compile Include="Models\Donation.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Interface\IPost.cs" />
+    <Compile Include="Models\PaymentInfo.cs" />
+=======
     <Compile Include="Interface\IEmail.cs" />
+    <Compile Include="Interface\IFile.cs" />
     <Compile Include="Interface\IPost.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
+<<<<<<< HEAD
     <Compile Include="Migrations\202312300632341_new.cs" />
     <Compile Include="Migrations\202312300632341_new.designer.cs">
       <DependentUpon>202312300632341_new.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\202312292013183_okk.cs" />
+    <Compile Include="Migrations\202312292013183_okk.designer.cs">
+      <DependentUpon>202312292013183_okk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312300514172_file.cs" />
+    <Compile Include="Migrations\202312300514172_file.designer.cs">
+      <DependentUpon>202312300514172_file.cs</DependentUpon>
+>>>>>>> 5bcfc55db01ac4e6f09b1cf3d6987d3708cc1ba8
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Email.cs" />
+<<<<<<< HEAD
+    <Compile Include="Models\File.cs" />
+=======
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
+>>>>>>> 86b45632962edcc7bce0a3f9210ff0cadbbb8882
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+    <Compile Include="Repos\FileRepo.cs" />
+=======
+<<<<<<< HEAD
+    <Compile Include="Repos\DonationRepo.cs" />
+=======
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
+>>>>>>> 86b45632962edcc7bce0a3f9210ff0cadbbb8882
     <Compile Include="Repos\PostRepo.cs" />
     <Compile Include="Repos\Repos.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
@@ -81,11 +136,22 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+<<<<<<< HEAD
+=======
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202312300632341_new.resx">
       <DependentUpon>202312300632341_new.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202312292013183_okk.resx">
+      <DependentUpon>202312292013183_okk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312300514172_file.resx">
+      <DependentUpon>202312300514172_file.cs</DependentUpon>
+>>>>>>> 5bcfc55db01ac4e6f09b1cf3d6987d3708cc1ba8
     </EmbeddedResource>
   </ItemGroup>
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

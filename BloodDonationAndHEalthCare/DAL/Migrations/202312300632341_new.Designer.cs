@@ -7,6 +7,7 @@ namespace DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
+<<<<<<<< HEAD:BloodDonationAndHEalthCare/DAL/Migrations/202312300632341_new.Designer.cs
     public sealed partial class _new : IMigrationMetadata
     {
         private readonly ResourceManager Resources = new ResourceManager(typeof(_new));
@@ -14,6 +15,15 @@ namespace DAL.Migrations
         string IMigrationMetadata.Id
         {
             get { return "202312300632341_new"; }
+========
+    public sealed partial class okk : IMigrationMetadata
+    {
+        private readonly ResourceManager Resources = new ResourceManager(typeof(okk));
+        
+        string IMigrationMetadata.Id
+        {
+            get { return "202312292013183_okk"; }
+>>>>>>>> 5bcfc55db01ac4e6f09b1cf3d6987d3708cc1ba8:BloodDonationAndHEalthCare/DAL/Migrations/202312292013183_okk.Designer.cs
         }
         
         string IMigrationMetadata.Source
