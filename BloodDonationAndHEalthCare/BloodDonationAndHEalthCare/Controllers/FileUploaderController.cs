@@ -73,17 +73,19 @@ namespace BloodDonationAndHEalthCare.Controllers
         [HttpGet]
         [Logged]
         [Route("api/GetFile")]
-        public IHttpActionResult GetFile(FileDTO fileName)
+        public IHttpActionResult GetFile()
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(fileName.FileName))
+                var token = ActionContext.Request.Headers.Authorization;
+                var fileName = FileUploaderService.GetFile(token.ToString());
+                if (string.IsNullOrWhiteSpace(fileName))
                 {
                     return BadRequest("File name is required.");
                 }
 
                 var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
-                var filePath = Path.Combine(uploadPath, fileName.FileName);
+                var filePath = Path.Combine(uploadPath, fileName);
 
                 if (File.Exists(filePath))
                 {
@@ -93,7 +95,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                     response.Content = new ByteArrayContent(fileBytes);
 
                     // Determine content type based on known file extension
-                    var fileExtension = Path.GetExtension(fileName.FileName);
+                    var fileExtension = Path.GetExtension(fileName);
                     if (!string.IsNullOrEmpty(fileExtension))
                     {
                         response.Content.Headers.ContentType = new MediaTypeHeaderValue(GetContentTypeFromExtension(fileExtension));

@@ -42,5 +42,31 @@ namespace BLL.Services
             }
             return false;
         }
+
+        public static string GetFile(string token)
+        {
+            var UserEmail = DataAccessFactory.TokenData().SearchUserIdByToken(token);
+            var admin = DataAccessFactory.UserAdminData().ReadByEmail(UserEmail);
+            if (admin == null)
+            {
+                var user = DataAccessFactory.UserData().ReadByEmail(UserEmail);
+
+                if( user == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    var file = DataAccessFactory.FileData().ReadUserFile(user.UserId);
+                    return file.FileName;
+                }
+            }
+            else 
+            {
+                var file = DataAccessFactory.FileData().ReadAdminFile(admin.Id);
+                return file.FileName;
+            }
+            return null;
+        }
     }
 }
