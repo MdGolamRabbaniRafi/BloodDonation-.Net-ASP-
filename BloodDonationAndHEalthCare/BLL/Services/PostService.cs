@@ -79,6 +79,14 @@ namespace BLL.Services
                 return false;
             }
         }
+        public static List<PostDTO> GetAllPosts()
+        {
+            var data = MapperClass.MapperPost();
+            var allPosts = DataAccessFactory.PostData().Read();
+            var mappedPosts = data.Map<List<PostDTO>>(allPosts);
+
+            return mappedPosts;
+        }
 
     }
 }

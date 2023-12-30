@@ -13,11 +13,11 @@ namespace DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-<<<<<<<< HEAD:BloodDonationAndHEalthCare/DAL/Migrations/202312290305437_postService.Designer.cs
+
             get { return "202312290305437_postService"; }
-========
-            get { return "202312290215102_ok"; }
->>>>>>>> 08eca8d5d2bd9d9146729129be0f33bc28d9b71c:BloodDonationAndHEalthCare/DAL/Migrations/202312290215102_ok.Designer.cs
+
+         
+
         }
         
         string IMigrationMetadata.Source

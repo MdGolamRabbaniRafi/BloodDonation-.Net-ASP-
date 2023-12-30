@@ -35,7 +35,30 @@ namespace BloodDonationAndHEalthCare.Controllers
             }
         }
 
-        
+        [HttpGet]
+        [Route("api/post/GetAllPosts")]
+        public HttpResponseMessage GetAllPosts()
+        {
+            try
+            {
+                var allPosts = PostService.GetAllPosts();
+
+                if (allPosts != null && allPosts.Count > 0)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, allPosts);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Message = "No posts found" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+
         [HttpGet]
         [Route("api/post/{PostId}")]
         public HttpResponseMessage GetPost(int PostId)

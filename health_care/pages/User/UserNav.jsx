@@ -132,7 +132,7 @@ const UserNav = () => {
     <div>
     <div className="grid grid-cols-12 gap-3 pr-8 pl-8 text-xl font-semibold">
       {/* Header */}
-      <header className="col-span-12 bg-gradient-to-r from-[#6F1E51] to-[#B53471] text-white p-4 flex justify-between items-center  shadow-md">
+      <header className="col-span-12 bg-gradient-to-r from-[#6F1E51] to-[#B53471] text-white p-2 flex justify-between items-center  shadow-md">
         
         <nav className="flex space-x-4 ">
   <Link href="/User/UserDashboard">

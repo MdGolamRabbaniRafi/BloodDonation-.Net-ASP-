@@ -2,9 +2,6 @@
 using BLL.Services;
 using BloodDonationAndHEalthCare.Auth;
 using System;
-using System.Collections.Generic;
-
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -15,14 +12,9 @@ namespace BloodDonationAndHEalthCare.Controllers
     [EnableCors("*", "*", "*")]
     public class AdminUserController : ApiController
     {
-
         [Logged]
         [AdminCheck]
         [HttpPost]
-
-
-
-
         [Route("api/AdminUser/update")]
         public HttpResponseMessage UpdateAdminUser(UserAdminDTO user)
         {
@@ -34,13 +26,13 @@ namespace BloodDonationAndHEalthCare.Controllers
                 }
                 var data = UserAdminService.UpdateAdminUserService(user);
                 return Request.CreateResponse(HttpStatusCode.Created, data);
-
             }
             catch (Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
+
         [Logged]
         [HttpPost]
         [Route("api/AdminUser/Login")]
@@ -48,22 +40,17 @@ namespace BloodDonationAndHEalthCare.Controllers
         {
             try
             {
-
-                var data = UserAdminService.Authenticate(user.Email,user.Password);
+                var data = UserAdminService.Authenticate(user.Email, user.Password);
                 return Request.CreateResponse(HttpStatusCode.Created, data);
-
             }
             catch (Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
-
         }
 
-        }
         [Logged]
         [AdminCheck]
-
         [HttpGet]
         [Route("api/AdminUser/{userId}")]
         public HttpResponseMessage GetUser(int userId)
@@ -118,13 +105,9 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
         [HttpDelete]
-
-        [Route("api/User/AdminUser/{userId}")]
-
         [Logged]
         [AdminCheck]
         [Route("api/AdminUser/{userId}")]
-
         public HttpResponseMessage DeleteUser(int userId)
         {
             try
@@ -145,11 +128,12 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
+
         [HttpPost]
         [Logged]
         [AdminCheck]
         [Route("api/AdminUser/addUser/{token}")]
-        public HttpResponseMessage AddUser(UserDTO user,string token)
+        public HttpResponseMessage AddUser(UserDTO user, string token)
         {
             try
             {
@@ -157,7 +141,8 @@ namespace BloodDonationAndHEalthCare.Controllers
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
-          //      var token = ActionContext.Request.Headers.Authorization;
+
+                // var token = ActionContext.Request.Headers.Authorization;
                 var data = UserAdminService.AddUserService(user);
                 return Request.CreateResponse(HttpStatusCode.Created, data);
             }
@@ -166,7 +151,6 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-
 
         [HttpPost]
         [Route("api/AdminUser/Signup")]
