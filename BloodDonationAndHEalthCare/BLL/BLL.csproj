@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\FileUploaderService.cs" />
     <Compile Include="Services\MapperClass.cs" />
     <Compile Include="Services\PasswordHasher.cs" />
     <Compile Include="Services\PostService.cs" />

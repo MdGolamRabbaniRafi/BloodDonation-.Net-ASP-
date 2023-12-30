@@ -16,7 +16,7 @@ namespace DAL
         {
             return new UserAdminRepo();
         }
-        public static IUser<User, int, User> UserData()
+        public static IUser<User, int, User,string> UserData()
         {
             return new UserRepo();
         }
@@ -39,6 +39,10 @@ namespace DAL
         public static IPost<Post,int , Post> PostData()
         {
             return new PostRepo();
+        }
+        public static IFile<File, int> FileData()
+        {
+            return new FileRepo();
         }
     }
 }

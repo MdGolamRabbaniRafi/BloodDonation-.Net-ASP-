@@ -50,6 +50,17 @@ namespace BLL.Services
             return mapper;
 
         }
+        public static IMapper MapperFile()
+        {
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<FileDTO, File>();
+                c.CreateMap<File, FileDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            return mapper;
+
+        }
     }
 
 }
