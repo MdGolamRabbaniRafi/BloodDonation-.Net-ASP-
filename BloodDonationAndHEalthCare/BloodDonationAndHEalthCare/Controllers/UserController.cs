@@ -129,6 +129,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
+<<<<<<< HEAD
         [HttpPost]
         [Route("api/User/Donate")]
         public HttpResponseMessage Donate(DonationDTO donationDTO)
@@ -239,5 +240,7 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
 
+=======
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
     }
 }

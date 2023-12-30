@@ -76,6 +76,7 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
+<<<<<<< HEAD
     <Compile Include="Interface\IDonation.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
@@ -84,12 +85,35 @@
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Interface\IPost.cs" />
     <Compile Include="Models\PaymentInfo.cs" />
+=======
+    <Compile Include="Interface\IEmail.cs" />
+    <Compile Include="Interface\IPost.cs" />
+    <Compile Include="Interface\IRepo.cs" />
+    <Compile Include="Interface\IToken.cs" />
+    <Compile Include="Interface\IUser.cs" />
+    <Compile Include="Migrations\202312290305437_postService.cs" />
+    <Compile Include="Migrations\202312290305437_postService.designer.cs">
+      <DependentUpon>202312290305437_postService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312290339077_something.cs" />
+    <Compile Include="Migrations\202312290339077_something.designer.cs">
+      <DependentUpon>202312290339077_something.cs</DependentUpon>
+    <Compile Include="Migrations\202312290215102_ok.cs" />
+    <Compile Include="Migrations\202312290215102_ok.designer.cs">
+      <DependentUpon>202312290215102_ok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Email.cs" />
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Repos\DonationRepo.cs" />
+=======
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
     <Compile Include="Repos\PostRepo.cs" />
     <Compile Include="Repos\Repos.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
@@ -100,6 +124,19 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202312290305437_postService.resx">
+      <DependentUpon>202312290305437_postService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312290339077_something.resx">
+      <DependentUpon>202312290339077_something.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312290215102_ok.resx">
+      <DependentUpon>202312290215102_ok.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

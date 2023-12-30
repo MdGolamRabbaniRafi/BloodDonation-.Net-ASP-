@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 using BLL.DTO;
+=======
+﻿using BLL.DTO;
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
 using System;
 using System.IO;
 using System.Net;

@@ -68,17 +68,22 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DTO\AgeValidator.cs" />
+<<<<<<< HEAD
     <Compile Include="DTO\DonationDTO.cs" />
     <Compile Include="DTO\FileDTO.cs" />
     <Compile Include="DTO\PaymentDTO.cs" />
     <Compile Include="DTO\PaymentInfoDTO.cs" />
+=======
+    <Compile Include="DTO\EmailDTO.cs" />
+    <Compile Include="DTO\FileDTO.cs" />
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
     <Compile Include="DTO\PostDTO.cs" />
     <Compile Include="DTO\TokenDTO.cs" />
     <Compile Include="DTO\UserAdminDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthService.cs" />
-    <Compile Include="Services\DonationService.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\MapperClass.cs" />
     <Compile Include="Services\PasswordHasher.cs" />
     <Compile Include="Services\PaymentGateway.cs" />
@@ -87,6 +92,7 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -96,10 +102,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+=======
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{8196fba8-b773-4aba-b5ac-acdefb44b811}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

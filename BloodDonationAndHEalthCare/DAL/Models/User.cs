@@ -18,20 +18,34 @@ namespace DAL.Models
         public string Password { get; set; }
         //public string FileName { get; set; } 
         //public string FileContent { get; set; } 
-        public string BloodGroup { get; set; }
-        public string UserType { get; set; }
+        public string BloodGroup { get; set; } // Nullable string
+
+        public string UserType { get; set; } // Nullable string
 
         [ForeignKey("UserAdmin")]
+<<<<<<< HEAD
         public int AdminId { get; set; }
         public virtual UserAdmin UserAdmin { get; set; }
 
+=======
+<<<<<<< HEAD
+        public int? AdminId { get; set; } // Nullable int
+        public virtual UserAdmin UserAdmin { get; set; } // Nullable UserAdmin
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
 
         public virtual ICollection<Post> Posts { get; set; }
+
         public User()
         {
             Posts = new List<Post>();
-
         }
 
+<<<<<<< HEAD
+=======
+=======
+        public int? AdminId { get; set; }
+        public virtual UserAdmin UserAdmin { get; set; }
+>>>>>>> 08eca8d5d2bd9d9146729129be0f33bc28d9b71c
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
     }
 }
