@@ -1,6 +1,13 @@
+<<<<<<< HEAD
+using BLL.DTO;
+=======
 ﻿using BLL.DTO;
+<<<<<<< HEAD
 using BLL.Services;
 using BloodDonationAndHEalthCare.Auth;
+=======
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
+>>>>>>> 86b45632962edcc7bce0a3f9210ff0cadbbb8882
 using System;
 using System.IO;
 using System.Net;

@@ -23,8 +23,18 @@ namespace DAL.Models
         public string UserType { get; set; } // Nullable string
 
         [ForeignKey("UserAdmin")]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        public int AdminId { get; set; }
+        public virtual UserAdmin UserAdmin { get; set; }
+
+=======
+<<<<<<< HEAD
+>>>>>>> 86b45632962edcc7bce0a3f9210ff0cadbbb8882
         public int? AdminId { get; set; } // Nullable int
         public virtual UserAdmin UserAdmin { get; set; } // Nullable UserAdmin
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
 
         public virtual ICollection<Post> Posts { get; set; }
 
@@ -33,5 +43,15 @@ namespace DAL.Models
             Posts = new List<Post>();
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        public int? AdminId { get; set; }
+        public virtual UserAdmin UserAdmin { get; set; }
+>>>>>>> 08eca8d5d2bd9d9146729129be0f33bc28d9b71c
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
+>>>>>>> 86b45632962edcc7bce0a3f9210ff0cadbbb8882
     }
 }
