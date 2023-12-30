@@ -32,21 +32,20 @@ namespace BLL.Services
             return data;
         }
 
-        public static UserDTO AddUserService(UserDTO user)
+        public static UserDTO AddUserService(UserDTO user, string token)
         {
             if (user == null)
             {
                 throw new ArgumentNullException(nameof(user));
             }
 
-           // var readToken = DataAccessFactory.TokenData().Read(token);
-            //var adminEmailId = readToken.UserId;
-            //var admin = DataAccessFactory.UserAdminData().ReadByEmail(adminEmailId);
+            var adminEmailId = DataAccessFactory.TokenData().SearchUserIdByToken(token);
+            var admin = DataAccessFactory.UserAdminData().ReadByEmail(adminEmailId);
             var data = MapperClass.MappedUser();
             var mapped = data.Map<User>(user);
             string hashedPassword = PasswordHasher.HashPassword(user.Password);
             mapped.Password = hashedPassword;
-          //  mapped.UserAdmin = admin;
+            mapped.AdminId = admin.Id;
             var userRepo = DataAccessFactory.UserData().Create(mapped);
             var data2 = MapperClass.MappedUser();
             var mapped2 = data2.Map<UserDTO>(userRepo);

@@ -67,6 +67,12 @@
     <Compile Include="Migrations\202312290339077_something.cs" />
     <Compile Include="Migrations\202312290339077_something.designer.cs">
       <DependentUpon>202312290339077_something.cs</DependentUpon>
+<<<<<<< HEAD
+=======
+    <Compile Include="Migrations\202312290215102_ok.cs" />
+    <Compile Include="Migrations\202312290215102_ok.designer.cs">
+      <DependentUpon>202312290215102_ok.cs</DependentUpon>
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Email.cs" />
@@ -92,6 +98,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312290339077_something.resx">
       <DependentUpon>202312290339077_something.cs</DependentUpon>
+<<<<<<< HEAD
+=======
+    <EmbeddedResource Include="Migrations\202312290215102_ok.resx">
+      <DependentUpon>202312290215102_ok.cs</DependentUpon>
+>>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

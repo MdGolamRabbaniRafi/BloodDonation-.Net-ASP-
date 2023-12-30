@@ -14,6 +14,7 @@ namespace DAL.Interface
         Type ReadByUserId(ID id);
 
         RET Update(Type obj);
+        ID SearchUserIdByToken(ID token);
         Type Search(ID Email);
     }
 }
