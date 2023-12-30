@@ -5,12 +5,6 @@ using DAL.Models;
 
 namespace BLL.Services
 {
-<<<<<<< HEAD
-=======
-    using AutoMapper;
-    using BLL.DTO;
-
->>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
     public static class MapperClass
     {
         public static IMapper Mapped()
@@ -19,8 +13,8 @@ namespace BLL.Services
             {
                 c.CreateMap<UserAdminDTO, UserAdmin>();
                 c.CreateMap<UserAdmin, UserAdminDTO>();
-                
-                
+
+
             });
             var mapper = new Mapper(cfg);
 
@@ -32,18 +26,13 @@ namespace BLL.Services
             var cfg = new MapperConfiguration(c =>
             {
                 c.CreateMap<UserDTO, User>();
-<<<<<<< HEAD
                 c.CreateMap<User, UserDTO>();
-               
-=======
-                c.CreateMap<User,UserDTO>();
->>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
+
             });
             var mapper = new Mapper(cfg);
 
             return mapper;
         }
-<<<<<<< HEAD
         public static IMapper MappedDonation()
         {
             var cfg = new MapperConfiguration(c =>
@@ -51,7 +40,10 @@ namespace BLL.Services
                 c.CreateMap<Donation, DonationDTO>();
                 c.CreateMap<DonationDTO, Donation>();
             });
-=======
+
+            var mapper = new Mapper(cfg);
+            return mapper;
+        }
         public static IMapper MapperPost()
         {
             var cfg = new MapperConfiguration(c =>
@@ -63,12 +55,6 @@ namespace BLL.Services
 
             return mapper;
 
-        }
-    }
->>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
-
-            var mapper = new Mapper(cfg);
-            return mapper;
         }
     }
 }

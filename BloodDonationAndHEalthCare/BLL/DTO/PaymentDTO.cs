@@ -19,5 +19,6 @@ namespace BLL.DTOs
 
         public bool IsSuccessful { get; set; }
         public DateTime CreatedAt { get; set; }
+
     }
 }
