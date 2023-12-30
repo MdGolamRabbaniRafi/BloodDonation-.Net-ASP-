@@ -37,9 +37,9 @@ F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.CoreCompil
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.CopyComplete
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.dll
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.pdb
-D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.postService.resources
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
-D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.something.resources
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.okk.resources
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.file.resources
+D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.okk.resources
+D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.file.resources

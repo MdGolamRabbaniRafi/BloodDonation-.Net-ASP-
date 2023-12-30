@@ -25,7 +25,9 @@ namespace DAL.Repos
         }
         public bool Delete(string id)
         {
-            throw new NotImplementedException();
+            var ex = ReadByUserId(id);
+            db.Tokens.Remove(ex);
+            return db.SaveChanges() > 0;
         }
 
         public List<Token> Read()
