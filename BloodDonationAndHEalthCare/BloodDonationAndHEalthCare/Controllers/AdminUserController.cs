@@ -1,6 +1,7 @@
 using BLL.DTOs;
 using BLL.Services;
 using BloodDonationAndHEalthCare.Auth;
+using DAL.Models;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -24,6 +25,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
+
                 var data = UserAdminService.UpdateAdminUserService(user);
                 return Request.CreateResponse(HttpStatusCode.Created, data);
             }
@@ -47,13 +49,8 @@ namespace BloodDonationAndHEalthCare.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
-<<<<<<< HEAD
         }
 
-=======
-
-        }
->>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
         [Logged]
         [AdminCheck]
         [HttpGet]
@@ -78,15 +75,9 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-<<<<<<< HEAD
 
         [Logged]
         [AdminCheck]
-=======
-        [Logged]
-        [AdminCheck]
-
->>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
         [HttpPost]
         [Route("api/AdminUser/{userId}")]
         public HttpResponseMessage UpdateUser(int userId, [FromBody] UserDTO user)
@@ -116,10 +107,6 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
         [HttpDelete]
-<<<<<<< HEAD
-=======
-
->>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
         [Logged]
         [AdminCheck]
         [Route("api/AdminUser/{userId}")]
@@ -147,13 +134,8 @@ namespace BloodDonationAndHEalthCare.Controllers
         [HttpPost]
         [Logged]
         [AdminCheck]
-<<<<<<< HEAD
         [Route("api/AdminUser/addUser/{token}")]
         public HttpResponseMessage AddUser(UserDTO user, string token)
-=======
-        [Route("api/AdminUser/addUser")]
-        public HttpResponseMessage AddUser(UserDTO user)
->>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
         {
             try
             {
@@ -161,15 +143,32 @@ namespace BloodDonationAndHEalthCare.Controllers
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
-<<<<<<< HEAD
 
-                // var token = ActionContext.Request.Headers.Authorization;
-                var data = UserAdminService.AddUserService(user);
-=======
+                var data = UserAdminService.AddUserService(user, token);
+
+                return Request.CreateResponse(HttpStatusCode.Created, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        [Route("api/AdminUser/addUser")]
+        public HttpResponseMessage AddUser(UserDTO user)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+
                 var token = ActionContext.Request.Headers.Authorization;
 
-                var data = UserAdminService.AddUserService(user,token.ToString());
->>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
+                var data = UserAdminService.AddUserService(user, token.ToString());
+
                 return Request.CreateResponse(HttpStatusCode.Created, data);
             }
             catch (Exception ex)

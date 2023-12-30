@@ -60,19 +60,9 @@
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
-    <Compile Include="Migrations\202312290305437_postService.cs" />
-    <Compile Include="Migrations\202312290305437_postService.designer.cs">
-      <DependentUpon>202312290305437_postService.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312290339077_something.cs" />
-    <Compile Include="Migrations\202312290339077_something.designer.cs">
-      <DependentUpon>202312290339077_something.cs</DependentUpon>
-<<<<<<< HEAD
-=======
-    <Compile Include="Migrations\202312290215102_ok.cs" />
-    <Compile Include="Migrations\202312290215102_ok.designer.cs">
-      <DependentUpon>202312290215102_ok.cs</DependentUpon>
->>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
+    <Compile Include="Migrations\202312300632341_new.cs" />
+    <Compile Include="Migrations\202312300632341_new.designer.cs">
+      <DependentUpon>202312300632341_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Email.cs" />
@@ -92,17 +82,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312290305437_postService.resx">
-      <DependentUpon>202312290305437_postService.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312290339077_something.resx">
-      <DependentUpon>202312290339077_something.cs</DependentUpon>
-<<<<<<< HEAD
-=======
-    <EmbeddedResource Include="Migrations\202312290215102_ok.resx">
-      <DependentUpon>202312290215102_ok.cs</DependentUpon>
->>>>>>> 4ea6939d29cb0dd8d0f972c7551ebaa58f86e884
+    <EmbeddedResource Include="Migrations\202312300632341_new.resx">
+      <DependentUpon>202312300632341_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

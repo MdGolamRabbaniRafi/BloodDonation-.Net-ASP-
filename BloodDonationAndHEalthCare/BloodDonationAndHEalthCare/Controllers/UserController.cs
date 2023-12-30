@@ -113,7 +113,7 @@ namespace BloodDonationAndHEalthCare.Controllers
 
 
         [HttpPost]
-        [Route("api/User/Login")]
+        [Route("api/User/login")]
         public HttpResponseMessage LoginUser(UserDTO user)
         {
             try
