@@ -264,6 +264,7 @@ F:\code\.Net\Test\BloodDonationAndHEalthCare\BloodDonationAndHEalthCare\obj\Debu
 F:\code\.Net\Test\BloodDonationAndHEalthCare\BloodDonationAndHEalthCare\obj\Debug\BloodDonationAndHEalthCare.csproj.CopyComplete
 F:\code\.Net\Test\BloodDonationAndHEalthCare\BloodDonationAndHEalthCare\obj\Debug\BloodDonationAndHEalthCare.dll
 F:\code\.Net\Test\BloodDonationAndHEalthCare\BloodDonationAndHEalthCare\obj\Debug\BloodDonationAndHEalthCare.pdb
+<<<<<<< HEAD
 D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\BloodDonationAndHEalthCare\bin\BloodDonationAndHEalthCare.dll.config
 D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\BloodDonationAndHEalthCare\bin\BloodDonationAndHEalthCare.dll
 D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\BloodDonationAndHEalthCare\bin\BloodDonationAndHEalthCare.pdb
@@ -366,3 +367,5 @@ D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\
 D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\BloodDonationAndHEalthCare\bin\RestSharp.dll
 D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\BloodDonationAndHEalthCare\bin\Stripe.dll
 D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\BloodDonationAndHEalthCare\bin\RestSharp.xml
+=======
+>>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0

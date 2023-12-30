@@ -120,7 +120,7 @@ namespace BloodDonationAndHEalthCare.Controllers
             try
             {
 
-                var data = UserService.Authenticate(user.Email, user.Password);
+                var data = AuthService.Authenticate(user.Email, user.Password);
                 return Request.CreateResponse(HttpStatusCode.Created, data);
 
             }
@@ -129,6 +129,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
+<<<<<<< HEAD
         [HttpPost]
         [Route("api/User/Donate")]
         public HttpResponseMessage Donate(DonationDTO donationDTO)
@@ -239,5 +240,7 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
 
+=======
+>>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
     }
 }

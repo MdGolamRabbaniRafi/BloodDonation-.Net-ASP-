@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    public interface IUser<Type, ID, RET>
+    public interface IUser<Type, ID, RET, StringType>
     {
         RET Create(Type obj);
         List<RET> Read();
         Type Read(ID id);
         RET Update(Type obj);
         bool Delete(ID obj);
-        string Read(string Email);
+        Type ReadByEmail(StringType Email);
+        StringType Read(StringType id);
     }
 }

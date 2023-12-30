@@ -13,10 +13,14 @@ namespace DAL
     {
         public DbSet<UserAdmin> UserAdmins { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Donation> Donations { get; set; }
         public DbSet<Token> Tokens { get; set; }
+<<<<<<< HEAD
 
         public DbSet<Post>Posts { get; set; }
+=======
+        public DbSet<Post>Posts { get; set; }
+        public DbSet<File> Files { get; set; }
+>>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
 
     }
 }

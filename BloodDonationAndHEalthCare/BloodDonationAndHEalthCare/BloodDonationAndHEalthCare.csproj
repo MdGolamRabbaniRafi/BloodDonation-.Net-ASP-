@@ -138,9 +138,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Auth\AdminCheck.cs" />
     <Compile Include="Auth\Logged.cs" />
     <Compile Include="Controllers\AdminUserController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\FileUploaderController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ServiceProviderController.cs" />

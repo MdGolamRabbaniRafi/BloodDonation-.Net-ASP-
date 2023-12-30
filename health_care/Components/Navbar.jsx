@@ -48,7 +48,7 @@ const Navbar = () => {
         </div>
         <div className="text-center flex mr-10">
           
-          <Link href="/Registration" className='text-[#ffffff] text-lg font-Poppins font-bold'>Signup</Link>
+          <Link href="/Auth/Registration" className='text-[#ffffff] text-lg font-Poppins font-bold'>Signup</Link>
           
         </div>
       </div>

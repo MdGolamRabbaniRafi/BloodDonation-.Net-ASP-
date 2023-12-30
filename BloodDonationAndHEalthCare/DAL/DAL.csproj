@@ -76,6 +76,7 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
+<<<<<<< HEAD
     <Compile Include="Interface\IDonation.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
@@ -84,12 +85,35 @@
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Interface\IPost.cs" />
     <Compile Include="Models\PaymentInfo.cs" />
+=======
+    <Compile Include="Interface\IEmail.cs" />
+    <Compile Include="Interface\IFile.cs" />
+    <Compile Include="Interface\IPost.cs" />
+    <Compile Include="Interface\IRepo.cs" />
+    <Compile Include="Interface\IToken.cs" />
+    <Compile Include="Interface\IUser.cs" />
+    <Compile Include="Migrations\202312292013183_okk.cs" />
+    <Compile Include="Migrations\202312292013183_okk.designer.cs">
+      <DependentUpon>202312292013183_okk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312300514172_file.cs" />
+    <Compile Include="Migrations\202312300514172_file.designer.cs">
+      <DependentUpon>202312300514172_file.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\File.cs" />
+>>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Repos\DonationRepo.cs" />
+=======
+    <Compile Include="Repos\FileRepo.cs" />
+>>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
     <Compile Include="Repos\PostRepo.cs" />
     <Compile Include="Repos\Repos.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
@@ -100,6 +124,17 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202312292013183_okk.resx">
+      <DependentUpon>202312292013183_okk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312300514172_file.resx">
+      <DependentUpon>202312300514172_file.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+>>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

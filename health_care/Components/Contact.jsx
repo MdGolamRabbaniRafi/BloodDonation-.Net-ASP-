@@ -28,34 +28,34 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#f1f2f6] min-h-screen flex flex-col justify-center items-center">
-      <div className="w-full max-w-[1100px] p-8 bg-white rounded-md shadow-lg mt-5">
-        <h1 className="text-4xl font-extrabold mb-6 text-green-800">
+    <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
+      <div className="w-full max-w-[800px] p-8 bg-white rounded-md shadow-lg mt-5">
+        <h1 className="text-4xl font-extrabold mb-6 text-blue-700">
           Contact Us
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <p className="text-lg mb-4 text-gray-800">
+            <p className="text-lg mb-4 text-gray-700">
               Have questions or need assistance? Feel free to reach out to us
               using the contact form or the information below:
             </p>
-            <p className="text-lg text-gray-800">
+            <p className="text-lg text-gray-700">
               <strong>Email:</strong> info@bustracker.com
             </p>
-            <p className="text-lg text-gray-800">
+            <p className="text-lg text-gray-700">
               <strong>Phone:</strong> (123) 456-7890
             </p>
-            <p className="text-lg text-gray-800">
+            <p className="text-lg text-gray-700">
               <strong>Address:</strong> 123 Bus Lane, Cityville, State
             </p>
             <div className="mt-4">
-              <p className="text-lg mb-2 text-gray-800">
+              <p className="text-lg mb-2 text-gray-700">
                 Connect with us on social media:
               </p>
-              <div className="flex">
+              <div className="flex space-x-4">
                 <a
                   href="#"
-                  className="text-green-500 hover:text-green-700 mr-4"
+                  className="text-blue-500 hover:text-blue-700"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -63,7 +63,7 @@ const Contact = () => {
                 </a>
                 <a
                   href="#"
-                  className="text-green-500 hover:text-green-700"
+                  className="text-blue-500 hover:text-blue-700"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -77,7 +77,7 @@ const Contact = () => {
               <div className="mb-4">
                 <label
                   htmlFor="name"
-                  className="block text-lg font-semibold mb-2 text-gray-800"
+                  className="block text-lg font-semibold mb-2 text-gray-700"
                 >
                   Name:
                 </label>
@@ -87,14 +87,14 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                   required
                 />
               </div>
               <div className="mb-4">
                 <label
                   htmlFor="email"
-                  className="block text-lg font-semibold mb-2 text-gray-800"
+                  className="block text-lg font-semibold mb-2 text-gray-700"
                 >
                   Email:
                 </label>
@@ -104,14 +104,14 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                   required
                 />
               </div>
               <div className="mb-4">
                 <label
                   htmlFor="message"
-                  className="block text-lg font-semibold mb-2 text-gray-800"
+                  className="block text-lg font-semibold mb-2 text-gray-700"
                 >
                   Message:
                 </label>
@@ -120,21 +120,20 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-green-500 resize-none"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none"
                   rows="4"
                   required
                 />
               </div>
               <button
                 type="submit"
-                className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300"
+                className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300"
               >
                 Submit
               </button>
             </form>
           </div>
         </div>
-        
       </div>
     </div>
   );
