@@ -1,4 +1,5 @@
-﻿using BLL.DTOs;
+﻿using BLL.DTO;
+using BLL.DTOs;
 using BLL.Services;
 using BloodDonationAndHEalthCare.Auth;
 using System;
@@ -153,6 +154,82 @@ namespace BloodDonationAndHEalthCare.Controllers
                 else
                 {
                     return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = "Failed to create donation request" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+
+
+
+
+        [HttpGet]
+        [Route("api/User/ApprovedDonations")]
+        public HttpResponseMessage GetApprovedDonations()
+        {
+            try
+            {
+                var approvedDonations = DonationService.GetApprovedDonations();
+
+                if (approvedDonations.Count == 0)
+                {
+                    // No approved donations, return a message
+                    return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "No approved donations." });
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, approvedDonations);
+            }
+            catch (Exception)
+            {
+                // Log the exception for troubleshooting
+                // You may also want to notify the user about the error
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = "An error occurred while retrieving approved donations." });
+            }
+        }
+
+
+
+
+        [HttpPost]
+        [Route("api/User/MakePayment/{donationId}")]
+        public HttpResponseMessage MakePayment(int donationId, PaymentInfoDTO paymentInfo)
+        {
+            try
+            {
+                // Retrieve the approved donation details
+                var approvedDonation = DonationService.GetApprovedDonationById(donationId);
+
+                if (approvedDonation == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Donation request not found or not approved." });
+                }
+
+                // Check if the donation has not been paid
+                if (!approvedDonation.IsPaid)
+                {
+                    // Optional: Validate payment information here if needed
+
+                    // Process payment using the PaymentGateway
+                    bool paymentSuccess = PaymentGateway.ProcessPayment(paymentInfo, approvedDonation.Amount);
+
+                    if (paymentSuccess)
+                    {
+                        // Mark the donation as paid
+                        DonationService.MarkDonationAsPaid(approvedDonation.Id);
+
+                        return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Payment successful." });
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "Payment failed. Please check your payment information and try again." });
+                    }
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "Donation has already been paid." });
                 }
             }
             catch (Exception ex)

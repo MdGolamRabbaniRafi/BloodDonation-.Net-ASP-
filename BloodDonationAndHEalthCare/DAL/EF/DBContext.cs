@@ -15,11 +15,8 @@ namespace DAL
         public DbSet<User> Users { get; set; }
         public DbSet<Donation> Donations { get; set; }
         public DbSet<Token> Tokens { get; set; }
-<<<<<<< HEAD
-        
-       
-=======
+
         public DbSet<Post>Posts { get; set; }
->>>>>>> 28f43027efb55e916f52aedf5d7dd16365682d59
+
     }
 }
