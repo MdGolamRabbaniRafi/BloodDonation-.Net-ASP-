@@ -9,5 +9,8 @@ namespace DAL.Interface
     public interface IFile<Type, ID>
     {
         Type Create(Type obj);
+        Type ReadUserFile(ID id);
+        Type ReadAdminFile(ID id);
+
     }
 }

@@ -17,39 +17,24 @@ namespace DAL.Repos
             return null;
         }
 
-       /* public bool Delete(int id)
+        public File ReadAdminFile(int id)
         {
-            var ex = Read(id);
-            db.Posts.Remove(ex);
-            return db.SaveChanges() > 0;
+            var file = db.Files
+                         .Where(f => f.ID == id && f.UserType == "Admin")
+                         .FirstOrDefault();
+            if(file == null) return null;
+
+            return file;
         }
-
-        public List<Post> Read()
+        public File ReadUserFile(int id)
         {
-            return db.Posts.ToList();
+            var file = db.Files
+                         .Where(f => f.ID == id && f.UserType == "User")
+                         .FirstOrDefault();
+            if (file == null) return null;
+
+            return file;
         }
-
-        public Post Read(int id)
-        {
-            return db.Posts.Find(id);
-        }
-
-        public string Read(string Email)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Post Update(Post obj)
-        {
-            var ex = Read(obj.PostId);
-            db.Entry(ex).CurrentValues.SetValues(obj);
-            if (db.SaveChanges() > 0) return obj;
-            return null;
-        }*/
-
-
-
-
 
     }
 }
