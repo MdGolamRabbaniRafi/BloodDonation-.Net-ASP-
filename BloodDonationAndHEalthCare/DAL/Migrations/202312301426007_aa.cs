@@ -3,10 +3,21 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class okk : DbMigration
+    public partial class aa : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Files",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        FileName = c.String(),
+                        UserId = c.Int(nullable: false),
+                        UserType = c.String(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
             CreateTable(
                 "dbo.Posts",
                 c => new
@@ -78,6 +89,7 @@
             DropTable("dbo.UserAdmins");
             DropTable("dbo.Users");
             DropTable("dbo.Posts");
+            DropTable("dbo.Files");
         }
     }
 }

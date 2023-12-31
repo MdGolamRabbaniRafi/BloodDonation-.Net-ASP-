@@ -63,6 +63,14 @@ namespace BLL.Services
 
             return mapper2;
         }
+        public static List<PostDTO> GetAllPosts()
+        {
+            var data = MapperClass.MapperPost();
+            var allPosts = DataAccessFactory.PostData().Read();
+            var mappedPosts = data.Map<List<PostDTO>>(allPosts);
+
+            return mappedPosts;
+        }
         public static bool DeletePostService(int PostId)
         {
             var getPost = DataAccessFactory.PostData().Read(PostId);

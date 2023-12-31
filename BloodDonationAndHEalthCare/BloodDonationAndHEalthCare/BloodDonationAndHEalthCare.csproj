@@ -123,6 +123,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\FileUploaderController.cs" />
+    <Compile Include="Controllers\HelpPostController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">

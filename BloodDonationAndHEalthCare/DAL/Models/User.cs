@@ -27,11 +27,19 @@ namespace DAL.Models
         public virtual UserAdmin UserAdmin { get; set; } // Nullable UserAdmin
 
         public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<HelpPost> HelpPosts { get; set; }
 
         public User()
         {
             Posts = new List<Post>();
+            HelpPosts = new List<HelpPost>();
         }
+       
+
+        //public User()
+        //{
+        //    HelpPosts = new List<HelpPost>();
+        //}
 
     }
 }

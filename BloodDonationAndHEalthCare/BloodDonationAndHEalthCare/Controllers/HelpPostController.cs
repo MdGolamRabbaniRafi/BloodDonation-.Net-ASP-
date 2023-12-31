@@ -1,7 +1,5 @@
 ﻿using BLL.DTO;
-using BLL.DTOs;
 using BLL.Services;
-using BloodDonationAndHEalthCare.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +11,11 @@ using System.Web.Http.Cors;
 namespace BloodDonationAndHEalthCare.Controllers
 {
     [EnableCors("*", "*", "*")]
-    public class PostController : ApiController
+    public class HelpPostController : ApiController
     {
         [HttpPost]
-        [Route("api/post/add")]
-        public HttpResponseMessage AddPost(PostDTO post)
+        [Route("api/helppost/add")]
+        public HttpResponseMessage AddHelpPost(HelpPostDTO helppost)
         {
             try
             {
@@ -26,7 +24,7 @@ namespace BloodDonationAndHEalthCare.Controllers
                     return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
 
-                var data = PostService.AddPostService(post);
+                var data = HelpPostService.AddHelpPostService(helppost);
                 return Request.CreateResponse(HttpStatusCode.Created, data);
             }
             catch (Exception ex)
@@ -35,14 +33,14 @@ namespace BloodDonationAndHEalthCare.Controllers
             }
         }
 
-        
+
         [HttpGet]
-        [Route("api/post/{PostId}")]
-        public HttpResponseMessage GetPost(int PostId)
+        [Route("api/helppost/{HelpPostId}")]
+        public HttpResponseMessage GetHelpPost(int HelpPostId)
         {
             try
             {
-                var data = PostService.GetPost(PostId);
+                var data = HelpPostService.GetHelpPost(HelpPostId);
 
                 if (data != null)
                 {
@@ -59,16 +57,16 @@ namespace BloodDonationAndHEalthCare.Controllers
             }
         }
         [HttpGet]
-        [Route("api/post/GetAllPosts")]
-        public HttpResponseMessage GetAllPosts()
+        [Route("api/post/GetAllHelpPosts")]
+        public HttpResponseMessage GetAllHelpPosts()
         {
             try
             {
-                var allPosts = PostService.GetAllPosts();
+                var allHelpPosts = HelpPostService.GetAllHelpPosts();
 
-                if (allPosts != null && allPosts.Count > 0)
+                if (allHelpPosts != null && allHelpPosts.Count > 0)
                 {
-                    return Request.CreateResponse(HttpStatusCode.OK, allPosts);
+                    return Request.CreateResponse(HttpStatusCode.OK, allHelpPosts);
                 }
                 else
                 {
@@ -83,8 +81,8 @@ namespace BloodDonationAndHEalthCare.Controllers
 
 
         [HttpPost]
-        [Route("api/post/update/{PostId}")]
-        public HttpResponseMessage UpdatePost(int PostId, [FromBody] PostDTO post)
+        [Route("api/helppost/update/{HelpPostId}")]
+        public HttpResponseMessage UpdateHelpPost(int HelpPostId, [FromBody] HelpPostDTO helppost)
         {
             try
             {
@@ -93,11 +91,11 @@ namespace BloodDonationAndHEalthCare.Controllers
                     return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
 
-                var updatedPost = PostService.UpdatePostService(PostId, post);
+                var updatedHelpPost = HelpPostService.UpdateHelpPostService(HelpPostId, helppost);
 
-                if (updatedPost != null)
+                if (updatedHelpPost != null)
                 {
-                    return Request.CreateResponse(HttpStatusCode.Created, updatedPost);
+                    return Request.CreateResponse(HttpStatusCode.Created, updatedHelpPost);
                 }
                 else
                 {
@@ -111,16 +109,16 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
         [HttpDelete]
-        [Route("api/Post/delete/{PostId}")]
-        public HttpResponseMessage DeletePost(int PostId)
+        [Route("api/helpPost/delete/{HelpPostId}")]
+        public HttpResponseMessage DeleteHelpPost(int HelpPostId)
         {
             try
             {
-                var isSuccess = PostService.DeletePostService(PostId);
+                var isSuccess = HelpPostService.DeleteHelpPostService(HelpPostId);
 
                 if (isSuccess)
                 {
-                    return Request.CreateResponse(HttpStatusCode.OK, new { Message = "Post deleted successfully" });
+                    return Request.CreateResponse(HttpStatusCode.OK, new { Message = "Help Post deleted successfully" });
                 }
                 else
                 {
@@ -132,10 +130,5 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-
-
-
-
-
     }
 }

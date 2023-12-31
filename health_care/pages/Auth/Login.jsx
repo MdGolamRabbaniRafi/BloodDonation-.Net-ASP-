@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from 'next/router';
-// import { useAuth } from "./authcontext";
+import { useAuth } from "../AuthContext";
 
 
 const Login = () => {
-//   const { login } = useAuth(); 
+  const auth = useAuth();
+  console.log('Auth context:', auth);
+
+  const { login } = auth || {};
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [generalError, setGeneralError] = useState("");
@@ -77,9 +80,18 @@ const Login = () => {
         setPasswordError("");
       } else {
         console.log("Login success:", response);
-        console.log("cookies" + document.cookie);
-        // login(formData.email, document.cookie); // Pass the email to the login function
-        router.push('./User/UserDashboard');
+        console.log("cookies" + response.data.Tkey);
+        login(response.data.UserId,response.data.Tkey);
+        console.log("email" + response.data.UserId)
+        var checkuser= response.data.UserType;
+        console.log("Check User Type:"+ checkuser)
+        if(checkuser == "User"){
+          router.push('/User/UserDashboard');
+        }
+        else{
+          router.push('/Admin/AdminDashboard');
+        }
+       
       }
     } catch (error) {
       console.log("Error:", error);

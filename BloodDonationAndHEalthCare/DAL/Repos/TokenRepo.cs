@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class TokenRepo : Repo, IToken<Token, string, Token>
+    internal class TokenRepo : Repo, IToken<Token, string, Token,bool>
     {
         public Token Create(Token obj)
         {
@@ -25,7 +25,7 @@ namespace DAL.Repos
         }
         public bool Delete(string id)
         {
-            var ex = ReadByUserId(id);
+            var ex = Read(id);
             db.Tokens.Remove(ex);
             return db.SaveChanges() > 0;
         }

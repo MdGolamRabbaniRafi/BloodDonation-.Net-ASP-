@@ -130,12 +130,13 @@ namespace BLL.Services
 
         public static bool Logout(string tkey)
         {
-            var extk = DataAccessFactory.TokenData().Read(tkey);
-            extk.UpdateAt = DateTime.Now;
-            if (DataAccessFactory.TokenData().Update(extk) != null)
+            var deletedToken = DataAccessFactory.TokenData().Delete(tkey);
+
+            if (deletedToken)
             {
                 return true;
             }
+
             return false;
         }
     }

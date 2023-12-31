@@ -49,6 +49,7 @@
     <Compile Include="DTO\AgeValidator.cs" />
     <Compile Include="DTO\EmailDTO.cs" />
     <Compile Include="DTO\FileDTO.cs" />
+    <Compile Include="DTO\HelpPostDTO.cs" />
     <Compile Include="DTO\PostDTO.cs" />
     <Compile Include="DTO\TokenDTO.cs" />
     <Compile Include="DTO\UserAdminDTO.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\FileUploaderService.cs" />
+    <Compile Include="Services\HelpPostService.cs" />
     <Compile Include="Services\MapperClass.cs" />
     <Compile Include="Services\PasswordHasher.cs" />
     <Compile Include="Services\PostService.cs" />

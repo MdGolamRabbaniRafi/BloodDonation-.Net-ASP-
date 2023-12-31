@@ -57,27 +57,26 @@
     <Compile Include="Interface\IAuth.cs" />
     <Compile Include="Interface\IEmail.cs" />
     <Compile Include="Interface\IFile.cs" />
+    <Compile Include="Interface\IHelpPost.cs" />
     <Compile Include="Interface\IPost.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
-    <Compile Include="Migrations\202312292013183_okk.cs" />
-    <Compile Include="Migrations\202312292013183_okk.designer.cs">
-      <DependentUpon>202312292013183_okk.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312300514172_file.cs" />
-    <Compile Include="Migrations\202312300514172_file.designer.cs">
-      <DependentUpon>202312300514172_file.cs</DependentUpon>
+    <Compile Include="Migrations\202312301426007_aa.cs" />
+    <Compile Include="Migrations\202312301426007_aa.designer.cs">
+      <DependentUpon>202312301426007_aa.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\File.cs" />
+    <Compile Include="Models\HelpPost.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\FileRepo.cs" />
+    <Compile Include="Repos\HelpPostRepo.cs" />
     <Compile Include="Repos\PostRepo.cs" />
     <Compile Include="Repos\Repos.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
@@ -89,11 +88,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312292013183_okk.resx">
-      <DependentUpon>202312292013183_okk.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312300514172_file.resx">
-      <DependentUpon>202312300514172_file.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312301426007_aa.resx">
+      <DependentUpon>202312301426007_aa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

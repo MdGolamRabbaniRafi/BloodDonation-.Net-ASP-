@@ -50,6 +50,18 @@ namespace BLL.Services
             return mapper;
 
         }
+        public static IMapper MapperHelpPost()
+        {
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<HelpPostDTO, HelpPost>();
+                c.CreateMap<HelpPost, HelpPostDTO>();
+            });
+            var mapper = new Mapper(cfg);
+
+            return mapper;
+
+        }
         public static IMapper MapperFile()
         {
             var cfg = new MapperConfiguration(c =>

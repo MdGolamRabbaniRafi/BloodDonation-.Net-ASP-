@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { MdNotifications,MdDelete } from 'react-icons/md';
-
-
-
+import { useAuth } from '../AuthContext';
 
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -17,7 +15,9 @@ const UserNav = () => {
   const [allNotification, setAllNotification] = useState([]);
   const [error, setError] = useState('');
   const router = useRouter();
- 
+  const { user, login, logout, Tkey } = useAuth() || {};  // Access Tkey from useAuth
+
+
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isDropdown, setDropdown] = useState(false);
@@ -32,17 +32,23 @@ const UserNav = () => {
     setDropdown(!isDropdown);
   };
 
+  // console.log("token" +Tkey);
+  console.log("User" + user);
+  console.log("Token" + Tkey );
  
-//   useEffect(() => {
-//     // Check if the user is authenticated before fetching the profile
-//     if (user && login) {
-//     //   GetProfile();
-//     //   GetNotification();
-//     } else {
-//       // Redirect to login page or handle unauthenticated user
-//       router.push('/Auth/Login');
-//     }
-//   }, [user]);
+  
+  useEffect(() => {
+    // Check if the user is authenticated before fetching the profile
+    // if ( login) {
+    //   console.log("User is authenticated"+ user)
+    // //   GetProfile();
+    // //   GetNotification();
+    // // router.push('/User/Userdashboard');
+    // } else {
+    //   // Redirect to login page or handle unauthenticated user
+    //   router.push('/Auth/Login');
+    // }
+  }, []);
 
   const GetNotification = async () => {
     try {
@@ -89,20 +95,17 @@ const UserNav = () => {
     }
   };
 
-//   const handleEditClick = (profile) => {
+  const handleEditClick = (profile) => {
 
-//     router.push({
-//         pathname: '/Manager/EditProfile',
-//         query: {
-//           id: profile.id,
-//           firstName: profile.firstName,
-//           phoneNumber:profile.phoneNumber,
-//           profilePic:profile.profilePic,
+    router.push({
+        pathname: '/User/EditProfile',
+        query: {
+          File:profile.profilePic,
           
-//         },
-//       });
+        },
+      });
       
-//   };
+  };
 //   const handleDeleteClick = async (Serial) => {
 //     console.log(`Delete clicked for product with ID: ${Serial}`);
 //     try {
@@ -125,14 +128,16 @@ const UserNav = () => {
 //       // setError(`An error occurred while deleting the notification: ${error.message}`);
 //     }
 //   };
-  
+const handleLogout = () => {
+  logout(); // Call the logout function from useAuth
+};
   
 
   return (
     <div>
     <div className="grid grid-cols-12 gap-3 pr-8 pl-8 text-xl font-semibold">
       {/* Header */}
-      <header className="col-span-12 bg-gradient-to-r from-[#6F1E51] to-[#B53471] text-white p-4 flex justify-between items-center  shadow-md">
+      <header className="col-span-12 bg-gradient-to-r from-[#6F1E51] to-[#B53471] text-white p-2 flex justify-between items-center  shadow-md">
         
         <nav className="flex space-x-4 ">
   <Link href="/User/UserDashboard">
@@ -161,12 +166,12 @@ const UserNav = () => {
       Website
     </div>
   </Link>
-  <Link href="/Auth/Login">
-    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer ml-96">
+  <span>
+    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer ml-96" onClick={handleLogout}>
     
       Logout
     </div>
-  </Link>
+  </span>
   
   <div className="notification-container relative">
   <div className="hover:text-yellow-300 transition duration-300 cursor-pointer" onClick={toggleDropdown}>
@@ -203,7 +208,7 @@ const UserNav = () => {
  
 </nav>
 <div className="flex items-center cursor-pointer" >
-          <span className="ml-2 text-lg font-semibold mr-3 "onClick={toggleProfile} >{profile.firstName}</span>
+          <span className="ml-2 text-lg font-semibold mr-3 "onClick={toggleProfile} >{user}</span>
          
           <img
             src={`http://localhost:7000/manager/getimage/${profile.profilePic}`}

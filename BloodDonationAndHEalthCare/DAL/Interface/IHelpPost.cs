@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace DAL.Interface
 {
-    public interface IToken<Type, ID, RET,A>
+    public interface IHelpPost<Type, ID, RET>
     {
         RET Create(Type obj);
         List<RET> Read();
         Type Read(ID id);
-        Type ReadByUserId(ID id);
-
         RET Update(Type obj);
-        A Delete(ID id);
-        ID SearchUserIdByToken(ID token);
-        Type Search(ID Email);
+        bool Delete(ID obj);
+        string Read(string Email);
     }
 }

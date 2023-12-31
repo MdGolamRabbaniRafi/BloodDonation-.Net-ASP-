@@ -31,6 +31,30 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound, new { Message = ex.Message });
             }
         }
+
+        [HttpPost]
+        [Route("api/logout")]
+        public HttpResponseMessage Logout()
+        {
+            try
+            {
+                string tokenKey = Request.Headers.GetValues("Authorization").FirstOrDefault();
+
+                if (!string.IsNullOrEmpty(tokenKey))
+                {
+                    if (AuthService.Logout(tokenKey))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, new { Message = "Logout successful" });
+                    }
+                }
+
+                return Request.CreateResponse(HttpStatusCode.NotFound, new { Message = "Invalid or missing token" });
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Message = ex.Message });
+            }
+        }
     }
 
 }
