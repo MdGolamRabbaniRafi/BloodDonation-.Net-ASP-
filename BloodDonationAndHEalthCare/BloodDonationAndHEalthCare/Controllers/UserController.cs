@@ -120,7 +120,7 @@ namespace BloodDonationAndHEalthCare.Controllers
             try
             {
 
-                var data = AuthService.Authenticate(user.Email, user.Password);
+                var data = UserService.Authenticate(user.Email, user.Password);
                 return Request.CreateResponse(HttpStatusCode.Created, data);
 
             }
@@ -129,7 +129,6 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-
         [HttpPost]
         [Route("api/User/Donate")]
         public HttpResponseMessage Donate(DonationDTO donationDTO)
@@ -231,6 +230,28 @@ namespace BloodDonationAndHEalthCare.Controllers
                 else
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "Donation has already been paid." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+        [HttpPost]
+        [Route("api/User/JoinBloodDonationCampaign/{userId}/{campaignId}")]
+        public HttpResponseMessage JoinBloodDonationCampaign(int userId, int campaignId)
+        {
+            try
+            {
+                bool isJoined = UserService.JoinBloodDonationCampaign(userId, campaignId);
+
+                if (isJoined)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "User joined the blood donation campaign successfully." });
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "User could not join the blood donation campaign." });
                 }
             }
             catch (Exception ex)

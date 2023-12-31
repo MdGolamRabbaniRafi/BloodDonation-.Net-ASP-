@@ -111,13 +111,13 @@ namespace BLL.Services
 
 
 
-        /*       public static bool Authenticate(string email, string pass)
+               public static bool Authenticate(string email, string pass)
                {
                    string hashedPassword = PasswordHasher.HashPassword(pass);
 
                    var data = DataAccessFactory.AuthData().Authenticate(email, hashedPassword);
                    return data;
-               }*/
+               }
 
     }
 }
