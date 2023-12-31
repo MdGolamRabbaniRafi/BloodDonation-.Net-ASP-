@@ -78,3 +78,5 @@ D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthC
 D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthCare\DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthCare\DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.help.resources
+D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
