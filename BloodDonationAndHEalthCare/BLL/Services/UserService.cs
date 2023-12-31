@@ -80,17 +80,44 @@ namespace BLL.Services
                 return false;
             }
         }
-
-
-
-
-
- /*       public static bool Authenticate(string email, string pass)
+        public static bool JoinBloodDonationCampaign(int userId, int campaignId)
         {
-            string hashedPassword = PasswordHasher.HashPassword(pass);
+            var user = DataAccessFactory.UserData().Read(userId);
+            var campaign = DataAccessFactory.BloodDonationCampaignData().Read(campaignId);
 
-            var data = DataAccessFactory.AuthData().Authenticate(email, hashedPassword);
-            return data;
-        }*/
+            if (user != null && campaign != null)
+            {
+                // Check if the user is already joined
+                if (!user.JoinedCampaigns.Any(c => c.ID == campaignId))
+                {
+                    // If not joined, add the campaign to the user's joined campaigns
+                    user.JoinedCampaigns.Add(campaign);
+
+                    // Increment the total members joined in the campaign
+                    campaign.TotalMembersJoined++;
+
+                    // Update the user and campaign in the database
+                    DataAccessFactory.UserData().Update(user);
+                    DataAccessFactory.BloodDonationCampaignData().Update(campaign);
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+
+
+
+        /*       public static bool Authenticate(string email, string pass)
+               {
+                   string hashedPassword = PasswordHasher.HashPassword(pass);
+
+                   var data = DataAccessFactory.AuthData().Authenticate(email, hashedPassword);
+                   return data;
+               }*/
+
     }
 }

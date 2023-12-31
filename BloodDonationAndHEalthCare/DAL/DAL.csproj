@@ -76,49 +76,31 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
-<<<<<<< HEAD
+    <Compile Include="Interface\IBloodDonationCampaign.cs" />
     <Compile Include="Interface\IDonation.cs" />
+    <Compile Include="Interface\IPost.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
+    <Compile Include="Models\BloodDonationCampaign.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\Payment.cs" />
-    <Compile Include="Interface\IPost.cs" />
     <Compile Include="Models\PaymentInfo.cs" />
-=======
     <Compile Include="Interface\IEmail.cs" />
     <Compile Include="Interface\IFile.cs" />
     <Compile Include="Interface\IHelpPost.cs" />
-    <Compile Include="Interface\IPost.cs" />
-    <Compile Include="Interface\IRepo.cs" />
-    <Compile Include="Interface\IToken.cs" />
-    <Compile Include="Interface\IUser.cs" />
-    <Compile Include="Migrations\202312301426007_aa.cs" />
-    <Compile Include="Migrations\202312301426007_aa.designer.cs">
-      <DependentUpon>202312301426007_aa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\File.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\HelpPost.cs" />
-=======
->>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
->>>>>>> e69771a790e946bf84321f295a58a4869f4ee2e0
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
+    <Compile Include="Repos\BloodDonationCampaignRepo.cs" />
     <Compile Include="Repos\DonationRepo.cs" />
-=======
     <Compile Include="Repos\FileRepo.cs" />
-<<<<<<< HEAD
     <Compile Include="Repos\HelpPostRepo.cs" />
-=======
->>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
->>>>>>> e69771a790e946bf84321f295a58a4869f4ee2e0
     <Compile Include="Repos\PostRepo.cs" />
     <Compile Include="Repos\Repos.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
@@ -129,14 +111,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-<<<<<<< HEAD
-=======
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312301426007_aa.resx">
-      <DependentUpon>202312301426007_aa.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
->>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

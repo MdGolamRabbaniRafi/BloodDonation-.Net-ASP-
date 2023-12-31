@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interface
 {
-    public interface IToken<Type, ID, RET,A>
+    public interface IToken<Type, ID, RET, A>
     {
         RET Create(Type obj);
         List<RET> Read();

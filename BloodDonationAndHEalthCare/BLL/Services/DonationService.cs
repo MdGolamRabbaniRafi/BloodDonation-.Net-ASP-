@@ -3,6 +3,7 @@ using BLL.DTO;
 using BLL.DTOs;
 using DAL;
 using DAL.Models;
+using Stripe.Terminal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
