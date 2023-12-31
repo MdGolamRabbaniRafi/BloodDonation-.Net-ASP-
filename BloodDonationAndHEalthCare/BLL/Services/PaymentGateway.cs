@@ -8,41 +8,39 @@ namespace BLL.Services
     {
         static PaymentGateway()
         {
-            // Configure your Stripe API key
-            StripeConfiguration.ApiKey = "your_stripe_api_key";
+          
+            StripeConfiguration.ApiKey = "sk_test_51OSim2BmCAbE1nO4GDDSfnbjEu7mtRtfHMTp5Hafs9pRR93OxFSJIqViz4Lr05AxZJs5t6ec7OrwJ0fhIdLdu1LG00Pb5JWy5N";
         }
 
         public static bool ProcessPayment(PaymentInfoDTO paymentInfo, decimal amount)
         {
             try
             {
-                // This is a simplified example assuming you use Stripe
+              
                 var options = new PaymentIntentCreateOptions
                 {
-                    Amount = (long)(amount * 100), // Convert amount to cents
+                    Amount = (long)(amount * 100), 
                     Currency = "usd",
-                    PaymentMethod = paymentInfo.CardNumber, // Use the card number as a placeholder
+                    PaymentMethod = paymentInfo.CardNumber, 
                     Confirm = true,
                 };
 
                 var service = new PaymentIntentService();
                 var paymentIntent = service.Create(options);
 
-                // Check the payment status
+             
                 if (paymentIntent.Status == "succeeded")
                 {
-                    // Payment is successful
                     return true;
                 }
                 else
                 {
-                    // Payment failed
+                    
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it accordingly
                 Console.WriteLine($"Payment processing error: {ex.Message}");
                 return false;
             }

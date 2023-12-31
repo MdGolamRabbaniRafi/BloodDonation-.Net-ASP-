@@ -9,6 +9,8 @@ namespace BLL.DTO
 {
     public class PaymentInfoDTO
     {
+        [Key]
+        public int Id { get; set; }
         [Required(ErrorMessage = "Card number is required.")]
         [CreditCard(ErrorMessage = "Invalid credit card number.")]
         public string CardNumber { get; set; }

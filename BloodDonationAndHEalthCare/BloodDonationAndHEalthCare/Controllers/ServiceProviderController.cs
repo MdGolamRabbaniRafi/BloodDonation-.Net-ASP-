@@ -1,6 +1,7 @@
 ﻿using BLL.DTO;
 using BLL.Services;
 using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -19,7 +20,7 @@ namespace BloodDonationAndHEalthCare.Controllers
 
                 if (pendingDonationRequests.Count == 0)
                 {
-                    // No pending requests, return a message
+              
                     return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "No pending donation requests." });
                 }
 
@@ -89,7 +90,7 @@ namespace BloodDonationAndHEalthCare.Controllers
 
                 if (bloodDonationCampaigns.Count == 0)
                 {
-                    // No blood donation campaigns, return a message
+               
                     return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "No blood donation campaigns available." });
                 }
 
@@ -165,6 +166,29 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
+        [HttpGet]
+        [Route("api/ServiceProvider/GetUsersJoinedCampaign/{campaignId}")]
+        public HttpResponseMessage GetUsersJoinedCampaign(int campaignId)
+        {
+            try
+            {
+                var joinedUsers = BloodDonationCampaignService.GetUsersJoinedCampaign(campaignId);
+
+                if (joinedUsers != null && joinedUsers.Any())
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, joinedUsers);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "No users joined the campaign or campaign not found." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
 
     }
 }

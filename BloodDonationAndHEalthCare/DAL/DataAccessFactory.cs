@@ -62,5 +62,9 @@ namespace DAL
         {
             return new BloodDonationCampaignRepo();
         }
+        public static IProvideHelp ProvideHelpData() 
+        { 
+            return new ProvideHelpRepo();
+        }
     }
 }

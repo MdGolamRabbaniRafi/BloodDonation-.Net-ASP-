@@ -79,6 +79,7 @@
     <Compile Include="Interface\IBloodDonationCampaign.cs" />
     <Compile Include="Interface\IDonation.cs" />
     <Compile Include="Interface\IPost.cs" />
+    <Compile Include="Interface\IProvideHelp.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\HelpPost.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\ProvideHelp.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Repos\FileRepo.cs" />
     <Compile Include="Repos\HelpPostRepo.cs" />
     <Compile Include="Repos\PostRepo.cs" />
+    <Compile Include="Repos\ProvideHelpRepo.cs" />
     <Compile Include="Repos\Repos.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
     <Compile Include="Repos\UserAdminRepo.cs" />

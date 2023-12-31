@@ -76,7 +76,7 @@ namespace BLL.Services
             }
             else
             {
-                // User not found, handle accordingly (e.g., throw exception or return false)
+           
                 return false;
             }
         }
@@ -87,16 +87,15 @@ namespace BLL.Services
 
             if (user != null && campaign != null)
             {
-                // Check if the user is already joined
                 if (!user.JoinedCampaigns.Any(c => c.ID == campaignId))
                 {
-                    // If not joined, add the campaign to the user's joined campaigns
+                   
                     user.JoinedCampaigns.Add(campaign);
 
-                    // Increment the total members joined in the campaign
+                   
                     campaign.TotalMembersJoined++;
 
-                    // Update the user and campaign in the database
+                    
                     DataAccessFactory.UserData().Update(user);
                     DataAccessFactory.BloodDonationCampaignData().Update(campaign);
 

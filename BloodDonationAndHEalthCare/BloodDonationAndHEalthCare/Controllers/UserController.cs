@@ -144,10 +144,9 @@ namespace BloodDonationAndHEalthCare.Controllers
 
                 if (createdDonation != null)
                 {
-                    // Optional: Notify the user about the successful donation request
-                    // You can use email, push notifications, etc., for this purpose.
+                   
                     var notificationMessage = $"Donation request created successfully with ID: {createdDonation.Id}";
-                    // SendNotificationToUser(user.Email, notificationMessage);
+                   
 
                     return Request.CreateResponse(HttpStatusCode.Created, createdDonation);
                 }
@@ -167,7 +166,7 @@ namespace BloodDonationAndHEalthCare.Controllers
 
 
         [HttpGet]
-        [Route("api/User/ApprovedDonations")]
+        [Route("api/User/ApprovedDonations/{userId}")]
         public HttpResponseMessage GetApprovedDonations()
         {
             try
@@ -176,7 +175,6 @@ namespace BloodDonationAndHEalthCare.Controllers
 
                 if (approvedDonations.Count == 0)
                 {
-                    // No approved donations, return a message
                     return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "No approved donations." });
                 }
 
@@ -184,8 +182,7 @@ namespace BloodDonationAndHEalthCare.Controllers
             }
             catch (Exception)
             {
-                // Log the exception for troubleshooting
-                // You may also want to notify the user about the error
+               
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = "An error occurred while retrieving approved donations." });
             }
         }
@@ -199,7 +196,7 @@ namespace BloodDonationAndHEalthCare.Controllers
         {
             try
             {
-                // Retrieve the approved donation details
+              
                 var approvedDonation = DonationService.GetApprovedDonationById(donationId);
 
                 if (approvedDonation == null)
@@ -207,17 +204,13 @@ namespace BloodDonationAndHEalthCare.Controllers
                     return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Donation request not found or not approved." });
                 }
 
-                // Check if the donation has not been paid
+               
                 if (!approvedDonation.IsPaid)
                 {
-                    // Optional: Validate payment information here if needed
-
-                    // Process payment using the PaymentGateway
                     bool paymentSuccess = PaymentGateway.ProcessPayment(paymentInfo, approvedDonation.Amount);
 
                     if (paymentSuccess)
                     {
-                        // Mark the donation as paid
                         DonationService.MarkDonationAsPaid(approvedDonation.Id);
 
                         return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Payment successful." });

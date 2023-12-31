@@ -84,5 +84,16 @@ namespace BLL.Services
 
             return mapper;
         }
+        public static IMapper MapperProvideHelp()
+        {
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<ProvideHelp, ProvideHelpDTO>();
+                c.CreateMap<ProvideHelp, ProvideHelpDTO>();
+            });
+            var mapper = new Mapper(cfg);
+
+            return mapper;
+        }
     }
 }

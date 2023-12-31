@@ -19,6 +19,8 @@ namespace DAL
         public DbSet<File> Files { get; set; }
         public DbSet<Donation> Donations { get; set; }
         public DbSet<BloodDonationCampaign> BloodDonationsCampaigns { get; set; }
+        public DbSet<PaymentInfo> PaymentInfos { get; set; }
+        public DbSet<ProvideHelp> ProvideHelps { get; set; }
 
 
     }

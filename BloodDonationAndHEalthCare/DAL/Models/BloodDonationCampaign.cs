@@ -17,5 +17,6 @@ namespace DAL.Models
         public string Description { get; set; }
         public int TotalMembersJoined { get; set; }
         public virtual ICollection<User> JoinedUsers { get; set; }
+        public ICollection<User> JoinedCampaigns { get; set; }
     }
 }

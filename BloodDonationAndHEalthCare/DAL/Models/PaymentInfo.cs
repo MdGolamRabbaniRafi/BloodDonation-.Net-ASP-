@@ -8,6 +8,7 @@ namespace DAL.Models
 {
     public class PaymentInfo
     {
+        public int Id { get; set; }
         public string CardNumber { get; set; }
         public string CardHolderName { get; set; }
         public string ExpiryMonth { get; set; }

@@ -76,6 +76,7 @@
     <Compile Include="DTO\EmailDTO.cs" />
     <Compile Include="DTO\HelpPostDTO.cs" />
     <Compile Include="DTO\PostDTO.cs" />
+    <Compile Include="DTO\ProvideHelpDTO.cs" />
     <Compile Include="DTO\TokenDTO.cs" />
     <Compile Include="DTO\UserAdminDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Services\PasswordHasher.cs" />
     <Compile Include="Services\PaymentGateway.cs" />
     <Compile Include="Services\PostService.cs" />
+    <Compile Include="Services\ProvideHelpService.cs" />
     <Compile Include="Services\UserAdminService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>

@@ -39,7 +39,7 @@ namespace BLL.Services
                 existingCampaign.Description = campaign.Description;
                 existingCampaign.StartDate = campaign.StartDate;
                 existingCampaign.EndDate = campaign.EndDate;
-                // Add more properties as needed
+              
 
                 var updatedCampaign = DataAccessFactory.BloodDonationCampaignData().Update(existingCampaign);
                 var data2 = MapperClass.MappedBloodDonationCampaign();
@@ -65,7 +65,7 @@ namespace BLL.Services
             }
             else
             {
-                // Campaign not found, handle accordingly (e.g., throw exception or return false)
+                
                 return false;
             }
         }
@@ -84,16 +84,16 @@ namespace BLL.Services
 
             if (user != null && campaign != null)
             {
-                // Check if the user is already joined
+              
                 if (!user.JoinedCampaigns.Any(c => c.ID == campaignId))
                 {
-                    // If not joined, add the campaign to the user's joined campaigns
+                    
                     user.JoinedCampaigns.Add(campaign);
 
-                    // Increment the total members joined count
+                    
                     campaign.TotalMembersJoined++;
 
-                    // Update both user and campaign in the database
+                    
                     DataAccessFactory.UserData().Update(user);
                     DataAccessFactory.BloodDonationCampaignData().Update(campaign);
 
@@ -102,6 +102,29 @@ namespace BLL.Services
             }
 
             return false;
+        }
+        public static List<UserDTO> GetUsersJoinedCampaign(int campaignId)
+        {
+            var campaign = DataAccessFactory.BloodDonationCampaignData().Read(campaignId);
+
+            if (campaign != null)
+            {
+               
+                var joinedUsers = campaign.JoinedCampaigns.Select(u => new UserDTO
+                {
+                    UserId = u.UserId,
+                    FirstName = u.FirstName,
+                    Email = u.Email,
+                    DateOfBirth = u.DateOfBirth,
+                    
+                }).ToList();
+
+                return joinedUsers;
+            }
+            else
+            {
+                return null; 
+            }
         }
 
 
