@@ -20,7 +20,7 @@ namespace DAL.Repos
         public File ReadAdminFile(int id)
         {
             var file = db.Files
-                         .Where(f => f.ID == id && f.UserType == "Admin")
+                         .Where(f => f.UserId == id && f.UserType == "Admin")
                          .FirstOrDefault();
             if(file == null) return null;
 
@@ -29,7 +29,7 @@ namespace DAL.Repos
         public File ReadUserFile(int id)
         {
             var file = db.Files
-                         .Where(f => f.ID == id && f.UserType == "User")
+                         .Where(f => f.UserId == id && f.UserType == "User")
                          .FirstOrDefault();
             if (file == null) return null;
 

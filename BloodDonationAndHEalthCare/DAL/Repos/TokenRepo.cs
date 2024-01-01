@@ -63,7 +63,8 @@ namespace DAL.Repos
             var token = ReadByUserId(obj.UserId);
             db.Entry(token).CurrentValues.SetValues(obj);
             if (db.SaveChanges() > 0)
-            { return token;
+            { 
+                return token;
             }
             else
             {
