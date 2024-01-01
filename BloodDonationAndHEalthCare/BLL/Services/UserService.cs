@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL.DTO;
 
 namespace BLL.Services
 {
@@ -64,6 +65,18 @@ namespace BLL.Services
             return mapper2;
         }
 
+        public static List<UserDTO> GetAllUser()
+        {
+            var data = MapperClass.MappedUser();
+            var getusers = DataAccessFactory.UserData().Read();
+            
+            var mapper2 = data.Map<List<UserDTO>>(getusers);
+
+            return mapper2;
+        }
+
+        
+
         public static bool DeleteUserService(int userId)
         {
             var getUser = DataAccessFactory.UserData().Read(userId);
@@ -85,12 +98,12 @@ namespace BLL.Services
 
 
 
-        public static bool Authenticate(string email, string pass)
+ /*       public static bool Authenticate(string email, string pass)
         {
             string hashedPassword = PasswordHasher.HashPassword(pass);
 
             var data = DataAccessFactory.AuthData().Authenticate(email, hashedPassword);
             return data;
-        }
+        }*/
     }
 }

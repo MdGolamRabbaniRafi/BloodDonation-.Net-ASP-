@@ -1,74 +1,66 @@
-﻿using System;
-using System.IO; // Include this for Directory operations
-<<<<<<< HEAD
-<<<<<<< HEAD
-using System.Net.Http;
-using System.Net;
-using System.Web;
-using System.Web.Http;
+
 using BLL.DTO;
+
+using BLL.Services;
+using BloodDonationAndHEalthCare.Auth;
+using System;
+using System.IO;
+using System.Net;
+using System.Net.Http;
 using System.Net.Http.Headers;
-=======
 using System.Web;
 using System.Web.Http;
->>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
-=======
-using System.Web;
-using System.Web.Http;
->>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
+using System.Web.Http.Cors;
 
 namespace BloodDonationAndHEalthCare.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class FileUploaderController : ApiController
     {
         [HttpPost]
+        [Logged]
         [Route("api/UploadFile")]
         public IHttpActionResult UploadFile()
         {
             try
             {
+                var token = ActionContext.Request.Headers.Authorization;
                 var httpRequest = HttpContext.Current.Request;
+                FileDTO fileDTO = new FileDTO();
+                int count = 0;
                 if (httpRequest.Files.Count > 0)
                 {
-<<<<<<< HEAD
-<<<<<<< HEAD
                     var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
 
                     if (!Directory.Exists(uploadPath))
                     {
-=======
-=======
->>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
-                    // Define the path to the Uploads directory
-                    var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
-
-                    // Check if the Uploads directory exists
-                    if (!Directory.Exists(uploadPath))
-                    {
-                        // If it doesn't exist, create the directory
-<<<<<<< HEAD
->>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
-=======
->>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
                         Directory.CreateDirectory(uploadPath);
                     }
 
                     foreach (string file in httpRequest.Files)
                     {
                         var postedFile = httpRequest.Files[file];
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                        // Save the file to the Uploads directory instead of the root directory
->>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
-=======
-                        // Save the file to the Uploads directory instead of the root directory
->>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
                         var filePath = Path.Combine(uploadPath, postedFile.FileName);
+                        fileDTO.FileName=postedFile.FileName;
+                        var fileService = FileUploaderService.UploadFile(fileDTO, token.ToString());
+                        if(fileService)
+                        {
+                            count++;
+                        }
                         postedFile.SaveAs(filePath);
+
                     }
-                    return Ok("File uploaded successfully");
+                    if (count > 0)
+                    {
+                        return Ok("File uploaded successfully");
+                    }
+                    else
+                    {
+                        return InternalServerError();
+                    }
+
                 }
+
                 else
                 {
                     return BadRequest("No file received");
@@ -79,32 +71,33 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return InternalServerError(ex);
             }
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         [HttpGet]
+        [Logged]
         [Route("api/GetFile")]
-        public IHttpActionResult GetFile(FileDTO fileName)
+        public IHttpActionResult GetFile()
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(fileName.FileName))
+                var token = ActionContext.Request.Headers.Authorization;
+                var fileName = FileUploaderService.GetFile(token.ToString());
+                if (string.IsNullOrWhiteSpace(fileName))
                 {
                     return BadRequest("File name is required.");
                 }
 
                 var uploadPath = HttpContext.Current.Server.MapPath("~/Uploads");
-
-                var filePath = Path.Combine(uploadPath, fileName.FileName);
+                var filePath = Path.Combine(uploadPath, fileName);
 
                 if (File.Exists(filePath))
                 {
-                    string fileContent = File.ReadAllText(filePath);
+                    byte[] fileBytes = File.ReadAllBytes(filePath);
 
                     HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent(fileContent);
+                    response.Content = new ByteArrayContent(fileBytes);
 
                     // Determine content type based on known file extension
-                    var fileExtension = Path.GetExtension(fileName.FileName);
+                    var fileExtension = Path.GetExtension(fileName);
                     if (!string.IsNullOrEmpty(fileExtension))
                     {
                         response.Content.Headers.ContentType = new MediaTypeHeaderValue(GetContentTypeFromExtension(fileExtension));
@@ -123,38 +116,22 @@ namespace BloodDonationAndHEalthCare.Controllers
             }
         }
 
-        // Helper method to determine content type based on file extension
         private string GetContentTypeFromExtension(string fileExtension)
         {
-            if (fileExtension.Equals(".txt", StringComparison.OrdinalIgnoreCase))
+            switch (fileExtension.ToLower())
             {
-                return "text/plain";
-            }
-            else if (fileExtension.Equals(".html", StringComparison.OrdinalIgnoreCase))
-            {
-                return "text/html";
-            }
-            else if (fileExtension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) || fileExtension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase))
-            {
-                return "image/jpeg";
-            }
-            else if (fileExtension.Equals(".png", StringComparison.OrdinalIgnoreCase))
-            {
-                return "image/png";
-            }
-            else
-            {
-                return "application/octet-stream"; // Default for unknown extensions
+                case ".txt":
+                    return "text/plain";
+                case ".html":
+                    return "text/html";
+                case ".jpg":
+                case ".jpeg":
+                    return "image/jpeg";
+                case ".png":
+                    return "image/png";
+                default:
+                    return "application/octet-stream";
             }
         }
-
-
-
-
-
-=======
->>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
-=======
->>>>>>> f68fa78b447a2aba85e0cb2cc0c781749196ae73
     }
 }

@@ -14,5 +14,15 @@ namespace DAL
         public DbSet<UserAdmin> UserAdmins { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Token> Tokens { get; set; }
+
+        public DbSet<Post>Posts { get; set; }
+
+       
+        public DbSet<HelpPost> HelpPosts { get; set; }
+        public DbSet<File> Files { get; set; }
+        public DbSet<Donation> Donations { get; set; }
+
+
+
     }
 }

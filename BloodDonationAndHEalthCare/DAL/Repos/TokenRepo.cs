@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class TokenRepo : Repo, IToken<Token, string, Token>
+    internal class TokenRepo : Repo, IToken<Token, string, Token,bool>
     {
         public Token Create(Token obj)
         {
@@ -17,10 +17,17 @@ namespace DAL.Repos
             if (db.SaveChanges() > 0) return obj;
             return null;
         }
-
+        public string SearchUserIdByToken(string token)
+        {
+            var Token = Read(token);
+            return Token.UserId.ToString();
+ 
+        }
         public bool Delete(string id)
         {
-            throw new NotImplementedException();
+            var ex = Read(id);
+            db.Tokens.Remove(ex);
+            return db.SaveChanges() > 0;
         }
 
         public List<Token> Read()
@@ -28,17 +35,43 @@ namespace DAL.Repos
             throw new NotImplementedException();
         }
 
+        public Token ReadByUserId(string id)
+        {
+            return db.Tokens.FirstOrDefault(t => t.UserId.Equals(id));
+        }
         public Token Read(string id)
         {
             return db.Tokens.FirstOrDefault(t => t.Tkey.Equals(id));
         }
+        public Token Search(string Email)
+        {
+            if (string.IsNullOrEmpty(Email))
+            {
+                return null; // or handle the invalid input accordingly
+            }
+
+            var p = db.Tokens.FirstOrDefault(t => t.UserId.Equals(Email));
+            if (p == null)
+            {
+                return null;
+            }
+
+            return p;
+        }
+
 
         public Token Update(Token obj)
         {
-            var token = Read(obj.Tkey);
+            var token = ReadByUserId(obj.UserId);
             db.Entry(token).CurrentValues.SetValues(obj);
-            if (db.SaveChanges() > 0) return token;
-            return null;
+            if (db.SaveChanges() > 0)
+            { 
+                return token;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

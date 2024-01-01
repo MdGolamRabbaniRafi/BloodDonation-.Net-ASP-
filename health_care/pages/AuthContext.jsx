@@ -1,62 +1,72 @@
+// AuthContext.js
 import { createContext, useContext, useState, useEffect } from 'react';
-import Cookies from 'universal-cookie';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import cookies from 'js-cookie';
 
 const AuthContext = createContext();
 
+// AuthContext.js
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const cookies = new Cookies();
+  const [Tkey, setTkey] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
-    const storedUser = cookies.get('user');
-    if (storedUser) {
-      setUser(storedUser);
-    }
-  }, []);
+    console.log('User:', user);
+    console.log('Tkey:', Tkey);
+    // rest of your code
+  }, [user, Tkey]);
 
-  const login = (email, cookie) => {
-    sessionStorage.setItem('email', email);
-    const userObject = { email, cookie };
-    setUser(userObject);
-
-    // Store user information in cookies with a 10-minute expiration
-    cookies.set('user', userObject, { expires: new Date(Date.now() + 10 * 60 * 1000) });
-    console.log("login" + email);
+  const login = (email,Tkey) => {
+    sessionStorage.setItem('Tkey', Tkey); 
+    setUser( email );
+    console.log('email:', email);
+    setTkey(Tkey);
+    console.log('Token ' + Tkey);
   };
 
   const logout = () => {
-    // Remove the user information from cookies on logout
-    cookies.remove('user');
-    doSignOut();
+    
+    doSignOut(); // Pass Tkey to the doSignOut function
   };
 
   async function doSignOut() {
     try {
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_API_ENDPOINT + '/admin/signout/',
+        'https://localhost:44307/api/logout',
         {},
         {
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `${Tkey}`, // Include Tkey in the headers
+          },
           withCredentials: true,
         }
       );
-      console.log(response);
-      setUser(null);
-      document.cookie = null;
-      router.push('/loginform');
+      
+      
+      router.push('/Auth/Login');
     } catch (error) {
       console.error('Error during signout: ', error);
     }
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user,login, logout, Tkey }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+
+
+export const useAuth = () => {
+  const auth = useContext(AuthContext);
+
+  if (!auth) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+
+  return auth;
+};
