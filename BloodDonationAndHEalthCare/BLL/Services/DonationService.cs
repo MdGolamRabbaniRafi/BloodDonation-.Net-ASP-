@@ -4,6 +4,7 @@ using BLL.DTOs;
 using DAL;
 using DAL.Interface;
 using DAL.Models;
+using Stripe.Terminal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,119 @@ namespace BLL.Services
             {
                 donation.IsApproved = true;
                 donation.ApprovedAt = DateTime.UtcNow;
+<<<<<<< HEAD
+=======
+
+                var updatedDonation = DataAccessFactory.DonationData().Update(donation);
+
+                return updatedDonation != null;
+            }
+
+            return false;
+        }
+
+        public static bool ApproveAndProcessDonation(int donationId, PaymentInfoDTO paymentInfo)
+        {
+            var donation = DataAccessFactory.DonationData().Read(donationId);
+
+            if (donation != null && !donation.IsApproved && !donation.IsPaid)
+            {
+               
+                donation.IsApproved = true;
+                donation.ApprovedAt = DateTime.UtcNow;
+
+              
+                var updatedDonation = DataAccessFactory.DonationData().Update(donation);
+
+                if (updatedDonation != null)
+                {
+                   
+                    bool paymentResult = PaymentGateway.ProcessPayment(paymentInfo, updatedDonation.Amount);
+
+                    if (paymentResult)
+                    {
+                    
+                        updatedDonation.IsPaid = true;
+                        DataAccessFactory.DonationData().Update(updatedDonation);
+
+                        return true;
+                    }
+                    
+                }
+            }
+
+            return false;
+        }
+
+        public static List<DonationDTO> GetApprovedDonations()
+        {
+            var donationEntities = DataAccessFactory.DonationData().Read().Where(d => d.IsApproved && !d.IsPaid).AsQueryable();
+            var mappedDonationDTOs = MapperClass.MappedDonation().ProjectTo<DonationDTO>(donationEntities).ToList();
+
+            return mappedDonationDTOs;
+        }
+        public static bool ProcessDonationPayment(DonationDTO donation, PaymentInfoDTO paymentInfo)
+        {
+            if (donation.Amount <= 0)
+            {
+            
+                return false;
+            }
+
+            try
+            {
+                
+                bool paymentSuccess = PaymentGateway.ProcessPayment(paymentInfo, donation.Amount);
+
+                if (paymentSuccess)
+                {
+                    donation.IsPaid = true;
+                    donation.ApprovedAt = DateTime.UtcNow;
+
+                   
+                    var donationEntity = MapperClass.MappedDonation().Map<DAL.Models.Donation>(donation);
+
+                    
+                    DataAccessFactory.DonationData().Update(donationEntity);
+
+                    return true;
+                }
+                else
+                {
+                    
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+               
+                Console.WriteLine($"Exception: {ex.Message}");
+                return false;
+            }
+        }
+
+        
+        public static DonationDTO GetApprovedDonationById(int donationId)
+        {
+            var donationEntity = DataAccessFactory.DonationData().Read(donationId);
+
+            if (donationEntity != null && donationEntity.IsApproved && !donationEntity.IsPaid)
+            {
+                var mappedDonationDTO = MapperClass.MappedDonation().Map<DonationDTO>(donationEntity);
+                return mappedDonationDTO;
+            }
+
+            return null;
+        }
+     
+        public static bool MarkDonationAsPaid(int donationId)
+        {
+            var donation = DataAccessFactory.DonationData().Read(donationId);
+
+            if (donation != null && donation.IsApproved && !donation.IsPaid)
+            {
+               
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
                 donation.IsPaid = true;
 
                 var updatedDonation = DataAccessFactory.DonationData().Update(donation);

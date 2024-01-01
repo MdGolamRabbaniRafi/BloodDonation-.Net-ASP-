@@ -1,12 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+<<<<<<< HEAD
 using System.Security.Policy;
+=======
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
 using DAL.Interface;
 using DAL.Models;
 
 namespace DAL.Repos
 {
+<<<<<<< HEAD
     internal class DonationRepo : Repo, IDonation
+=======
+    internal class DonationRepo : IDonation
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
     {
         public Donation Create(Donation obj)
         {
@@ -32,7 +39,11 @@ namespace DAL.Repos
                 return false;
             }
         }
+<<<<<<< HEAD
        
+=======
+
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
         public List<Donation> Read()
         {
             using (var db = new DBContext())
@@ -40,6 +51,7 @@ namespace DAL.Repos
                 return db.Donations.ToList();
             }
         }
+<<<<<<< HEAD
         public List<Donation> ReadAccept()
         {
             
@@ -49,6 +61,8 @@ namespace DAL.Repos
           
             return a;
         }
+=======
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
 
         public Donation Read(int id)
         {
@@ -74,4 +88,7 @@ namespace DAL.Repos
         }
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc

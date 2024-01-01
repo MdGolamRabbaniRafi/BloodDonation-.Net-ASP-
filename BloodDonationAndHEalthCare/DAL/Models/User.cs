@@ -24,8 +24,12 @@ namespace DAL.Models
 
         [ForeignKey("UserAdmin")]
 
+<<<<<<< HEAD
  
 
+=======
+      
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
 
         public int? AdminId { get; set; } // Nullable int
         public virtual UserAdmin UserAdmin { get; set; } // Nullable UserAdmin
@@ -41,7 +45,9 @@ namespace DAL.Models
             HelpPosts = new List<HelpPost>();
             Donations = new List<Donation>();
         }
-       
+        public virtual ICollection<BloodDonationCampaign> Campaigns { get; set; }
+        public virtual ICollection<BloodDonationCampaign> JoinedCampaigns { get; set; }
+
 
         //public User()
         //{

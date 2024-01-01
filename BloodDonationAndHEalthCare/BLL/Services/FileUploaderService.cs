@@ -66,7 +66,7 @@ namespace BLL.Services
                 var file = DataAccessFactory.FileData().ReadAdminFile(admin.Id);
                 return file.FileName;
             }
-            return null;
+            
         }
     }
 }

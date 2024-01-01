@@ -14,6 +14,7 @@ namespace DAL
         public DbSet<UserAdmin> UserAdmins { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Token> Tokens { get; set; }
+<<<<<<< HEAD
 
         public DbSet<Post>Posts { get; set; }
 
@@ -22,6 +23,15 @@ namespace DAL
         public DbSet<File> Files { get; set; }
         public DbSet<Donation> Donations { get; set; }
 
+=======
+        public DbSet<Post>Posts { get; set; }
+        public DbSet<HelpPost> HelpPosts { get; set; }
+        public DbSet<File> Files { get; set; }
+        public DbSet<Donation> Donations { get; set; }
+        public DbSet<BloodDonationCampaign> BloodDonationsCampaigns { get; set; }
+        public DbSet<PaymentInfo> PaymentInfos { get; set; }
+        public DbSet<ProvideHelp> ProvideHelps { get; set; }
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
 
 
     }
