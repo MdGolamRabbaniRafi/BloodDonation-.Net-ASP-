@@ -21,12 +21,14 @@ namespace BloodDonationAndHEalthCare.Controllers
         {
             try
             {
+                var token = ActionContext.Request.Headers.Authorization;
+                var data = PostService.AddPostService(post,token.ToString());
                 if (!ModelState.IsValid)
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
 
-                var data = PostService.AddPostService(post);
+                
                 return Request.CreateResponse(HttpStatusCode.Created, data);
             }
             catch (Exception ex)
@@ -67,6 +69,53 @@ namespace BloodDonationAndHEalthCare.Controllers
                 var allPosts = PostService.GetAllPosts();
 
                 if (allPosts != null && allPosts.Count > 0)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, allPosts);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Message = "No posts found" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+        [HttpGet]
+        [Route("api/post/GetSiglePosts")]
+        public HttpResponseMessage GetSinglePosts()
+        {
+            try
+            {
+                var token = ActionContext.Request.Headers.Authorization;
+                var data = PostService.GetSingle(token.ToString());
+               
+
+                if (data != null && data.Count > 0)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, data);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Message = "No posts found" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+        [HttpGet]
+        [Route("api/post/GetAllUserPosts")]
+        public HttpResponseMessage GetAllUserPosts()
+        {
+            try
+            {
+                var allPosts = PostService.GetAllUserPosts();
+
+                if (allPosts> 0)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, allPosts);
                 }

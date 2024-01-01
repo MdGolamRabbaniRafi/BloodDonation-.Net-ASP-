@@ -19,12 +19,14 @@ namespace BloodDonationAndHEalthCare.Controllers
         {
             try
             {
+                var token = ActionContext.Request.Headers.Authorization;
+                var data = HelpPostService.AddHelpPostService(helppost, token.ToString());
                 if (!ModelState.IsValid)
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
 
-                var data = HelpPostService.AddHelpPostService(helppost);
+               
                 return Request.CreateResponse(HttpStatusCode.Created, data);
             }
             catch (Exception ex)
@@ -57,7 +59,7 @@ namespace BloodDonationAndHEalthCare.Controllers
             }
         }
         [HttpGet]
-        [Route("api/post/GetAllHelpPosts")]
+        [Route("api/helppost/GetAllHelpPosts")]
         public HttpResponseMessage GetAllHelpPosts()
         {
             try
@@ -65,6 +67,28 @@ namespace BloodDonationAndHEalthCare.Controllers
                 var allHelpPosts = HelpPostService.GetAllHelpPosts();
 
                 if (allHelpPosts != null && allHelpPosts.Count > 0)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, allHelpPosts);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Message = "No posts found" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+        [HttpGet]
+        [Route("api/helppost/GetAllHelpPostsCount")]
+        public HttpResponseMessage GetTotalHelpPostsCount()
+        {
+            try
+            {
+                var allHelpPosts = HelpPostService.GetAllHelpPostsCount();
+
+                if ( allHelpPosts > 0)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, allHelpPosts);
                 }

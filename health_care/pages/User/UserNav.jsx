@@ -5,6 +5,7 @@ import { useAuth } from '../AuthContext';
 
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import SessionCheck from '../Session';
 
 
 
@@ -17,7 +18,7 @@ const UserNav = () => {
   const router = useRouter();
   const { user, login, logout, Tkey } = useAuth() || {};  // Access Tkey from useAuth
 
-
+  const [imageSrc, setImageSrc] = useState('');
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isDropdown, setDropdown] = useState(false);
@@ -39,15 +40,15 @@ const UserNav = () => {
   
   useEffect(() => {
     // Check if the user is authenticated before fetching the profile
-    // if ( login) {
-    //   console.log("User is authenticated"+ user)
-    // //   GetProfile();
-    // //   GetNotification();
-    // // router.push('/User/Userdashboard');
-    // } else {
-    //   // Redirect to login page or handle unauthenticated user
-    //   router.push('/Auth/Login');
-    // }
+    if ( login) {
+      console.log("User is authenticated"+ user)
+      GetProfile();
+      // GetNotification();
+    // router.push('/User/Userdashboard');
+    } else {
+      // Redirect to login page or handle unauthenticated user
+      router.push('/Auth/Login');
+    }
   }, []);
 
   const GetNotification = async () => {
@@ -73,17 +74,21 @@ const UserNav = () => {
     }
   };
   
- 
+
   const GetProfile = async () => {
     try {
-      const response = await axios.get('', {
+      const response = await axios.get('https://localhost:44307/api/GetFile', {
         withCredentials: true,
+        headers: {
+          'Authorization': `Bearer ${Tkey}`,
+          'Content-Type': 'application/json',
+        },
+        responseType: 'arraybuffer', // Important: Set the responseType to 'arraybuffer'
       });
-  
-      console.log('Full Response:', response.data);
-  
+
       if (response.data) {
-        console.log('Profile:', response.data);
+        const imageSrc = `data:image/png;base64,${Buffer.from(response.data, 'binary').toString('base64')}`;
+        setImageSrc(imageSrc);
         setProfile(response.data);
       } else {
         console.log('No profile available');
@@ -91,9 +96,32 @@ const UserNav = () => {
       }
     } catch (error) {
       console.error('Failed:', error);
-      // setError(`An error occurred trying to fetch profile: ${error.message}`);
     }
   };
+
+
+
+ 
+  // const GetProfile = async () => {
+  //   try {
+  //     const response = await axios.get('', {
+  //       withCredentials: true,
+  //     });
+  
+  //     console.log('Full Response:', response.data);
+  
+  //     if (response.data) {
+  //       console.log('Profile:', response.data);
+  //       setProfile(response.data);
+  //     } else {
+  //       console.log('No profile available');
+  //       setError('No profile available');
+  //     }
+  //   } catch (error) {
+  //     console.error('Failed:', error);
+  //     // setError(`An error occurred trying to fetch profile: ${error.message}`);
+  //   }
+  // };
 
   const handleEditClick = (profile) => {
 
@@ -135,9 +163,10 @@ const handleLogout = () => {
 
   return (
     <div>
+      {/* <SessionCheck></SessionCheck> */}
     <div className="grid grid-cols-12 gap-3 pr-8 pl-8 text-xl font-semibold">
       {/* Header */}
-      <header className="col-span-12 bg-gradient-to-r from-[#6F1E51] to-[#B53471] text-white p-2 flex justify-between items-center  shadow-md">
+      <header className="col-span-12 bg-gradient-to-r from-[#303952] to-[#23293a] text-white p-2 flex justify-between items-center  shadow-md">
         
         <nav className="flex space-x-4 ">
   <Link href="/User/UserDashboard">
@@ -150,9 +179,14 @@ const handleLogout = () => {
     Post
     </div>
   </Link>
-  <Link href="/User/UserConsultancy">
+  <Link href="/User/AddHelpPost">
     <div className="hover:text-yellow-300 transition duration-300 cursor-pointer">
-    Consultancy
+    Help Post
+    </div>
+  </Link>
+  <Link href="/User/DonateMoney">
+    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer">
+    Donate Money
     </div>
   </Link>
   <Link href="/User/UserSendEmail">
@@ -167,7 +201,7 @@ const handleLogout = () => {
     </div>
   </Link>
   <span>
-    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer ml-96" onClick={handleLogout}>
+    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer ml-60" onClick={handleLogout}>
     
       Logout
     </div>
@@ -211,10 +245,10 @@ const handleLogout = () => {
           <span className="ml-2 text-lg font-semibold mr-3 "onClick={toggleProfile} >{user}</span>
          
           <img
-            src={`http://localhost:7000/manager/getimage/${profile.profilePic}`}
+            src={imageSrc} // Update this line to use the image source from state
             alt={profile.firstName}
-            className="w-10 h-10 object-cover rounded-full "
-            onClick={toggleProfile} 
+            className="w-10 h-10 object-cover rounded-full"
+            onClick={toggleProfile}
           />
           
         </div>

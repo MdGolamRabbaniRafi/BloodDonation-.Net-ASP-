@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from 'next/router';
 import UserNav from "./UserNav";
+import { useAuth } from '../AuthContext';
 
 
 const AddPost = () => {
@@ -11,9 +12,9 @@ const AddPost = () => {
   const [phone, setphone] = useState('');
   const [location, setlocation] = useState(null);
   const [problems, setproblems] = useState(null);
-  const [userid, setuserid] = useState(null);
   const [error, setError] = useState('');
   const [formErrors, setFormErrors] = useState({});
+  const { user, login, logout, Tkey } = useAuth() || {}; 
   
 
   const handleNameChange = (e) => {
@@ -33,9 +34,7 @@ const AddPost = () => {
   const handleProblemsChange = (e) => {
     setproblems(e.target.value);
   };
-  const handleUserIdChange = (e) => {
-    setuserid(e.target.value);
-  };
+ 
 
 
   const handleSubmit = async (e) => {
@@ -55,7 +54,7 @@ const AddPost = () => {
         formData.append('Phone', phone);
         formData.append('Location', location);
         formData.append('Problems', problems);
-        formData.append('UserId', userid);
+      
 
         const response = await axios.post(
           'https://localhost:44307/api/post/add',
@@ -63,6 +62,7 @@ const AddPost = () => {
           {
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `${Tkey}`,
             },
           }
         );
@@ -139,6 +139,24 @@ const AddPost = () => {
           </div>
           <div className="mb-2">
             <label htmlFor="product_price" className="block text-sm font-semibold text-gray-600 mb-1">
+              Location:
+            </label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              value={location}
+              onChange={handleLocationChange}
+              className={`w-full p-3 border rounded-md focus:outline-none ${
+                formErrors.location ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {formErrors.location && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.location}</p>
+            )}
+          </div>
+          <div className="mb-2">
+            <label htmlFor="product_price" className="block text-sm font-semibold text-gray-600 mb-1">
               Phone:
             </label>
             <input
@@ -173,24 +191,7 @@ const AddPost = () => {
               <p className="text-red-500 text-sm mt-1">{formErrors.problems}</p>
             )}
           </div>
-          <div className="mb-2">
-            <label htmlFor="product_price" className="block text-sm font-semibold text-gray-600 mb-1">
-              User Id:
-            </label>
-            <input
-              type="text"
-              id="userid"
-              name="userid"
-              value={userid}
-              onChange={handleUserIdChange}
-              className={`w-full p-3 border rounded-md focus:outline-none ${
-                formErrors.userid ? "border-red-500" : "border-gray-300"
-              }`}
-            />
-            {formErrors.userid && (
-              <p className="text-red-500 text-sm mt-1">{formErrors.userid}</p>
-            )}
-          </div>
+         
           <button
             type="submit"
             className="bg-blue-500 text-white align-middle px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300"

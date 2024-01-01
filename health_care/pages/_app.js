@@ -8,18 +8,31 @@ export default function App({ Component, pageProps }) {
   const isLogin = router.pathname === '/Auth/Login';
   const isSignUp = router.pathname === '/Auth/Registration';
   const isUserNav = router.pathname === '/User/UserNav';
+  const AdminNav = router.pathname === '/Admin/AdminNav';
+  const isServiceProviderNav = router.pathname === '/ServiceProvider/ServiceProviderNav';
   const isDashboard = router.pathname === '/User/UserDashboard';
+  const isAdminDashboard = router.pathname === '/Admin/AdminDashboard';
+  const isServiceProviderDashboard = router.pathname === '/ServiceProvider/ServiceProviderDashboard';
   const isUserConsultancy = router.pathname === '/User/UserConsultancy';
   const isUserSendEmail = router.pathname === '/User/UserSendEmail';
   const isUserPost = router.pathname === '/User/UserPost';
   const isAddPost= router.pathname === '/User/AddPost';
   const isEditPost= router.pathname === '/User/EditPost';
+ 
 
 
   return (
     <div>
       {
-        !isLogin && !isSignUp && !isUserNav &&  !isUserConsultancy && !isUserSendEmail && !isUserPost && !isDashboard && !isAddPost && !isEditPost && 
+        !isLogin && 
+        !isSignUp && 
+        !isUserNav &&  
+        !isUserConsultancy && 
+        !isUserSendEmail && 
+        !isUserPost && 
+        !isDashboard && 
+        !isAddPost && 
+        !isEditPost && !isAdminDashboard && !isServiceProviderDashboard && !AdminNav && !isServiceProviderNav &&
         <Navbar />
       }
       <AuthProvider>

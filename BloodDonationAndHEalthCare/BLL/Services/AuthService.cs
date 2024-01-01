@@ -77,6 +77,10 @@ namespace BLL.Services
                 var existingToken = DataAccessFactory.TokenData().Search(Email);
                 if (existingToken!=null)
                 {
+                    existingToken.UserId = Email;
+                    existingToken.CreateAt = DateTime.Now;
+                    existingToken.Tkey = Guid.NewGuid().ToString();
+                    existingToken.UserType = type;
                     // Update the existing token
                     var updatedToken = DataAccessFactory.TokenData().Update(existingToken);
                     if (updatedToken != null)

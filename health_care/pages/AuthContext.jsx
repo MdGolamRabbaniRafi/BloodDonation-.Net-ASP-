@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
   }, [user, Tkey]);
 
   const login = (email,Tkey) => {
+    sessionStorage.setItem('Tkey', Tkey); 
     setUser( email );
     console.log('email:', email);
     setTkey(Tkey);

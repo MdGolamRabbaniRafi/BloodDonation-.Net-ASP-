@@ -36,21 +36,17 @@ namespace DAL
         {
             return new TokenRepo();
         }
-<<<<<<< HEAD
+
 
         public static IDonation DonationData()
         {
             return new DonationRepo();
         }
-        public static IPost<Post,int , Post> PostData()
-        {
-            return new PostRepo();
-
-=======
-        public static IPost<Post,int , Post> PostData()
+        public static IPost<Post, int, Post> PostData()
         {
             return new PostRepo();
         }
+
         public static IHelpPost<HelpPost, int, HelpPost> HelpPostData()
         {
             return new HelpPostRepo();
@@ -58,7 +54,7 @@ namespace DAL
         public static IFile<File, int> FileData()
         {
             return new FileRepo();
->>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
+
         }
     }
 }

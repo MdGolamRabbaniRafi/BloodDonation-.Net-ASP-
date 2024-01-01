@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL.DTO;
 
 namespace BLL.Services
 {
@@ -63,6 +64,18 @@ namespace BLL.Services
 
             return mapper2;
         }
+
+        public static List<UserDTO> GetAllUser()
+        {
+            var data = MapperClass.MappedUser();
+            var getusers = DataAccessFactory.UserData().Read();
+            
+            var mapper2 = data.Map<List<UserDTO>>(getusers);
+
+            return mapper2;
+        }
+
+        
 
         public static bool DeleteUserService(int userId)
         {

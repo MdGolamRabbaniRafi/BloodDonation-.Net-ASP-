@@ -6,13 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Interface;
 
 namespace BLL.Services
 {
     public class HelpPostService
     {
-        public static HelpPostDTO AddHelpPostService(HelpPostDTO helppost)
+        public static HelpPostDTO AddHelpPostService(HelpPostDTO helppost , string token)
         {
+            var UserEmail = DataAccessFactory.TokenData().SearchUserIdByToken(token);
+            var user = DataAccessFactory.UserData().ReadByEmail(UserEmail);
+            helppost.UserId = user.UserId;
             if (helppost == null)
             {
                 throw new ArgumentNullException(nameof(helppost));
@@ -68,6 +72,21 @@ namespace BLL.Services
             var mappedHelpPosts = data.Map<List<HelpPostDTO>>(allhelpPosts);
 
             return mappedHelpPosts;
+        }
+      
+            public static int GetAllHelpPostsCount()
+        {
+            var data = MapperClass.MapperHelpPost();
+            var allhelpPosts = DataAccessFactory.HelpPostData().Read();
+            var mappedHelpPosts = data.Map<List<HelpPostDTO>>(allhelpPosts);
+            int count = 0;
+            foreach (var i in mappedHelpPosts)
+            {
+                count++;
+
+            }
+
+            return count;
         }
         public static bool DeleteHelpPostService(int HelpPostId)
         {

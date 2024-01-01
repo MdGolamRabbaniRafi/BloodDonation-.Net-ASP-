@@ -23,22 +23,23 @@ namespace DAL.Models
         public string UserType { get; set; } // Nullable string
 
         [ForeignKey("UserAdmin")]
-<<<<<<< HEAD
-        public int AdminId { get; set; }
-        public virtual UserAdmin UserAdmin { get; set; }
 
-=======
+ 
+
+
         public int? AdminId { get; set; } // Nullable int
         public virtual UserAdmin UserAdmin { get; set; } // Nullable UserAdmin
->>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
+
 
         public virtual ICollection<Post> Posts { get; set; }
         public virtual ICollection<HelpPost> HelpPosts { get; set; }
+        public virtual ICollection<Donation> Donations { get; set; }
 
         public User()
         {
             Posts = new List<Post>();
             HelpPosts = new List<HelpPost>();
+            Donations = new List<Donation>();
         }
        
 

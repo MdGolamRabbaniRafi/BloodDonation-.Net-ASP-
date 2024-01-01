@@ -88,6 +88,9 @@ const Login = () => {
         if(checkuser == "User"){
           router.push('/User/UserDashboard');
         }
+        else if(checkuser == "ServiceProvider"){
+          router.push('/ServiceProvider/ServiceProviderDashboard');
+        }
         else{
           router.push('/Admin/AdminDashboard');
         }

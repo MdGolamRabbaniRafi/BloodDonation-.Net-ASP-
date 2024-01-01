@@ -60,6 +60,30 @@ namespace BloodDonationAndHEalthCare.Controllers
         }
 
 
+        [HttpGet]
+        [Route("api/AllUser")]
+        public HttpResponseMessage GetAllUser()
+        {
+            try
+            {
+                var data = UserService.GetAllUser();
+
+                if (data != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, data);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+
 
         [HttpPost]
         [Route("api/User/update/{userId}")]
@@ -129,28 +153,28 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-<<<<<<< HEAD
         [HttpPost]
         [Route("api/User/Donate")]
         public HttpResponseMessage Donate(DonationDTO donationDTO)
         {
             try
             {
+                var token = ActionContext.Request.Headers.Authorization;
+                var data = DonationService.CreateDonationRequest(donationDTO, token.ToString());
                 if (!ModelState.IsValid)
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
 
-                var createdDonation = DonationService.CreateDonationRequest(donationDTO);
+               
 
-                if (createdDonation != null)
+                if (data != null)
                 {
-                    // Optional: Notify the user about the successful donation request
-                    // You can use email, push notifications, etc., for this purpose.
-                    var notificationMessage = $"Donation request created successfully with ID: {createdDonation.Id}";
-                    // SendNotificationToUser(user.Email, notificationMessage);
+                   
+                    var notificationMessage = $"Donation request created successfully";
+                    
 
-                    return Request.CreateResponse(HttpStatusCode.Created, createdDonation);
+                    return Request.CreateResponse(HttpStatusCode.Created, data);
                 }
                 else
                 {
@@ -194,53 +218,11 @@ namespace BloodDonationAndHEalthCare.Controllers
 
 
 
-        [HttpPost]
-        [Route("api/User/MakePayment/{donationId}")]
-        public HttpResponseMessage MakePayment(int donationId, PaymentInfoDTO paymentInfo)
-        {
-            try
-            {
-                // Retrieve the approved donation details
-                var approvedDonation = DonationService.GetApprovedDonationById(donationId);
-
-                if (approvedDonation == null)
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Donation request not found or not approved." });
-                }
-
-                // Check if the donation has not been paid
-                if (!approvedDonation.IsPaid)
-                {
-                    // Optional: Validate payment information here if needed
-
-                    // Process payment using the PaymentGateway
-                    bool paymentSuccess = PaymentGateway.ProcessPayment(paymentInfo, approvedDonation.Amount);
-
-                    if (paymentSuccess)
-                    {
-                        // Mark the donation as paid
-                        DonationService.MarkDonationAsPaid(approvedDonation.Id);
-
-                        return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Payment successful." });
-                    }
-                    else
-                    {
-                        return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "Payment failed. Please check your payment information and try again." });
-                    }
-                }
-                else
-                {
-                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "Donation has already been paid." });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
-            }
-        }
+       
 
 
-=======
->>>>>>> 23c3e0f56e572792f675bf5cdcac4001c46431a0
+
+
+
     }
 }

@@ -3,10 +3,13 @@ using BLL.Services;
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Security.Policy;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace BloodDonationAndHEalthCare.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class ServiceProviderController : ApiController
     {
         [HttpGet]
@@ -53,25 +56,41 @@ namespace BloodDonationAndHEalthCare.Controllers
             }
         }
 
-
-
-
-
-        [HttpPost]
-        [Route("api/ServiceProvider/ApproveAndProcessDonation/{donationId}")]
-        public HttpResponseMessage ApproveAndProcessDonation(int donationId, PaymentInfoDTO paymentInfo)
+        [HttpGet]
+        [Route("api/ServiceProvider/ApprovedDonations")]
+        public HttpResponseMessage GetApprovedDonations()
         {
             try
             {
-                bool isApproved = DonationService.ApproveAndProcessDonation(donationId, paymentInfo);
+                var approvedDonations = DonationService.GetApprovedDonations();
 
-                if (isApproved)
+                if (approvedDonations.Count == 0)
                 {
-                    return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Donation request approved and payment processed successfully." });
+                    return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "No approved donations available." });
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, approvedDonations);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+        [HttpPost]
+        [Route("api/ServiceProvider/DeleteDonation/{donationId}")]
+        public HttpResponseMessage DeleteDonationRequest(int donationId)
+        {
+            try
+            {
+                bool isDeleted = DonationService.DeleteDonationRequest(donationId);
+
+                if (isDeleted)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Donation deleted successfully." });
                 }
                 else
                 {
-                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Donation request not found, already approved, or payment processing failed." });
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Donation not found." });
                 }
             }
             catch (Exception ex)
@@ -79,5 +98,13 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
+
+
+
+
+
+
+
+
     }
 }

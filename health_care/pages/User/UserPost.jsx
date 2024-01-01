@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { BsPlus } from 'react-icons/bs';
+import { useAuth } from '../AuthContext';
 
 
 
@@ -16,6 +17,7 @@ const UserPost = () => {
   const [error, setError] = useState('');
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
+  const { user, login, logout, Tkey } = useAuth() || {}; 
 
   const handleAddComment = (postId, newComment) => {
     if (newComment.trim() !== '') {
@@ -28,16 +30,17 @@ const UserPost = () => {
 
   useEffect(() => {
     // Fetch products when the component mounts
-    GetProducts();
+    // GetProducts();
   }, []);
 
   const GetProducts = async () => {
     try {
       const response = await axios.get(
-        'https://localhost:44307/api/post/GetAllPosts',
+        'https://localhost:44307/api/post/GetSiglePosts',
         {
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `${Tkey}`,
           },
         }
       );
