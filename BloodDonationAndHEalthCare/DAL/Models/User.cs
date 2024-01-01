@@ -21,16 +21,7 @@ namespace DAL.Models
         public string BloodGroup { get; set; } // Nullable string
 
         public string UserType { get; set; } // Nullable string
-
         [ForeignKey("UserAdmin")]
-
-<<<<<<< HEAD
- 
-
-=======
-      
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
-
         public int? AdminId { get; set; } // Nullable int
         public virtual UserAdmin UserAdmin { get; set; } // Nullable UserAdmin
 

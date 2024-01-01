@@ -99,124 +99,13 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
-<<<<<<< HEAD
-=======
-        [HttpGet]
-        [Route("api/ServiceProvider/GetAllBloodDonationCampaigns")]
-        public HttpResponseMessage GetAllBloodDonationCampaigns()
-        {
-            try
-            {
-                var bloodDonationCampaigns = BloodDonationCampaignService.GetAllBloodDonationCampaigns();
-
-                if (bloodDonationCampaigns.Count == 0)
-                {
-               
-                    return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "No blood donation campaigns available." });
-                }
-
-                return Request.CreateResponse(HttpStatusCode.OK, bloodDonationCampaigns);
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
-            }
-        }
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
 
 
 
 
-<<<<<<< HEAD
 
 
 
-=======
-        [HttpPost]
-        [Route("api/ServiceProvider/CreateBloodDonationCampaign")]
-        public HttpResponseMessage CreateBloodDonationCampaign(BloodDonationCampaignDTO bloodDonationCampaign)
-        {
-            try
-            {
-                BloodDonationCampaignService.AddBloodDonationCampaign(bloodDonationCampaign);
-                return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Blood donation campaign created successfully." });
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
-            }
-        }
-
-
-
-        [HttpPost]
-        [Route("api/ServiceProvider/DeleteBloodDonationCampaign/{campaignId}")]
-        public HttpResponseMessage DeleteBloodDonationCampaign(int campaignId)
-        {
-            try
-            {
-                bool isDeleted = BloodDonationCampaignService.DeleteBloodDonationCampaign(campaignId);
-
-                if (isDeleted)
-                {
-                    return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Blood donation campaign deleted successfully." });
-                }
-                else
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Blood donation campaign not found." });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
-            }
-        }
-        [HttpPost]
-        [Route("api/ServiceProvider/UpdateBloodDonationCampaign/{campaignId}")]
-        public HttpResponseMessage UpdateBloodDonationCampaign(int campaignId, [FromBody] BloodDonationCampaignDTO campaign)
-        {
-            try
-            {
-                var updatedCampaign = BloodDonationCampaignService.UpdateBloodDonationCampaign(campaignId, campaign);
-
-                if (updatedCampaign != null)
-                {
-                    return Request.CreateResponse(HttpStatusCode.OK, updatedCampaign);
-                }
-                else
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Blood donation campaign not found." });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
-            }
-        }
-        [HttpGet]
-        [Route("api/ServiceProvider/GetUsersJoinedCampaign/{campaignId}")]
-        public HttpResponseMessage GetUsersJoinedCampaign(int campaignId)
-        {
-            try
-            {
-                var joinedUsers = BloodDonationCampaignService.GetUsersJoinedCampaign(campaignId);
-
-                if (joinedUsers != null && joinedUsers.Any())
-                {
-                    return Request.CreateResponse(HttpStatusCode.OK, joinedUsers);
-                }
-                else
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "No users joined the campaign or campaign not found." });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
-            }
-        }
-
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
 
     }
 }

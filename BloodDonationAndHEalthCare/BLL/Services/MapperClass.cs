@@ -2,15 +2,12 @@
 using BLL.DTO;
 using BLL.DTOs;
 using DAL.Models;
-<<<<<<< HEAD
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.DTO;
-=======
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
 
 namespace BLL.Services
 {
@@ -32,15 +29,10 @@ namespace BLL.Services
             var cfg = new MapperConfiguration(c =>
             {
                 c.CreateMap<UserDTO, User>();
-<<<<<<< HEAD
 
                 c.CreateMap<User, UserDTO>();
 
                 c.CreateMap<User,UserDTO>();
-=======
-                c.CreateMap<User, UserDTO>();
-                c.CreateMap<User, UserDTO>();
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
             });
             var mapper = new Mapper(cfg);
             return mapper;
@@ -56,10 +48,6 @@ namespace BLL.Services
             var mapper = new Mapper(cfg);
             return mapper;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
         public static IMapper MapperPost()
         {
             var cfg = new MapperConfiguration(c =>
@@ -115,8 +103,4 @@ namespace BLL.Services
             return mapper;
         }
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
 }

@@ -171,13 +171,8 @@ namespace BloodDonationAndHEalthCare.Controllers
                 if (data != null)
                 {
                    
-<<<<<<< HEAD
                     var notificationMessage = $"Donation request created successfully";
                     
-=======
-                    var notificationMessage = $"Donation request created successfully with ID: {createdDonation.Id}";
-                   
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
 
                     return Request.CreateResponse(HttpStatusCode.Created, data);
                 }
@@ -221,74 +216,9 @@ namespace BloodDonationAndHEalthCare.Controllers
 
 
 
-<<<<<<< HEAD
        
 
 
-=======
-        [HttpPost]
-        [Route("api/User/MakePayment/{donationId}")]
-        public HttpResponseMessage MakePayment(int donationId, PaymentInfoDTO paymentInfo)
-        {
-            try
-            {
-              
-                var approvedDonation = DonationService.GetApprovedDonationById(donationId);
-
-                if (approvedDonation == null)
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Donation request not found or not approved." });
-                }
-
-               
-                if (!approvedDonation.IsPaid)
-                {
-                    bool paymentSuccess = PaymentGateway.ProcessPayment(paymentInfo, approvedDonation.Amount);
-
-                    if (paymentSuccess)
-                    {
-                        DonationService.MarkDonationAsPaid(approvedDonation.Id);
-
-                        return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Payment successful." });
-                    }
-                    else
-                    {
-                        return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "Payment failed. Please check your payment information and try again." });
-                    }
-                }
-                else
-                {
-                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "Donation has already been paid." });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
-            }
-        }
-        [HttpPost]
-        [Route("api/User/JoinBloodDonationCampaign/{userId}/{campaignId}")]
-        public HttpResponseMessage JoinBloodDonationCampaign(int userId, int campaignId)
-        {
-            try
-            {
-                bool isJoined = UserService.JoinBloodDonationCampaign(userId, campaignId);
-
-                if (isJoined)
-                {
-                    return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "User joined the blood donation campaign successfully." });
-                }
-                else
-                {
-                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "User could not join the blood donation campaign." });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
-            }
-        }
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
 
 
 

@@ -8,15 +8,9 @@ namespace BLL.DTOs
         public int Id { get; set; }
 
         [Required]
-<<<<<<< HEAD
        
 
      
-=======
-        public int UserId { get; set; }
-
-        [Required]
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
         [Range(0.01, double.MaxValue, ErrorMessage = "Amount must be greater than zero.")]
         public decimal Amount { get; set; }
 
@@ -27,12 +21,7 @@ namespace BLL.DTOs
         public DateTime CreatedAt { get; set; }
         public DateTime? ApprovedAt { get; set; }
         public bool IsPaid { get; set; }
-<<<<<<< HEAD
         public int UserId { get; set; }
 
     }
 }
-=======
-    }
-}
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc

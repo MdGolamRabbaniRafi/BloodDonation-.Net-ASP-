@@ -76,51 +76,24 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
-<<<<<<< HEAD
     <Compile Include="Interface\IDonation.cs" />
     <Compile Include="Interface\IPost.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
-    <Compile Include="Migrations\202312311813159_addd.cs" />
-    <Compile Include="Migrations\202312311813159_addd.designer.cs">
-      <DependentUpon>202312311813159_addd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\HelpPost.cs" />
-=======
-    <Compile Include="Interface\IBloodDonationCampaign.cs" />
-    <Compile Include="Interface\IDonation.cs" />
-    <Compile Include="Interface\IPost.cs" />
-    <Compile Include="Interface\IProvideHelp.cs" />
-    <Compile Include="Interface\IRepo.cs" />
-    <Compile Include="Interface\IToken.cs" />
-    <Compile Include="Interface\IUser.cs" />
-    <Compile Include="Models\BloodDonationCampaign.cs" />
-    <Compile Include="Models\Donation.cs" />
-    <Compile Include="Models\Payment.cs" />
-    <Compile Include="Models\PaymentInfo.cs" />
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
     <Compile Include="Interface\IEmail.cs" />
     <Compile Include="Interface\IFile.cs" />
     <Compile Include="Interface\IHelpPost.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\File.cs" />
-<<<<<<< HEAD
-=======
-    <Compile Include="Models\HelpPost.cs" />
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\ProvideHelp.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
-=======
-    <Compile Include="Repos\BloodDonationCampaignRepo.cs" />
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
     <Compile Include="Repos\DonationRepo.cs" />
     <Compile Include="Repos\FileRepo.cs" />
     <Compile Include="Repos\HelpPostRepo.cs" />
@@ -135,14 +108,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-<<<<<<< HEAD
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312311813159_addd.resx">
-      <DependentUpon>202312311813159_addd.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-=======
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -58,7 +58,6 @@ D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\
 D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\Stripe.net.xml
 D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Fall 2023\Advance Programming With .Net\FinalProject\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
-<<<<<<< HEAD
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\Newtonsoft.Json.dll
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\Stripe.net.dll
@@ -70,8 +69,6 @@ D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthC
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.addd.resources
-D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
-=======
 D:\varsity\semester10\New folder\BloodDonation-.Net-ASP-\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.something.resources
 D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
 D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
@@ -97,4 +94,4 @@ D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthC
 D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.help.resources
 D:\Fall 2023\Advance Programming With .Net\BloodDonation\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
->>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
+F:\code\.Net\Test\BloodDonationAndHEalthCare\DAL\obj\Debug\DAL.Migrations.addd.resources
