@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { MdNotifications,MdDelete } from 'react-icons/md';
-
-
-
+import { useAuth } from '../AuthContext';
 
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import SessionCheck from '../Session';
 
 
 
@@ -17,7 +16,9 @@ const UserNav = () => {
   const [allNotification, setAllNotification] = useState([]);
   const [error, setError] = useState('');
   const router = useRouter();
- 
+  const { user, login, logout, Tkey } = useAuth() || {};  // Access Tkey from useAuth
+
+  const [imageSrc, setImageSrc] = useState('');
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isDropdown, setDropdown] = useState(false);
@@ -32,17 +33,23 @@ const UserNav = () => {
     setDropdown(!isDropdown);
   };
 
+  // console.log("token" +Tkey);
+  console.log("User" + user);
+  console.log("Token" + Tkey );
  
-//   useEffect(() => {
-//     // Check if the user is authenticated before fetching the profile
-//     if (user && login) {
-//     //   GetProfile();
-//     //   GetNotification();
-//     } else {
-//       // Redirect to login page or handle unauthenticated user
-//       router.push('/Auth/Login');
-//     }
-//   }, [user]);
+  
+  useEffect(() => {
+    // Check if the user is authenticated before fetching the profile
+    if ( login) {
+      console.log("User is authenticated"+ user)
+      GetProfile();
+      // GetNotification();
+    // router.push('/User/Userdashboard');
+    } else {
+      // Redirect to login page or handle unauthenticated user
+      router.push('/Auth/Login');
+    }
+  }, []);
 
   const GetNotification = async () => {
     try {
@@ -67,17 +74,21 @@ const UserNav = () => {
     }
   };
   
- 
+
   const GetProfile = async () => {
     try {
-      const response = await axios.get('', {
+      const response = await axios.get('https://localhost:44307/api/GetFile', {
         withCredentials: true,
+        headers: {
+          'Authorization': `Bearer ${Tkey}`,
+          'Content-Type': 'application/json',
+        },
+        responseType: 'arraybuffer', // Important: Set the responseType to 'arraybuffer'
       });
-  
-      console.log('Full Response:', response.data);
-  
+
       if (response.data) {
-        console.log('Profile:', response.data);
+        const imageSrc = `data:image/png;base64,${Buffer.from(response.data, 'binary').toString('base64')}`;
+        setImageSrc(imageSrc);
         setProfile(response.data);
       } else {
         console.log('No profile available');
@@ -85,24 +96,44 @@ const UserNav = () => {
       }
     } catch (error) {
       console.error('Failed:', error);
-      // setError(`An error occurred trying to fetch profile: ${error.message}`);
     }
   };
 
-//   const handleEditClick = (profile) => {
 
-//     router.push({
-//         pathname: '/Manager/EditProfile',
-//         query: {
-//           id: profile.id,
-//           firstName: profile.firstName,
-//           phoneNumber:profile.phoneNumber,
-//           profilePic:profile.profilePic,
+
+ 
+  // const GetProfile = async () => {
+  //   try {
+  //     const response = await axios.get('', {
+  //       withCredentials: true,
+  //     });
+  
+  //     console.log('Full Response:', response.data);
+  
+  //     if (response.data) {
+  //       console.log('Profile:', response.data);
+  //       setProfile(response.data);
+  //     } else {
+  //       console.log('No profile available');
+  //       setError('No profile available');
+  //     }
+  //   } catch (error) {
+  //     console.error('Failed:', error);
+  //     // setError(`An error occurred trying to fetch profile: ${error.message}`);
+  //   }
+  // };
+
+  const handleEditClick = (profile) => {
+
+    router.push({
+        pathname: '/User/EditProfile',
+        query: {
+          File:profile.profilePic,
           
-//         },
-//       });
+        },
+      });
       
-//   };
+  };
 //   const handleDeleteClick = async (Serial) => {
 //     console.log(`Delete clicked for product with ID: ${Serial}`);
 //     try {
@@ -125,14 +156,17 @@ const UserNav = () => {
 //       // setError(`An error occurred while deleting the notification: ${error.message}`);
 //     }
 //   };
-  
+const handleLogout = () => {
+  logout(); // Call the logout function from useAuth
+};
   
 
   return (
     <div>
+      {/* <SessionCheck></SessionCheck> */}
     <div className="grid grid-cols-12 gap-3 pr-8 pl-8 text-xl font-semibold">
       {/* Header */}
-      <header className="col-span-12 bg-gradient-to-r from-[#6F1E51] to-[#B53471] text-white p-4 flex justify-between items-center  shadow-md">
+      <header className="col-span-12 bg-gradient-to-r from-[#303952] to-[#23293a] text-white p-2 flex justify-between items-center  shadow-md">
         
         <nav className="flex space-x-4 ">
   <Link href="/User/UserDashboard">
@@ -145,9 +179,14 @@ const UserNav = () => {
     Post
     </div>
   </Link>
-  <Link href="/User/UserConsultancy">
+  <Link href="/User/AddHelpPost">
     <div className="hover:text-yellow-300 transition duration-300 cursor-pointer">
-    Consultancy
+    Help Post
+    </div>
+  </Link>
+  <Link href="/User/DonateMoney">
+    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer">
+    Donate Money
     </div>
   </Link>
   <Link href="/User/UserSendEmail">
@@ -161,12 +200,12 @@ const UserNav = () => {
       Website
     </div>
   </Link>
-  <Link href="/Auth/Login">
-    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer ml-96">
+  <span>
+    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer ml-60" onClick={handleLogout}>
     
       Logout
     </div>
-  </Link>
+  </span>
   
   <div className="notification-container relative">
   <div className="hover:text-yellow-300 transition duration-300 cursor-pointer" onClick={toggleDropdown}>
@@ -203,13 +242,13 @@ const UserNav = () => {
  
 </nav>
 <div className="flex items-center cursor-pointer" >
-          <span className="ml-2 text-lg font-semibold mr-3 "onClick={toggleProfile} >{profile.firstName}</span>
+          <span className="ml-2 text-lg font-semibold mr-3 "onClick={toggleProfile} >{user}</span>
          
           <img
-            src={`http://localhost:7000/manager/getimage/${profile.profilePic}`}
+            src={imageSrc} // Update this line to use the image source from state
             alt={profile.firstName}
-            className="w-10 h-10 object-cover rounded-full "
-            onClick={toggleProfile} 
+            className="w-10 h-10 object-cover rounded-full"
+            onClick={toggleProfile}
           />
           
         </div>

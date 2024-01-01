@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interface
 {
-    public interface IToken<Type, ID, RET>
+    public interface IToken<Type, ID, RET, A>
     {
         RET Create(Type obj);
         List<RET> Read();
@@ -14,6 +14,7 @@ namespace DAL.Interface
         Type ReadByUserId(ID id);
 
         RET Update(Type obj);
+        A Delete(ID id);
         ID SearchUserIdByToken(ID token);
         Type Search(ID Email);
     }

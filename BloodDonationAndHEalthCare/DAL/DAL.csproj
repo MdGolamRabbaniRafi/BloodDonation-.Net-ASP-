@@ -40,9 +40,30 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Stripe.net, Version=43.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.43.8.0\lib\net461\Stripe.net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,30 +76,56 @@
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\DBContext.cs" />
     <Compile Include="Interface\IAuth.cs" />
-    <Compile Include="Interface\IEmail.cs" />
-    <Compile Include="Interface\IFile.cs" />
+<<<<<<< HEAD
+    <Compile Include="Interface\IDonation.cs" />
     <Compile Include="Interface\IPost.cs" />
     <Compile Include="Interface\IRepo.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Interface\IUser.cs" />
-    <Compile Include="Migrations\202312292013183_okk.cs" />
-    <Compile Include="Migrations\202312292013183_okk.designer.cs">
-      <DependentUpon>202312292013183_okk.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312300514172_file.cs" />
-    <Compile Include="Migrations\202312300514172_file.designer.cs">
-      <DependentUpon>202312300514172_file.cs</DependentUpon>
+    <Compile Include="Migrations\202312311813159_addd.cs" />
+    <Compile Include="Migrations\202312311813159_addd.designer.cs">
+      <DependentUpon>202312311813159_addd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Donation.cs" />
+    <Compile Include="Models\HelpPost.cs" />
+=======
+    <Compile Include="Interface\IBloodDonationCampaign.cs" />
+    <Compile Include="Interface\IDonation.cs" />
+    <Compile Include="Interface\IPost.cs" />
+    <Compile Include="Interface\IProvideHelp.cs" />
+    <Compile Include="Interface\IRepo.cs" />
+    <Compile Include="Interface\IToken.cs" />
+    <Compile Include="Interface\IUser.cs" />
+    <Compile Include="Models\BloodDonationCampaign.cs" />
+    <Compile Include="Models\Donation.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\PaymentInfo.cs" />
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
+    <Compile Include="Interface\IEmail.cs" />
+    <Compile Include="Interface\IFile.cs" />
+    <Compile Include="Interface\IHelpPost.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\File.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Models\HelpPost.cs" />
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\ProvideHelp.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Repos\BloodDonationCampaignRepo.cs" />
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
+    <Compile Include="Repos\DonationRepo.cs" />
     <Compile Include="Repos\FileRepo.cs" />
+    <Compile Include="Repos\HelpPostRepo.cs" />
     <Compile Include="Repos\PostRepo.cs" />
+    <Compile Include="Repos\ProvideHelpRepo.cs" />
     <Compile Include="Repos\Repos.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
     <Compile Include="Repos\UserAdminRepo.cs" />
@@ -88,14 +135,14 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312292013183_okk.resx">
-      <DependentUpon>202312292013183_okk.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312300514172_file.resx">
-      <DependentUpon>202312300514172_file.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312311813159_addd.resx">
+      <DependentUpon>202312311813159_addd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+=======
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -22,16 +22,28 @@ namespace DAL.Repos
             var file = db.Files
                          .Where(f => f.UserId == id && f.UserType == "Admin")
                          .FirstOrDefault();
-            if(file == null) return null;
+            if (file == null) return null;
 
             return file;
         }
         public File ReadUserFile(int id)
         {
+<<<<<<< HEAD
             var file = db.Files
                          .Where(f => f.UserId == id && f.UserType == "User")
                          .FirstOrDefault();
             if (file == null) return null;
+=======
+            var file = (from f in db.Files
+                        where f.UserId == id && f.UserType == "User"
+                        select f).FirstOrDefault();
+
+            if (file == null)
+            {
+                // Handle the case where file is null
+                return null;
+            }
+>>>>>>> ce7bbdb30af06c94d0ca44808510a4c1ba9f765e
 
             return file;
         }

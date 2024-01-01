@@ -11,7 +11,7 @@ const RegistrationForm = () => {
     Password: '',
     BloodGroup: '',
     UserType: '',
-    AdminId: '',
+   
   });
 
   const [emailError, setEmailError] = useState('');
@@ -39,7 +39,7 @@ const RegistrationForm = () => {
           Password: formData.Password,
           BloodGroup: formData.BloodGroup,
           UserType: formData.UserType,
-          AdminId: formData.AdminId,
+          
         },
         {
           
@@ -53,7 +53,7 @@ const RegistrationForm = () => {
 
       if (response.data) {
         console.log(response.data);
-        router.push('./Auth/Login');
+        router.push('/Auth/Login');
         
       } else {
         setEmailError('');
@@ -64,7 +64,7 @@ const RegistrationForm = () => {
           Password: '',
           BloodGroup: '',
           UserType: '',
-          AdminId: '',
+         
         });
         router.push('./Auth/Login.jsx');
       }
@@ -173,20 +173,7 @@ const RegistrationForm = () => {
           className="mt-1 p-2 w-full border rounded-md"
         />
       </div>
-      <div className="mb-4">
-        <label htmlFor="AdminId" className="block text-sm font-medium text-gray-600">
-          Admin ID:
-        </label>
-        <input
-          type="text"
-          id="AdminId"
-          name="AdminId"
-          value={formData.AdminId}
-          onChange={handleChange}
-          required
-          className="mt-1 p-2 w-full border rounded-md"
-        />
-      </div>
+      
       <div className="text-red-500">{emailError}</div>
       <div className="text-red-500">{error}</div>
       <div>

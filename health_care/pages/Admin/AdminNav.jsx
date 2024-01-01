@@ -132,42 +132,37 @@ const AdminNav = () => {
     <div>
     <div className="grid grid-cols-12 gap-3 pr-8 pl-8 text-xl font-semibold">
       {/* Header */}
-      <header className="col-span-12 bg-gradient-to-r from-[#6F1E51] to-[#B53471] text-white p-4 flex justify-between items-center  shadow-md">
+      <header className="col-span-12 bg-gradient-to-r from-[#0a3d62] to-[#092f4a] text-white p-4 flex justify-between items-center  shadow-md">
         
         <nav className="flex space-x-4 ">
-  <Link href="/User/UserDashboard">
+  <Link href="/Admin/AdminDashboard">
     <div className="hover:text-yellow-300 transition duration-300 cursor-pointer">
     Home
     </div>
   </Link>
-  <Link href="/User/UserPost">
+  <Link href="/">
     <div className="hover:text-yellow-300 transition duration-300 cursor-pointer">
-    Post
+      Add ServiceProvider
     </div>
   </Link>
-  <Link href="/User/UserConsultancy">
-    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer">
-    Consultancy
-    </div>
-  </Link>
-  <Link href="/User/UserSendEmail">
+  <Link href="/Admin/AdminSendEmail">
     <div className="hover:text-yellow-300 transition duration-300 cursor-pointer">
       Send Email 
     </div>
   </Link>
+
   
   <Link href="/">
     <div className="hover:text-yellow-300 transition duration-300 cursor-pointer">
       Website
     </div>
   </Link>
+ 
   <Link href="/Auth/Login">
-    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer ml-96">
-    
+    <div className="hover:text-yellow-300 transition duration-300 cursor-pointer ml-80">
       Logout
     </div>
   </Link>
-  
   <div className="notification-container relative">
   <div className="hover:text-yellow-300 transition duration-300 cursor-pointer" onClick={toggleDropdown}>
     <MdNotifications size={22} color="white" />

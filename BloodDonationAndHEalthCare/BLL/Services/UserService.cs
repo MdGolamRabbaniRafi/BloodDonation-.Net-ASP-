@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL.DTO;
 
 namespace BLL.Services
 {
@@ -64,6 +65,18 @@ namespace BLL.Services
             return mapper2;
         }
 
+        public static List<UserDTO> GetAllUser()
+        {
+            var data = MapperClass.MappedUser();
+            var getusers = DataAccessFactory.UserData().Read();
+            
+            var mapper2 = data.Map<List<UserDTO>>(getusers);
+
+            return mapper2;
+        }
+
+        
+
         public static bool DeleteUserService(int userId)
         {
             var getUser = DataAccessFactory.UserData().Read(userId);
@@ -76,21 +89,47 @@ namespace BLL.Services
             }
             else
             {
-                // User not found, handle accordingly (e.g., throw exception or return false)
+           
                 return false;
             }
+        }
+        public static bool JoinBloodDonationCampaign(int userId, int campaignId)
+        {
+            var user = DataAccessFactory.UserData().Read(userId);
+            var campaign = DataAccessFactory.BloodDonationCampaignData().Read(campaignId);
+
+            if (user != null && campaign != null)
+            {
+                if (!user.JoinedCampaigns.Any(c => c.ID == campaignId))
+                {
+                   
+                    user.JoinedCampaigns.Add(campaign);
+
+                   
+                    campaign.TotalMembersJoined++;
+
+                    
+                    DataAccessFactory.UserData().Update(user);
+                    DataAccessFactory.BloodDonationCampaignData().Update(campaign);
+
+                    return true;
+                }
+            }
+
+            return false;
         }
 
 
 
 
 
- /*       public static bool Authenticate(string email, string pass)
-        {
-            string hashedPassword = PasswordHasher.HashPassword(pass);
+               public static bool Authenticate(string email, string pass)
+               {
+                   string hashedPassword = PasswordHasher.HashPassword(pass);
 
-            var data = DataAccessFactory.AuthData().Authenticate(email, hashedPassword);
-            return data;
-        }*/
+                   var data = DataAccessFactory.AuthData().Authenticate(email, hashedPassword);
+                   return data;
+               }
+
     }
 }

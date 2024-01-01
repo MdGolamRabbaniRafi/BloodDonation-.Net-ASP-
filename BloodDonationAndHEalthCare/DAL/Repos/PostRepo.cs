@@ -28,6 +28,7 @@ namespace DAL.Repos
         {
            return db.Posts.ToList();
         }
+       
 
         public Post Read(int id)
         {
@@ -47,9 +48,19 @@ namespace DAL.Repos
             return null;
         }
 
-        
-
-
-
+        public List<Post> ReadSingle(int id)
+        {
+            try
+            {
+                var posts = db.Posts.Where(post => post.UserId == id).ToList();
+                return posts;
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception appropriately
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return new List<Post>(); // Return an empty list or handle the error in a way that makes sense for your application
+            }
         }
+    }
     }

@@ -1,4 +1,5 @@
-﻿using BLL.DTOs;
+﻿using BLL.DTO;
+using BLL.DTOs;
 using BLL.Services;
 using BloodDonationAndHEalthCare.Auth;
 using System;
@@ -42,6 +43,30 @@ namespace BloodDonationAndHEalthCare.Controllers
             try
             {
                 var data = UserService.GetUser(userId);
+
+                if (data != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, data);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+
+        [HttpGet]
+        [Route("api/AllUser")]
+        public HttpResponseMessage GetAllUser()
+        {
+            try
+            {
+                var data = UserService.GetAllUser();
 
                 if (data != null)
                 {
@@ -119,7 +144,7 @@ namespace BloodDonationAndHEalthCare.Controllers
             try
             {
 
-                var data = AuthService.Authenticate(user.Email, user.Password);
+                var data = UserService.Authenticate(user.Email, user.Password);
                 return Request.CreateResponse(HttpStatusCode.Created, data);
 
             }
@@ -128,5 +153,144 @@ namespace BloodDonationAndHEalthCare.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
             }
         }
+        [HttpPost]
+        [Route("api/User/Donate")]
+        public HttpResponseMessage Donate(DonationDTO donationDTO)
+        {
+            try
+            {
+                var token = ActionContext.Request.Headers.Authorization;
+                var data = DonationService.CreateDonationRequest(donationDTO, token.ToString());
+                if (!ModelState.IsValid)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+
+               
+
+                if (data != null)
+                {
+                   
+<<<<<<< HEAD
+                    var notificationMessage = $"Donation request created successfully";
+                    
+=======
+                    var notificationMessage = $"Donation request created successfully with ID: {createdDonation.Id}";
+                   
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
+
+                    return Request.CreateResponse(HttpStatusCode.Created, data);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = "Failed to create donation request" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+
+
+
+
+
+        [HttpGet]
+        [Route("api/User/ApprovedDonations/{userId}")]
+        public HttpResponseMessage GetApprovedDonations()
+        {
+            try
+            {
+                var approvedDonations = DonationService.GetApprovedDonations();
+
+                if (approvedDonations.Count == 0)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "No approved donations." });
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, approvedDonations);
+            }
+            catch (Exception)
+            {
+               
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = "An error occurred while retrieving approved donations." });
+            }
+        }
+
+
+
+
+<<<<<<< HEAD
+       
+
+
+=======
+        [HttpPost]
+        [Route("api/User/MakePayment/{donationId}")]
+        public HttpResponseMessage MakePayment(int donationId, PaymentInfoDTO paymentInfo)
+        {
+            try
+            {
+              
+                var approvedDonation = DonationService.GetApprovedDonationById(donationId);
+
+                if (approvedDonation == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Donation request not found or not approved." });
+                }
+
+               
+                if (!approvedDonation.IsPaid)
+                {
+                    bool paymentSuccess = PaymentGateway.ProcessPayment(paymentInfo, approvedDonation.Amount);
+
+                    if (paymentSuccess)
+                    {
+                        DonationService.MarkDonationAsPaid(approvedDonation.Id);
+
+                        return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Payment successful." });
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "Payment failed. Please check your payment information and try again." });
+                    }
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "Donation has already been paid." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+        [HttpPost]
+        [Route("api/User/JoinBloodDonationCampaign/{userId}/{campaignId}")]
+        public HttpResponseMessage JoinBloodDonationCampaign(int userId, int campaignId)
+        {
+            try
+            {
+                bool isJoined = UserService.JoinBloodDonationCampaign(userId, campaignId);
+
+                if (isJoined)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "User joined the blood donation campaign successfully." });
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, new { Msg = "User could not join the blood donation campaign." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, new { Msg = ex.Message });
+            }
+        }
+>>>>>>> 4d7f619b2c5c0c430ba731d77ebc23bb23b68adc
+
+
+
     }
 }

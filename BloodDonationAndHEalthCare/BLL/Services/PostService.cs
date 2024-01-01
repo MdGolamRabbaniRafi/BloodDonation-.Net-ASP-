@@ -1,5 +1,4 @@
-﻿
-using BLL.DTOs;
+﻿using BLL.DTOs;
 using DAL.Models;
 using DAL;
 using System;
@@ -8,13 +7,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using BLL.DTO;
+using DAL.Interface;
 
 namespace BLL.Services
 {
     public class PostService
     {
-        public static PostDTO AddPostService(PostDTO post)
+        public static PostDTO AddPostService(PostDTO post,string token)
         {
+            var UserEmail = DataAccessFactory.TokenData().SearchUserIdByToken(token);
+            var user = DataAccessFactory.UserData().ReadByEmail(UserEmail);
+            post.UserId = user.UserId;
             if (post == null)
             {
                 throw new ArgumentNullException(nameof(post));
@@ -52,7 +55,6 @@ namespace BLL.Services
         }
 
 
-
         public static PostDTO GetPost(int id)
         {
             var data = MapperClass.MapperPost();
@@ -62,6 +64,39 @@ namespace BLL.Services
             var mapper2 = data2.Map<PostDTO>(mapped);
 
             return mapper2;
+        }
+        public static List<PostDTO> GetAllPosts()
+        {
+            var data = MapperClass.MapperPost();
+            var allPosts = DataAccessFactory.PostData().Read();
+            var mappedPosts = data.Map<List<PostDTO>>(allPosts);
+
+            return mappedPosts;
+        }
+        public static List<PostDTO> GetSingle(string token)
+        {
+            var UserEmail = DataAccessFactory.TokenData().SearchUserIdByToken(token);
+            var user = DataAccessFactory.UserData().ReadByEmail(UserEmail);
+            var ab = DataAccessFactory.PostData().ReadSingle(user.UserId);
+            var data = MapperClass.MapperPost();
+           
+            var mappedPosts = data.Map<List<PostDTO>>(ab);
+
+            return mappedPosts;
+        }
+        public static int GetAllUserPosts()
+        {
+            var data = MapperClass.MapperPost();
+            var allPosts = DataAccessFactory.PostData().Read();
+            var mappedPosts = data.Map<List<PostDTO>>(allPosts);
+            int count= 0;
+            foreach(var i in  mappedPosts)
+            {
+                count++;
+
+            }
+
+            return count;
         }
         public static bool DeletePostService(int PostId)
         {
