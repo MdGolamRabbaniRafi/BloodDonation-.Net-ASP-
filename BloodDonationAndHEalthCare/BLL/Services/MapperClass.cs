@@ -87,6 +87,18 @@ namespace BLL.Services
             return mapper;
 
         }
+        public static IMapper MapperCompleteDonation()
+        {
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<CompleteDonationDTO, CompleteDonation>();
+                c.CreateMap<CompleteDonation, CompleteDonationDTO>();
+            });
+            var mapper = new Mapper(cfg);
+
+            return mapper;
+
+        }
     }
 
 }

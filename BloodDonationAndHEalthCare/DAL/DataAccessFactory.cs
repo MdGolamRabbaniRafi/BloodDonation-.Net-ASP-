@@ -56,5 +56,9 @@ namespace DAL
             return new FileRepo();
 
         }
+        public static ICompleteDonation<Post, int, CompleteDonation, TimeSpan> CompleteDonationData()
+        {
+            return new CompleteDonationRepo();
+        }
     }
 }

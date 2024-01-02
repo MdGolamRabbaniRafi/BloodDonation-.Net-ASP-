@@ -21,6 +21,7 @@ namespace DAL
         public DbSet<HelpPost> HelpPosts { get; set; }
         public DbSet<File> Files { get; set; }
         public DbSet<Donation> Donations { get; set; }
+        public DbSet<CompleteDonation> CompleteDonations { get; set; }
 
 
 

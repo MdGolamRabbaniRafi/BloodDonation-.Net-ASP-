@@ -142,6 +142,7 @@
     <Compile Include="Auth\Logged.cs" />
     <Compile Include="Controllers\AdminUserController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CompleteDonationController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\FileUploaderController.cs" />
     <Compile Include="Controllers\HelpPostController.cs" />

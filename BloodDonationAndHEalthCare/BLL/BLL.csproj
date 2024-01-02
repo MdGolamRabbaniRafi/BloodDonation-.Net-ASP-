@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DTO\AgeValidator.cs" />
+    <Compile Include="DTO\CompleteDonationDTO.cs" />
     <Compile Include="DTO\DonationDTO.cs" />
     <Compile Include="DTO\FileDTO.cs" />
     <Compile Include="DTO\EmailDTO.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\CompleteDonationService.cs" />
     <Compile Include="Services\DonationService.cs" />
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\FileUploaderService.cs" />
@@ -96,6 +98,7 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
